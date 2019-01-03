@@ -1,0 +1,24 @@
+/* Screens Resolution : 560px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 560px) {
+  .main-content {
+    height: $main-content-area-height
+  }
+  .left-section {
+    height: unset;
+  }
+  .right-section {
+    height: unset;
+    text-align: center;
+    padding: 10px;
+    .display-table {
+      display: block;
+    }
+    .display-table-cell {
+      display: block;
+    }
+    .content {
+      padding: 10px;
+    }
+  }
+}

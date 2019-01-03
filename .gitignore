@@ -1,0 +1,56 @@
+# Output
+dist
+.temp
+
+#Vendor packages
+/src/vendor/
+
+# Optional eslint cache
+.eslintcache
+
+# OS generated files
+.DS_Store
+ehthumbs.db
+Thumbs.db
+
+# Node Files
+node_modules
+/bower_components/
+npm-debug.log
+/npm-debug.log.*
+jspm_packages/
+
+# Test coverage directories
+coverage
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Other IDEs and editors
+.idea/
+*.swp
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# Deployment Files
+.netlify
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+/.sass-cache
+/connect.lock
+/libpeerconnection.log
+testem.log

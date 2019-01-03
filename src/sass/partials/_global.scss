@@ -1,0 +1,63 @@
+.main-content {
+  background-color: $white;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.display-table {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.display-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+::-webkit-input-placeholder {
+  font-size: .9em;
+  letter-spacing: 1px;
+}
+
+::-moz-placeholder {
+  font-size: .9em;
+  letter-spacing: 1px;
+}
+
+:-ms-input-placeholder {
+  font-size: .9em;
+  letter-spacing: 1px;
+}
+
+:-moz-placeholder {
+  font-size: .9em;
+  letter-spacing: 1px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.position-static {
+  position: static;
+}
+
+.font-white {
+  color: $white;
+}
+
+/** JQuery Mobile Framework Style Overrides **/
+.ui-content {
+  padding: unset !important;
+}
+
+.ui-bar {
+  padding: unset !important;
+}
+
+.ui-bar-a {
+  border: none !important;
+}

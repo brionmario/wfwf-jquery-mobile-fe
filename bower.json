@@ -1,0 +1,55 @@
+{
+  "name": "jquery-mobile-seed",
+  "description": "A quick start kit for jQuery Mobile Framework based website development with SASS support",
+  "main": "",
+  "authors": [
+    "Brion Mario"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "jquery",
+    "jquery-mobile",
+    "php",
+    "html",
+    "gulp",
+    "css",
+    "sass",
+    "responsive",
+    "apareciumlabs",
+    "seed"
+  ],
+  "homepage": "https://github.com/apareciumlabs/jquery-mobile-seed",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1",
+    "font-awesome": "~4.4.0",
+    "jquery-mobile": "https://github.com/brionmario/jquery-mobile.git#1.4.5-stable-bower"
+  },
+  "resolutions": {
+    "jquery": "~1.11.1"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.svg"
+      ]
+    },
+    "jquery-mobile": {
+      "main": [
+        "dist/jquery.mobile.min.css",
+        "dist/jquery.mobile.min.js"
+      ]
+    }
+  }
+}

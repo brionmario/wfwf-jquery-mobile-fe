@@ -1,0 +1,26 @@
+.sidebar {
+  .brand {
+    height: $header-height;
+    padding: 10px 15px;
+    border-bottom: $header-border-bottom;
+  }
+  .sidebar-content {
+    height: $sidebar-content-height;
+    text-align: center;
+    .hint {
+      margin: 50% 0;
+      width: 250px;
+    }
+  }
+}
+
+/** JQuery Mobile Framework Overrides **/
+.sidebar {
+  &.ui-panel-display-reveal {
+    box-shadow: none !important;
+    border-right: $sidebar-border-right !important;
+  }
+  .ui-panel-inner {
+    padding: 0 !important;
+  }
+}

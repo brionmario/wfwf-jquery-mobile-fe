@@ -1,0 +1,82 @@
+.right-section {
+  height: $section-height;
+  background-color: $white !important;
+  .content {
+    padding: $right-section-content-padding;
+    .title {
+      color: $black;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      .jquery-mobile-logo {
+        height: 85px;
+        padding: 0 15px 10px 0;
+      }
+    }
+    .desc {
+      color: $dark-gray;
+    }
+    .email-subscription-container {
+      margin-top: 20px;
+      .email-input {
+        border-radius: 2px !important;
+        padding: 5px 15px;
+        background: $porcelain;
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
+        border: 1px solid transparent;
+        &:focus {
+          border-color: $secondary-color;
+        }
+      }
+      .subscribe-btn {
+        border-radius: 2px;
+        transition: all .3s;
+        background: $secondary-color;
+        color: $white;
+        text-transform: uppercase;
+        text-shadow: none;
+        &:hover {
+          background: darken($secondary-color, 10);
+        }
+      }
+    }
+    .post-desc {
+      color: $dusty-gray;
+      font-size: 12px;
+    }
+  }
+}
+
+.left-section {
+  height: $section-height;
+  background-color: $white !important;
+  .aparecium-logo-container {
+    text-align: center;
+    svg {
+      width: 70%;
+      height: 70%;
+    }
+    .aparecium-logo.fox #Fox polygon {
+      opacity: 0.9;
+      transition: all 0.8s;
+      &:hover {
+        opacity: 0.8;
+        transition: all 0.1s;
+      }
+    }
+  }
+}
+
+/** JQuery Mobile Framework Overrides **/
+.right-section {
+  .email-subscription-container {
+    .ui-shadow {
+      box-shadow: unset !important;
+    }
+    .ui-focus {
+      box-shadow: unset !important;
+    }
+    .ui-corner-all {
+      border-radius: 0 !important;
+    }
+  }
+}
