@@ -50,6 +50,11 @@
 }
 
 /** JQuery Mobile Framework GLobal Style Overrides **/
+.ui-page-theme-a,
+.ui-bar-inherit {
+  text-shadow: none !important;
+}
+
 .ui-content {
   padding: unset !important;
 }
