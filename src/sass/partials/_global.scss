@@ -1,5 +1,5 @@
 .main-content {
-  background-color: $white;
+  background-color: $bg-color;
 }
 
 .center-text {
@@ -18,22 +18,22 @@
 }
 
 ::-webkit-input-placeholder {
-  font-size: .9em;
+  font-size: 0.9em;
   letter-spacing: 1px;
 }
 
 ::-moz-placeholder {
-  font-size: .9em;
+  font-size: 0.9em;
   letter-spacing: 1px;
 }
 
 :-ms-input-placeholder {
-  font-size: .9em;
+  font-size: 0.9em;
   letter-spacing: 1px;
 }
 
 :-moz-placeholder {
-  font-size: .9em;
+  font-size: 0.9em;
   letter-spacing: 1px;
 }
 
@@ -49,7 +49,7 @@
   color: $white;
 }
 
-/** JQuery Mobile Framework Style Overrides **/
+/** JQuery Mobile Framework GLobal Style Overrides **/
 .ui-content {
   padding: unset !important;
 }
@@ -60,4 +60,11 @@
 
 .ui-bar-a {
   border: none !important;
+}
+
+.ui-btn {
+  text-shadow: none !important;
+  &:active {
+    text-shadow: none !important;
+  }
 }
