@@ -1,27 +1,27 @@
 .header {
-  background-color: $white !important;
+  background-color: $secondary-color !important;
   border: none !important;
   border-bottom: $header-border-bottom !important;
   padding: $header-padding;
   height: $header-height !important;
+  text-align: center;
   a {
-    background-color: $white !important;
-    border-color: $white !important;
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
     box-shadow: none !important;
     i {
+      color: $white;
       font-size: 1.6rem;
     }
+  }
+  .mini-logo {
+    height: 28px;
+  }
+
+  .login-btn {
+    margin-right: 8px !important;
+    margin-top: 4px !important;
   }
 }
 
 /** JQuery Mobile Framework Overrides **/
-.header {
-  .ui-btn {
-    color: $black !important;
-    text-shadow: none !important;
-    &:active {
-      color: $black !important;
-      text-shadow: none !important;
-    }
-  }
-}
