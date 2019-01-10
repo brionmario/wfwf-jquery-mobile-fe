@@ -1,6 +1,6 @@
 <div data-role="footer" class="footer">
   <div class="navigate-top">
-    <i class="fa fa-angle-double-up"></i>
+    <i class="fa fa-angle-double-up" onclick="window.scrollTo(0, 0);"></i>
   </div>
   <div class="footer-content">
     <div class="accordion">
@@ -46,9 +46,8 @@
     </div>
     <div class="copyright">
       <p>&copy; Copyright
-        <script language="JavaScript" type="text/javascript">
-          document.write(getYear())
-
+        <script type="text/javascript">
+          document.write(new Date().getFullYear())
         </script>
       </p>
       <img src="assets/img/logo_aparecium_fox_only.svg" width="20px" height="20px" />
