@@ -1,11 +1,54 @@
 <div data-role="panel" data-position="left" data-display="reveal" id="sidepanel" class="sidebar">
-  <div class="brand">
-    <a class="logo" href="http://apareciumlabs.com/" target="_blank">
-      <img src="./assets/img/logo_aparecium_text_only_inverted.svg" width="150px" alt="Logo">
-    </a>
-  </div>
-  <div class="sidebar-content">
-    <img src="assets/img/hints/sidebar.png" class="hint">
-  <li><a href="events.php">EVENTS</a></li>
-  </div>
+    <div data-role="navbar" class="navbar">
+        <ul>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-dropbox"></i>
+                    Products
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-calendar"></i>
+                    Events
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-globe"></i>
+                    News
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-map-marker"></i>
+                    Points of Interests
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-info"></i>
+                    About
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-group"></i>
+                    Team
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#">
+                    <i class="fa fa-phone"></i>
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div><!-- /navbar -->
 </div>
