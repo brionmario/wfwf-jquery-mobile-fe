@@ -1,5 +1,6 @@
 // global
 $main-content-area-height: calc(100vh - 122px);
+$default-font-size: 12px;
 
 // sections
 $section-height: calc(100vh - 122px);
@@ -7,9 +8,13 @@ $right-section-content-padding: 40px 40px 40px 0;
 
 // footer
 $footer-padding: 10px 15px;
+$footer-navigate-top-height: 30px;
 $footer-icons-font-size: 17px;
 $footer-copyright-font-size: 10px;
-$footer-border-top: 1px solid #f0f0f0;
+$footer-border-top: 3px solid $primary-color;
+$footer-accordion-link-height: 40px;
+$footer-accordion-font-size: 14px;
+$footer-accordion-link-border: 1px solid $dark-gray;
 
 // header
 $header-height: 50px;

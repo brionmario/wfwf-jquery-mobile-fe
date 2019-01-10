@@ -1,59 +1,70 @@
 .footer {
   text-align: center;
-  padding: $footer-padding;
-  background-color: $white !important;
+  background-color: $secondary-color !important;
   border: none !important;
   border-top: $footer-border-top !important;
-  .footer-icons > li {
-    > a {
-      display: inline-block;
-      font-size: $footer-icons-font-size;
-      padding: 0;
-    }
-    > a > i {
-      display: inline-block;
-      height: 35px;
-      line-height: 33px;
-      transition: all .2s;
-      border-radius: 40px;
-      text-align: center;
-      width: 35px;
-      &[class*="facebook"] {
-        color: $facebook-icon-color;
-        border-color: $facebook-icon-color;
-        &:hover {
-          color: lighten($facebook-icon-color, 10);
-        }
-      }
-      &[class*="twitter"] {
-        color: $twitter-icon-color;
-        border-color: $twitter-icon-color;
-        &:hover {
-          color: lighten($twitter-icon-color, 10);
-        }
-      }
-      &[class*="github"] {
-        color: $github-icon-color;
-        border-color: $github-icon-color;
-        &:hover {
-          color: lighten($github-icon-color, 10);
-        }
-      }
+  .navigate-top {
+    height: $footer-navigate-top-height;
+    background-color: lighten($secondary-color, 5);
+    i {
+      margin-top: 5px;
+      font-size: 18px;
+      color: $white;
     }
   }
-  .copyright {
-    font-size: $footer-copyright-font-size;
-    img {
-      position: absolute;
-    }
-    p {
-      color: $black;
-      display: inline-block;
-      &:first-child {
-        margin-right: 5px;
+  .footer-content {
+    padding: $footer-padding;
+    .footer-icons > li {
+      > a {
+        display: inline-block;
+        font-size: $footer-icons-font-size;
+        padding: 0;
       }
-      &:last-child {
-        margin-left: 28px;
+      > a > i {
+        display: inline-block;
+        height: 35px;
+        line-height: 33px;
+        transition: all 0.2s;
+        border-radius: 40px;
+        text-align: center;
+        width: 35px;
+        &[class*='facebook'] {
+          color: $facebook-icon-color;
+          border-color: $facebook-icon-color;
+          &:hover {
+            color: lighten($facebook-icon-color, 10);
+          }
+        }
+        &[class*='twitter'] {
+          color: $twitter-icon-color;
+          border-color: $twitter-icon-color;
+          &:hover {
+            color: lighten($twitter-icon-color, 10);
+          }
+        }
+        &[class*='github'] {
+          color: $github-icon-color;
+          border-color: $github-icon-color;
+          &:hover {
+            color: lighten($github-icon-color, 10);
+          }
+        }
+      }
+    }
+    .copyright {
+      font-size: $footer-copyright-font-size;
+      img {
+        position: absolute;
+      }
+      p {
+        color: $white;
+        display: inline-block;
+        &:first-child {
+          margin-right: 5px;
+        }
+        &:last-child {
+          margin-left: 28px;
+        }
       }
     }
   }
@@ -64,5 +75,38 @@
   .ui-footer {
     border: unset !important;
   }
+  .accordion {
+    .collapsible-set {
+      margin: unset !important;
+    }
+    .ui-btn {
+      color: $white !important;
+      background-color: $secondary-color !important;
+      font-size: $footer-accordion-font-size !important;
+      width: 100%;
+      border: unset !important;
+      border-bottom: $footer-accordion-link-border !important;
+      &:focus {
+        box-shadow: unset !important;
+      }
+      &:hover {
+        border-right: 5px solid $tertiary-color !important;
+      }
+    }
+    .ui-listview {
+      margin-top: -13px;
+    }
+    .ui-collapsible-content {
+      border-bottom-width: 0px !important;
+      .ui-body-inherit {
+        padding-left: 40px;
+        border: unset !important;
+        border-bottom: $footer-accordion-link-border !important;
+        color: $white !important;
+        text-shadow: none !important;
+        font-size: $default-font-size !important;
+        background-color: lighten($secondary-color, 5) !important;
+      }
+    }
+  }
 }
-
