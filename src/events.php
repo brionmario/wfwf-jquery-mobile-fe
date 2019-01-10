@@ -134,7 +134,9 @@
                        <li><a href="#">Giraffes</a></li> -->
             </ul>
         </div>
+        
         </section>
+  
       </div>
     </div><!-- /grid-a -->
   </div><!-- /content -->
