@@ -102,10 +102,10 @@
         padding-left: 40px;
         border: unset !important;
         border-bottom: $footer-accordion-link-border !important;
-        color: $white !important;
+        color: $placeholder-gray !important;
         text-shadow: none !important;
         font-size: $default-font-size !important;
-        background-color: lighten($secondary-color, 5) !important;
+        background-color: lighten($secondary-color, 2) !important;
       }
     }
   }
