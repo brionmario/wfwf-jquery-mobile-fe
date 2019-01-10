@@ -8,7 +8,7 @@
   <div class="copyright">
     <p>&copy; Copyright
       <script language="JavaScript" type="text/javascript">
-        document.write(getYear())
+      //  document.write(getYear())
 
       </script>
     </p>

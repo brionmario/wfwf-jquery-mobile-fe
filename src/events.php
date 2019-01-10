@@ -15,12 +15,11 @@
   <link rel="manifest" href="./assets/icons/favicon_package/site.webmanifest">
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
   <!-- inject:css -->
-  
   <!-- endinject -->
 </head>
 
 <body>
-<div data-role="page">
+<div data-role="page" id="events">
   <?php require './components/sidebar.php'?><!-- /panel -->
   <?php require './components/header.php'?><!-- header -->
   <div role="main" class="overlay ui-content main-content">
@@ -40,48 +39,24 @@
       </div>
       <div class="ui-block-b">
         <section class="right-section">
-          <div class="display-table">
-            <div class="display-table-cell">
-              <div class="content">
-                <h2 class="title">
-                  <img src="assets/img/jquery-mobile.svg" class="jquery-mobile-logo">
-                </h2>
-                <p class="desc">We <span style="color: red">&hearts;</span> open-source and always trying our best to
-                  contribute back to the community.
-                  Please Subscribe to our newsletter to stay up to date with more awesome projects like this.
-                </p>
-                <div class="email-subscription-container" id="mc_embed_signup">
-                  <form
-                    action="https://apareciumlabs.us15.list-manage.com/subscribe/post?u=41620257667e0123ce58b4277&amp;id=c1c1df411f"
-                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank"
-                    novalidate>
-                    <div id="mc_embed_signup_scroll">
-                      <input type="email"
-                             class="email-input"
-                             value=""
-                             name="EMAIL"
-                             id="mce-EMAIL"
-                             placeholder="Enter your email"
-                             required/>
-                      <!-- real people should not fill this in and expect good things - do not remove this or
-                      risk form bot -->
-                      <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                        <input
-                          type="text"
-                          name="b_41620257667e0123ce58b4277_c1c1df411f"
-                          tabindex="-1"
-                          value=""/>
-                      </div>
-                      <button id="mc-embedded-subscribe" class="subscribe-btn" name="subscribe" type="submit">
-                        <b>Subscribe</b>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <p class="post-desc">Please note that this subscription can be cancelled at any time.</p>
-              </div>
-            </div>
-          </div>
+        <div class="events_list">
+            <h2>Ordered List Example</h2>
+            <ol data-role="listview” data-filter="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                        <li data-role="list-divider" class= "item-list">Farm animals</li>
+                        <li class="ui-li-static ui-body-inherit ui-first-child" >
+                        <a href="#">
+                        <div class="event_image">
+                          <img src="assets/img/images/gettyimages.jpg" class="ui-li-icon">Cats</a>
+                        </div>
+                        </li>
+                        <li><a href="#"><img src="assets/img/images/gettyimages.jpg" class="ui-li-icon">Dogs </a></li>
+                        <li><a href="#"><img src="assets/img/images/gettyimages.jpg" class="ui-li-icon">Cows </a></li>
+                         <li data-role="list-divider">Zoo animals</li>
+                        <li><a href="#"><img src="images/elephant.png" class="ui-li-icon">Elephant </a></li>
+                        <li><a href="#">Tigers</a></li>
+                       <li><a href="#">Giraffes</a></li>
+            </ol>
+        </div>
         </section>
       </div>
     </div><!-- /grid-a -->
