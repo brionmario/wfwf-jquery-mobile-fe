@@ -45,7 +45,7 @@
   "scripts": {
     "build:dev": "npm run clean:temp && gulp build --env=development",
     "build:prod": "npm run clean:dist && gulp build --env=production",
-    "build": "npm run build:dev",
+    "build": "npm run build:prod",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "clean:temp": "gulp clean --env=development",
@@ -63,7 +63,8 @@
     "test": "jest --testPathIgnorePatterns ./src/vendor && codecov",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "watch:dev": "gulp watch",
-    "watch": "npm run watch:dev"
+    "watch": "npm run watch:dev",
+    "postinstall": "bower install"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
