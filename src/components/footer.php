@@ -1,6 +1,6 @@
 <div data-role="footer" class="footer">
   <div class="navigate-top">
-    <i class="fa fa-angle-double-up" onclick="window.scrollTo(0, 0);"></i>
+    <i class="fa fa-angle-double-up" onclick="scrollToTop()"></i>
   </div>
   <div class="footer-content">
     <div class="logo-area">
@@ -95,9 +95,10 @@
   <div class="copyright">
     <a rel="external" target="_blank" href="http://apareciumlabs.com/">
       <p>&copy; Copyright
-      <script type="text/javascript">
-        document.write(new Date().getFullYear())
-      </script>
+        <span id="year">1999<span>
+        <script type="text/javascript">
+          document.write(getCurrentYear());
+        </script>
       </p>
       <img src="assets/img/logo_aparecium_fox_only.svg" width="20px" height="20px" />
       <p>Aparecium Labs. All rights reserved.</p>
