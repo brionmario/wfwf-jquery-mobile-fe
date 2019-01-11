@@ -37,7 +37,7 @@
 .ui-btn {
   text-shadow: none !important;
   font-family: 'Roboto', sans-serif !important;
-  font-size: $default-font-size !important;
+  font-size: $default-font-size;
   &:active {
     text-shadow: none !important;
   }

@@ -1,0 +1,61 @@
+.list {
+  padding: 0 15px !important;
+  background-color: $bg-color;
+  .list-item {
+    &.card {
+      margin-bottom: 10px;
+      border-radius: $card-border-radius !important;
+      border: $card-border;
+      .content {
+        background-color: $white;
+        border-top-left-radius: $card-border-radius !important;
+        border-bottom-left-radius: $card-border-radius !important;
+        .location {
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+      .fav-btn {
+        background-color: $white;
+        border-left: 0;
+        z-index: unset !important;
+        border-top-right-radius: $card-border-radius !important;
+        border-bottom-right-radius: $card-border-radius !important;
+        &:after {
+          visibility: hidden;
+        }
+      }
+      .heart-icon-container {
+        position: absolute;
+        right: 9px;
+        bottom: 7px;
+        i {
+          font-size: 20px;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+/** JQuery Mobile Framework GLobal Style Overrides **/
+.list-wrapper {
+  .ui-shadow {
+    box-shadow: unset;
+  }
+  .ui-listview .ui-li-has-thumb > .ui-btn {
+    padding-left: 8em;
+    > img {
+      max-height: 7em !important;
+      max-width: 7em !important;
+    }
+  }
+  .list-item {
+    .ui-btn {
+      &:focus {
+        box-shadow: unset !important;
+      }
+    }
+  }
+}

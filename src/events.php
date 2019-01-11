@@ -49,80 +49,40 @@
           </div>
         </div><!-- /grid-a -->
       </div>
-      <div  class="ui-content events_body rebdytrndng">
-        <div class="tab_body">
-          <div class="listCont events_list reEvents">
-            <ul data-role="listview" data-filter="true" data-input="#filter-input" data-inset="true">
-              <li>
-                <a href="event_description.php" rel="external">
-                  <img src="assets/img/images/gettyimages.jpg">
-                  <h2>Hipster Fashion Catwalk</h2>
-                  <p>Dec 10, 3.00 p.m</p>
-                  <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
-                  <div class = "fav-class">
-                    <i class="fa fa-heart-o"></i>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" >
-                  <img src="assets/img/images/gettyimages.jpg">
-                  <h2>Trend Catwalk Show</h2>
-                  <p>Dec 10, 5.00 p.m</p>
-                  <p><i class="fa fa-location-arrow"></i>Queen Mary Hall, Westminster University</p>
-                  <div class = "fav-class">
-                    <i class="fa fa-heart-o"></i>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="assets/img/images/gettyimages.jpg">
-                  <h2>A talk on modern fashion</h2>
-                  <p>Dec 11, 10.00 a.m</p>
-                  <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
-                  <div class = "fav-class">
-                    <i class="fa fa-heart-o"></i>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="assets/img/images/gettyimages.jpg">
-                  <h2>Deluxe Fashion</h2>
-                  <p>Dec 11, 1.00 p.m</p>
-                  <p><i class="fa fa-location-arrow"></i>Open Arena, Westminster University</p>
-                  <div class = "fav-class">
-                    <i class="fa fa-heart-o"></i>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="assets/img/images/gettyimages.jpg">
-                  <h2>Fashion Show</h2>
-                  <p>Dec 11, 3.00 p.m</p>
-                  <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
-                  <div class = "fav-class">
-                    <i class="fa fa-heart-o"></i>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="assets/img/images/gettyimages.jpg">
-                  <h2>A talk on modern fashion</h2>
-                  <p>Dec 11, 5.00 p.m</p>
-                  <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
-                  <div class = "fav-class">
-                    <i class="fa fa-heart-o"></i>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="list-wrapper">
+        <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
+          <li class="list-item card">
+            <a class="content" href="#">
+              <img src="assets/img/default-image-placeholder.png">
+              <h2>Hipster Fashion Catwalk</h2>
+              <p>Dec 10, 3.00 p.m</p>
+              <p class="location"><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
+            </a>
+            <a  class="fav-btn" href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop">Add to favourites</a>
+            <div class = "heart-icon-container">
+                <a href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-heart-o"></i></a>
+            </div>
+          </li>
+
+          <li class="list-item card">
+            <a class="content" href="#">
+              <img src="assets/img/default-image-placeholder.png">
+              <h2>Hipster Fashion Catwalk</h2>
+              <p>Dec 10, 3.00 p.m</p>
+              <p class="location"><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
+            </a>
+            <a  class="fav-btn" href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop">Add to favourites</a>
+            <div class = "heart-icon-container">
+                <a href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-heart-o"></i></a>
+            </div>
+          </li>
+        </ul>
+        <div data-role="popup" id="favourites" data-theme="a" data-overlay-theme="b" class="" style="max-width:500px; padding: 0.8em 2em !important;">
+          <h3>Success!</h3>
+          <p>The item is added to favourites.</p>
+          <a href="index.html" data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
         </div>
-      </div><!-- /grid-a -->
+      </div>
     </div><!-- /content -->
       <?php require './components/footer.php'?><!--footer -->
   </div><!-- page -->

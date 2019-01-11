@@ -30,6 +30,16 @@
     cursor: initial;
   }
 
+  &.btn-default {
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
+
+    &:hover {
+      background-color: lighten($secondary-color, 5) !important;
+      border-color: lighten($secondary-color, 5) !important;
+    }
+  }
+
   &.btn-primary {
     background-color: $primary-color !important;
     border-color: $primary-color !important;
@@ -37,6 +47,16 @@
     &:hover {
       background-color: lighten($primary-color, 5) !important;
       border-color: lighten($primary-color, 5) !important;
+    }
+  }
+
+  &.btn-success {
+    background-color: $success-color !important;
+    border-color: $success-color !important;
+
+    &:hover {
+      background-color: lighten($success-color, 5) !important;
+      border-color: lighten($success-color, 5) !important;
     }
   }
 
