@@ -15,6 +15,7 @@ export function setBreadcrumb(arr) {
     ul.appendChild(li);
     li.appendChild(a);
     a.setAttribute('href', item.href);
+    a.setAttribute('rel', 'external');
     a.innerHTML += item.name;
     a.appendChild(i);
   });

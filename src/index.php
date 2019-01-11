@@ -37,10 +37,6 @@
       {
         name: 'Home',
         href: 'index.php'
-      },
-      {
-        name: 'Events',
-        href: 'events.php'
       }
     ];
     setBreadcrumb(breadcrumb);
