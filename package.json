@@ -73,6 +73,7 @@
     "all-contributors-cli": "^5.4.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.4",
+    "bower": "^1.8.4",
     "browser-sync": "2.24.5",
     "browserify": "^16.2.2",
     "codecov": "^3.1.0",
