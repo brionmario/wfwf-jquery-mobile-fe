@@ -37,18 +37,15 @@
     margin-right: 5px;
 }
 
-.favClass {
-    width: 15%;
-    float: left;
-    margin: 8px 0;
+.fav-class {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    i {
+        font-size: 18px;
+    }
 }
 
-.favClass img {
-    width: 20px;
-    margin-top: 140%;
-    float: right;
-
-}
 .ui-li-icon-right {
     max-height: 40px;
     max-width: 40px;
