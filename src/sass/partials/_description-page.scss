@@ -24,8 +24,22 @@ height: $section-height;
           background: darken($secondary-color, 10);
         }
       }
+    .get-directions-btn{
+        width: 70%;
+     
+}
+
 }
 }
+
+.fav-class-desc-page{
+    position: absolute;
+    right: 65px;
+    bottom: 645px;
+    i {
+        font-size: 35px;
+    }
+}  
 .cal-arrrow.trndngarr {
     position: absolute;
     right: 15px;

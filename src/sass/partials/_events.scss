@@ -13,20 +13,24 @@
 .ui-listview > .ui-li-has-thumb > .ui-btn {
     padding-left: 5.25em !important;
 }
-.events_list ul li 
-        .event_image img {
+.events_list img {
     width: 100px !important;
     height: 100px;
     border-image: 30 round !important;
     float: left;
     margin: 3px 0;
 }
-
+.events_list p{
+    line-height: 1;
+}
 .event_desc {
     width: 50%;
     float: left;
     margin-left: 2%;
     color: #000 !important;
+    a{
+        display: block !important;
+    }
 }
 .event_desc h2, .event_desc p {
     color: #000 !important;
@@ -39,8 +43,8 @@
 
 .fav-class {
     position: absolute;
-    right: 15px;
-    bottom: 15px;
+    right: 20px;
+    bottom: 10px;
     i {
         font-size: 18px;
     }

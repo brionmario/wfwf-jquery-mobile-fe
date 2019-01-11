@@ -43,30 +43,16 @@
                 <div class = "ui-content events_body rebdytrndng">
       <div class="tab_body">
         <div class="listCont events_list reEvents">
-            <ul data-role="listview” data-insert="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="descriptions">
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
+                        <li>  
                             <a href="">
                             <h2>Models</h2>
                             </a>
-                        </div>
-                        <div class="cal-arrrow trndngarr">
-                            <a href="HPT.html">
-                            <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
                         </li>
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="descriptions">
+                        <li>  
                             <a href="">
                             <h2>Designers</h2>
                             </a>
-                        </div>
-                        <div class="cal-arrrow trndngarr">
-                            <a href="HPT.html">
-                            <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
                         </li>
             </ul>
             <div>
@@ -78,7 +64,11 @@
             <button id="mc-embedded-subscribe" class="get-directions-btn" name="get-directions" type="submit">
                         <b>Get Directions</b>
                       </button>
-
+                      <div class = "fav-class-desc-page">
+                            <i class="fa fa-heart-o"></i>
+                        </div>
+                        </div>  
+                          
             
         </div>
         

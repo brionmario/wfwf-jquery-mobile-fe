@@ -16,6 +16,8 @@
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
   <!-- inject:css -->
   <!-- endinject -->
+  <!-- inject:js -->
+  <!-- endinject -->
 </head>
 
 <body>
@@ -26,98 +28,74 @@
       <div  class="ui-content events_body rebdytrndng">
       <div class="tab_body">
         <div class="listCont events_list reEvents">
-            <ul data-role="listview” data-insert="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="event_image">
-                        <a href="event_description.php"  class="ui-li-icon">
+            <ul data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">
+                        <li> 
+                        <a href="event_description.php">
                           <img src="assets/img/images/gettyimages.jpg">
-                        </a>
-                        </div>
-                        <div class="event_desc">
-                            <a href="event_description.php">
-                            <h2>Hipster Fashion Catwalk</h2>
-                            <p>Dec 10, 3.00 p.m</p>
-                            <p class="event_loaction"><img src ="assets/icons/ui_icon/location-arrow.png"/>King James Hall, Westminster University</p>
-                            </a>
-                        </div>
-                        <div class = "fav-class">
+                          <h2>Hipster Fashion Catwalk</h2>
+                          <p>Dec 10, 3.00 p.m</p>
+                          <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
+                          <div class = "fav-class">
                             <i class="fa fa-heart-o"></i>
                         </div>  
+                          </a>
                         </li>
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="event_image">
-                        <a href="#"  class="ui-li-icon">
+                        <li>  
+                        <a href="#" >
                           <img src="assets/img/images/gettyimages.jpg">
-                        </a>
-                        </div>
-                        <div class="event_desc">
-                            <a href="">
                             <h2>Trend Catwalk Show</h2>
                             <p>Dec 10, 5.00 p.m</p>
-                            <p class="event_loaction"><img src ="assets/icons/ui_icon/location-arrow.png"/>Queen Mary Hall, Westminster University</p>
-                            </a>
-                        </div>
-                        <div class = "fav-class">
+                            <p><i class="fa fa-location-arrow"></i>Queen Mary Hall, Westminster University</p>
+                            <div class = "fav-class">
                             <i class="fa fa-heart-o"></i>
-                        </div>   
+                        </div>     
+                          </a>  
                         </li>
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="event_image">
-                        <a href="#"  class="ui-li-icon">
+                        <li>                          
+                        <a href="#">
                           <img src="assets/img/images/gettyimages.jpg">
-                        </a>
-                        </div>
-                        <div class="event_desc">
-                            <a href="">
                             <h2>A talk on modern fashion</h2>
                             <p>Dec 11, 10.00 a.m</p>
-                            <p class="event_loaction"><img src ="assets/icons/ui_icon/location-arrow.png"/>Auditorium, Westminster University</p>
-                            </a>
-                        </div>
-                        <div class = "fav-class">
+                            <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
+                            <div class = "fav-class">
                             <i class="fa fa-heart-o"></i>
-                        </div>  
+                        </div>    
+                          </a>
                         </li>
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="event_image">
-                        <a href="#"  class="ui-li-icon">
+                        <li>  
+                        <a href="#">
                           <img src="assets/img/images/gettyimages.jpg">
-                        </a>
-                        </div>
-                        <div class="event_desc">
-                            <a href="">
                             <h2>Deluxe Fashion</h2>
                             <p>Dec 11, 1.00 p.m</p>
-                            <p class="event_loaction"><img src ="assets/icons/ui_icon/location-arrow.png"/>Open Arena, Westminster University</p>
-                            </a>
-                        </div>
-                        <div class = "fav-class">
+                            <p><i class="fa fa-location-arrow"></i>Open Arena, Westminster University</p>
+                            <div class = "fav-class">
                             <i class="fa fa-heart-o"></i>
-                        </div>   
+                        </div>    
+                          </a>
                         </li>
-                        <li class="ui-li-static ui-body-inherit ui-first-child" >  
-                        <div class="event_image">
-                        <a href="#"  class="ui-li-icon">
+                        <li>  
+                        <a href="#">
                           <img src="assets/img/images/gettyimages.jpg">
-                        </a>
-                        </div>
-                        <div class="event_desc">
-                            <a href="">
                             <h2>Fashion Show</h2>
                             <p>Dec 11, 3.00 p.m</p>
-                            <p class="event_loaction"><img src ="assets/icons/ui_icon/location-arrow.png"/>King James Hall, Westminster University</p>
-                            </a>
-                        </div>
-                        <div class = "fav-class">
+                            <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
+                            <div class = "fav-class">
                             <i class="fa fa-heart-o"></i>
-                        </div>  
+                        </div>    
+                          </a>
                         </li>
-                        <!-- <li><a href="#"><img src="assets/img/images/gettyimages.jpg" class="ui-li-icon">Dogs </a></li>
-                        <li><a href="#"><img src="assets/img/images/gettyimages.jpg" class="ui-li-icon">Cows </a></li>
-                         <li data-role="list-divider">Zoo animals</li>
-                        <li><a href="#"><img src="images/elephant.png" class="ui-li-icon">Elephant </a></li>
-                        <li><a href="#">Tigers</a></li>
-                       <li><a href="#">Giraffes</a></li> -->
+                        <li>                          
+                        <a href="#">
+                          <img src="assets/img/images/gettyimages.jpg">
+                            <h2>A talk on modern fashion</h2>
+                            <p>Dec 11, 5.00 p.m</p>
+                            <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
+                            <div class = "fav-class">
+                            <i class="fa fa-heart-o"></i>
+                        </div>    
+                          </a>
+                        </li>
+            
             </ul>
         </div>
         
@@ -128,8 +106,7 @@
   </div><!-- /content -->
   <?php require './components/footer.php'?><!--footer -->
 </div><!-- page -->
-<!-- inject:js -->
-<!-- endinject -->
+
 <script async="" src="/browser-sync/browser-sync-client.2.11.1.js"></script>
 </body>
 </html>
