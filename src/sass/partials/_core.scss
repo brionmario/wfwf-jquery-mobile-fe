@@ -10,11 +10,12 @@ html {
 
 body {
   font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto' !important;
+  font-weight: 400;
+  font-style: normal;
   width: 100%;
   height: 100%;
   margin: 0;
-  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
@@ -53,7 +54,7 @@ h6 {
 h1,
 h2,
 h3 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto' !important;
 }
 
 p {
