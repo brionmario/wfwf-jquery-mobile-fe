@@ -22,6 +22,13 @@
           margin-right: 5px;
           width: 20px;
         }
+        &:hover {
+          background-color: lighten($secondary-color, 5);
+          border-right: 5px solid $tertiary-color !important;
+        }
+        &:focus {
+          box-shadow: unset !important;
+        }
       }
       width: 100%;
     }
@@ -36,5 +43,8 @@
   }
   .ui-panel-inner {
     padding: 0 !important;
+  }
+  .ui-navbar li:last-child .ui-btn {
+    margin-right: unset !important;
   }
 }
