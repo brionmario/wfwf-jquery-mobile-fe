@@ -1,0 +1,141 @@
+.right-section{
+    height: $section-height;
+      background-color: $white !important;
+    .desc-content{
+        padding: 15px 40px 40px 40px;
+        .desc-title{
+            color: $black;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .desc-para{
+            color: $black;
+            text-align: justify;
+            line-height:1.2; 
+        }
+        .view-favourites-btn {
+            border-radius: 2px;
+            transition: all .3s;
+            background: $primary-color;
+            color: $white;
+            text-transform: uppercase;
+            text-shadow: none;
+            &:hover {
+              background: darken($primary-color, 10);
+            }
+          }
+        .view-tasks-btn{
+            width: 45%;
+            border-radius: 2px;
+            transition: all .3s;
+            background: $dark-color-3;
+            color: $white;
+            text-transform: uppercase;
+            text-shadow: none;
+            &:hover {
+              background: darken($dark-color-3, 10);
+            }
+        }
+        .join-game-btn{
+            border-radius: 2px;
+            transition: all .3s;
+            background: $quaternary-color;
+            color: $white;
+            text-transform: uppercase;
+            text-shadow: none;
+            &:hover {
+              background: darken($quaternary-color, 10);
+            }
+            width: 45%;
+            float: right;
+            bottom: 60px;
+        }
+    
+    
+    }
+    }
+    
+ 
+    .cal-arrrow.trndngarr {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        i {
+            font-size: 25px;
+            color: #000;
+        }
+    }
+    .descriptions {
+        width: 85%;
+        float: left;
+        margin-left: 2%;
+        color: #000 !important;
+    }
+    .descriptions h2, {
+        color: #000 !important;
+    }
+    .profile-image {
+          text-align: center;
+          img {
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+            margin-top: 10px;
+          }
+        
+      }
+      .profile-content-list{
+          border-style:groove; 
+      }
+      .current-position{
+          float: left;
+          margin: 3px 0;
+          color: #000 !important;
+          height: 50px;
+          h2{
+            text-align: center;
+            //font-size: 18px !important;
+        }
+        h3{
+            font-size: 20px !important;
+            text-align: center;
+        }
+       //   border-style: groove;
+      } 
+      .total-points ::before {
+        content: "";
+        background-color: #000;
+        position: absolute;
+        width: 1px;
+        height: 100px;
+        top: 10px;
+        left: 50%;
+        display: block;
+      }
+      .total-points{
+        width: 50%;
+        float: left;
+        margin-left: 6%;
+        color: #0e1728 !important;
+        margin-top: 4px;
+        height: 50px;
+        h2{
+            text-align: center;
+            font-size: 18px;
+        }
+        h3{
+            font-size: 20px !important;
+            text-align: center;
+        }
+        
+        //border-style: groove;
+      }
+      .trophy-icon{
+        position: absolute;
+        left: 35px;
+        bottom: 3px;
+        i {
+            font-size: 25px;
+            color: chocolate;
+        }
+    }  
