@@ -24,89 +24,88 @@
 </head>
 
 <body>
-<div data-role="page" id="events">
-  <?php require './components/sidebar.php'?><!-- /panel -->
-  <?php require './components/header.php'?><!-- header -->
-  <div role="main" class="overlay ui-content main-content">
-    <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-    <div  class="ui-content events_body rebdytrndng">
-      <div class="tab_body">
-        <div class="listCont events_list reEvents">
-          <ul data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">
-            <li>
-              <a href="event_description.php" rel="external">
-                <img src="assets/img/images/gettyimages.jpg">
-                <h2>Hipster Fashion Catwalk</h2>
-                <p>Dec 10, 3.00 p.m</p>
-                <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
-                <div class = "fav-class">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#" >
-                <img src="assets/img/images/gettyimages.jpg">
-                <h2>Trend Catwalk Show</h2>
-                <p>Dec 10, 5.00 p.m</p>
-                <p><i class="fa fa-location-arrow"></i>Queen Mary Hall, Westminster University</p>
-                <div class = "fav-class">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/img/images/gettyimages.jpg">
-                <h2>A talk on modern fashion</h2>
-                <p>Dec 11, 10.00 a.m</p>
-                <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
-                <div class = "fav-class">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/img/images/gettyimages.jpg">
-                <h2>Deluxe Fashion</h2>
-                <p>Dec 11, 1.00 p.m</p>
-                <p><i class="fa fa-location-arrow"></i>Open Arena, Westminster University</p>
-                <div class = "fav-class">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/img/images/gettyimages.jpg">
-                <h2>Fashion Show</h2>
-                <p>Dec 11, 3.00 p.m</p>
-                <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
-                <div class = "fav-class">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/img/images/gettyimages.jpg">
-                <h2>A talk on modern fashion</h2>
-                <p>Dec 11, 5.00 p.m</p>
-                <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
-                <div class = "fav-class">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-              </a>
-            </li>
-          </ul>
+  <div data-role="page" id="events">
+    <?php require './components/sidebar.php'?><!-- /panel -->
+    <?php require './components/header.php'?><!-- header -->
+    <div role="main" class="overlay ui-content main-content">
+      <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
+      <div  class="ui-content events_body rebdytrndng">
+        <div class="tab_body">
+          <div class="listCont events_list reEvents">
+            <ul data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">
+              <li>
+                <a href="event_description.php" rel="external">
+                  <img src="assets/img/images/gettyimages.jpg">
+                  <h2>Hipster Fashion Catwalk</h2>
+                  <p>Dec 10, 3.00 p.m</p>
+                  <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
+                  <div class = "fav-class">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" >
+                  <img src="assets/img/images/gettyimages.jpg">
+                  <h2>Trend Catwalk Show</h2>
+                  <p>Dec 10, 5.00 p.m</p>
+                  <p><i class="fa fa-location-arrow"></i>Queen Mary Hall, Westminster University</p>
+                  <div class = "fav-class">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="assets/img/images/gettyimages.jpg">
+                  <h2>A talk on modern fashion</h2>
+                  <p>Dec 11, 10.00 a.m</p>
+                  <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
+                  <div class = "fav-class">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="assets/img/images/gettyimages.jpg">
+                  <h2>Deluxe Fashion</h2>
+                  <p>Dec 11, 1.00 p.m</p>
+                  <p><i class="fa fa-location-arrow"></i>Open Arena, Westminster University</p>
+                  <div class = "fav-class">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="assets/img/images/gettyimages.jpg">
+                  <h2>Fashion Show</h2>
+                  <p>Dec 11, 3.00 p.m</p>
+                  <p><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
+                  <div class = "fav-class">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="assets/img/images/gettyimages.jpg">
+                  <h2>A talk on modern fashion</h2>
+                  <p>Dec 11, 5.00 p.m</p>
+                  <p><i class="fa fa-location-arrow"></i>Auditorium, Westminster University</p>
+                  <div class = "fav-class">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        </section>
-      </div>
-    </div><!-- /grid-a -->
-  </div><!-- /content -->
-  <?php require './components/footer.php'?><!--footer -->
-</div><!-- page -->
+      </div><!-- /grid-a -->
+    </div><!-- /content -->
+      <?php require './components/footer.php'?><!--footer -->
+  </div><!-- page -->
 
   <script type="text/javascript">
     var breadcrumb = [

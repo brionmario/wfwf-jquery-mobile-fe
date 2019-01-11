@@ -24,12 +24,13 @@
 </head>
 
 <body>
-<div data-role="page">
-  <?php require './components/sidebar.php'?><!-- /panel -->
-  <?php require './components/header.php'?><!-- /header -->
-  <div role="main" class="overlay ui-content main-content">
-    <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-    <?php require './components/footer.php'?><!--/footer -->
+  <div data-role="page">
+    <?php require './components/sidebar.php'?><!-- /panel -->
+    <?php require './components/header.php'?><!-- /header -->
+    <div role="main" class="overlay ui-content main-content">
+      <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
+      <?php require './components/footer.php'?><!--/footer -->
+    </div><!-- /content -->  
   </div><!-- /page -->
 
   <script type="text/javascript">
