@@ -43,7 +43,7 @@
           <div class="ui-block-b">
             <div class="ui-bar ui-bar-a">
               <div class="filter-btn-container">
-                <button class="btn btn-primary btn-sm filter-btn"><i class="fa fa-sliders"></i></button>
+                <button class="btn btn-primary btn-sm filter-btn"><i class="fa fa-sliders"></i><span>Filter</span></button>
               </div>
             </div>
           </div>
