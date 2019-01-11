@@ -16,6 +16,9 @@
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
   <!-- inject:css -->
   <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
 </head>
 
 <body>
@@ -27,7 +30,5 @@
   </div><!-- /content -->
   <?php require './components/footer.php'?><!--footer -->
 </div><!-- page -->
-<!-- inject:js -->
-<!-- endinject -->
 </body>
 </html>
