@@ -1,10 +1,12 @@
-const getYear = () => {
-  let now = new Date();
-  let year = now.getYear();
+export function getYear() {
+  var now = new Date();
+  var year = now.getYear();
   if (year < 1900) {
     year += 1900;
   }
   return year;
-};
+}
 
-export default getYear;
+export function scrollToTop() {
+  window.scrollTo(0, 0);
+}
