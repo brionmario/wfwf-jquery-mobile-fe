@@ -1,59 +1,126 @@
 .footer {
   text-align: center;
-  padding: $footer-padding;
-  background-color: $white !important;
+  background-color: $secondary-color !important;
   border: none !important;
   border-top: $footer-border-top !important;
-  .footer-icons > li {
-    > a {
-      display: inline-block;
-      font-size: $footer-icons-font-size;
-      padding: 0;
+  .navigate-top {
+    height: $footer-navigate-top-height;
+    background-color: lighten($secondary-color, 5);
+    i {
+      margin-top: 5px;
+      font-size: 18px;
+      color: $white;
+      &:hover {
+        cursor: pointer;
+      }
     }
-    > a > i {
+  }
+  .footer-content {
+    padding: $footer-padding;
+    display: inline-block;
+    width: 100%;
+    .logo-area {
       display: inline-block;
-      height: 35px;
-      line-height: 33px;
-      transition: all .2s;
-      border-radius: 40px;
-      text-align: center;
-      width: 35px;
-      &[class*="facebook"] {
-        color: $facebook-icon-color;
-        border-color: $facebook-icon-color;
-        &:hover {
-          color: lighten($facebook-icon-color, 10);
+      text-align: left;
+      margin-top: 10px;
+      width: 100%;
+      float: left;
+      img {
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      .social-icons {
+        padding-left: 4px;
+        h6 {
+          color: $white;
+        }
+        ul > li {
+          > a {
+            display: inline-block;
+            font-size: $footer-icons-font-size;
+            padding: 0;
+          }
+          > a > i {
+            display: inline-block;
+            line-height: 33px;
+            transition: all 0.2s;
+            border-radius: 40px;
+            text-align: center;
+            margin-right: 15px;
+            &[class*='facebook'] {
+              color: $facebook-icon-color;
+              border-color: $facebook-icon-color;
+              &:hover {
+                color: lighten($facebook-icon-color, 10);
+              }
+            }
+            &[class*='twitter'] {
+              color: $twitter-icon-color;
+              border-color: $twitter-icon-color;
+              &:hover {
+                color: lighten($twitter-icon-color, 10);
+              }
+            }
+            &[class*='instagram'] {
+              color: $instagram-icon-color;
+              border-color: $instagram-icon-color;
+              &:hover {
+                color: lighten($instagram-icon-color, 10);
+              }
+            }
+            &[class*='youtube'] {
+              color: $youtube-icon-color;
+              border-color: $youtube-icon-color;
+              &:hover {
+                color: lighten($youtube-icon-color, 10);
+              }
+            }
+          }
         }
       }
-      &[class*="twitter"] {
-        color: $twitter-icon-color;
-        border-color: $twitter-icon-color;
-        &:hover {
-          color: lighten($twitter-icon-color, 10);
+    }
+    .accordion {
+      display: none;
+    }
+    .footer-content-grid {
+      display: none;
+      float: left;
+      margin-top: 10px;
+      .footer-content-block {
+        text-align: left;
+        margin-bottom: 15px;
+        h5 {
+          color: $white;
         }
-      }
-      &[class*="github"] {
-        color: $github-icon-color;
-        border-color: $github-icon-color;
-        &:hover {
-          color: lighten($github-icon-color, 10);
+        ul > li {
+          display: block;
+          color: $placeholder-gray;
+          font-size: $default-font-size;
         }
       }
     }
   }
   .copyright {
-    font-size: $footer-copyright-font-size;
+    padding: 10px 15px;
+    border-top: 1px solid darken($secondary-color, 10);
     img {
       position: absolute;
     }
     p {
-      color: $black;
+      color: $placeholder-gray;
       display: inline-block;
+      font-size: $footer-copyright-font-size;
       &:first-child {
         margin-right: 5px;
       }
       &:last-child {
         margin-left: 28px;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      p {
+        color: $white;
       }
     }
   }
@@ -64,5 +131,192 @@
   .ui-footer {
     border: unset !important;
   }
+  .accordion {
+    .collapsible-set {
+      margin: unset !important;
+    }
+    .ui-btn {
+      color: $white !important;
+      background-color: $secondary-color !important;
+      font-size: $footer-accordion-font-size !important;
+      padding-left: 20px !important;
+      width: 100%;
+      border: unset !important;
+      border-bottom: $footer-accordion-link-border !important;
+      &:focus {
+        box-shadow: unset !important;
+      }
+      &:hover {
+        border-right: 5px solid $tertiary-color !important;
+      }
+    }
+    .ui-listview {
+      margin-top: -13px;
+    }
+    .ui-collapsible-content {
+      border-bottom-width: 0px !important;
+      .ui-body-inherit {
+        padding-left: 40px;
+        border: unset !important;
+        border-bottom: $footer-accordion-link-border !important;
+        color: $placeholder-gray !important;
+        text-shadow: none !important;
+        font-size: $default-font-size !important;
+        background-color: lighten($secondary-color, 2) !important;
+      }
+    }
+  }
 }
 
+/**++++++++-----------------------------------------------------------++++++++**/
+/** ----------------------------  Media Queries  ---------------------------- **/
+/**++++++++-----------------------------------------------------------++++++++**/
+
+/** iPhone 6, 7, & 8 in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+  .footer {
+    .footer-content {
+      .logo-area {
+        margin-bottom: 10px;
+      }
+      .accordion {
+        display: block;
+      }
+    }
+    .copyright {
+      border-top: unset;
+    }
+  }
+}
+
+/** iPhone 6, 7, & 8 in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .footer {
+    .footer-content {
+      padding: 10px 20px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
+      .footer-content-grid {
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+/** iPhone X in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  .footer {
+    .footer-content {
+      .logo-area {
+        margin-bottom: 10px;
+      }
+      .accordion {
+        display: block;
+      }
+      .copyright {
+        border-top: unset;
+      }
+    }
+  }
+}
+
+/** iPhone X in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .footer {
+    .footer-content {
+      padding: 10px 20px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
+      .footer-content-grid {
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+/** iPad in portrait **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .footer {
+    .footer-content {
+      padding: 10px 30px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
+      .footer-content-grid {
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+/** iPad in landscape **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .footer {
+    .footer-content {
+      padding: 10px 40px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
+      .footer-content-grid {
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+/** Desktop **/
+@media only screen and (min-device-width: 1024px) {
+  .footer {
+    .footer-content {
+      padding: 10px 40px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
+      .footer-content-grid {
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 25%;
+        }
+      }
+    }
+  }
+}

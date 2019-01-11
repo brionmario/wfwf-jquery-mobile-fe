@@ -1,55 +1,25 @@
 .main-content {
-  background-color: $white;
+  background-color: $bg-color;
 }
 
 .center-text {
   text-align: center;
 }
 
-.display-table {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-
-.display-table-cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-::-webkit-input-placeholder {
-  font-size: .9em;
-  letter-spacing: 1px;
-}
-
-::-moz-placeholder {
-  font-size: .9em;
-  letter-spacing: 1px;
-}
-
-:-ms-input-placeholder {
-  font-size: .9em;
-  letter-spacing: 1px;
-}
-
-:-moz-placeholder {
-  font-size: .9em;
-  letter-spacing: 1px;
-}
-
 .full-height {
   height: 100%;
-}
-
-.position-static {
-  position: static;
 }
 
 .font-white {
   color: $white;
 }
 
-/** JQuery Mobile Framework Style Overrides **/
+/** JQuery Mobile Framework GLobal Style Overrides **/
+.ui-page-theme-a,
+.ui-bar-inherit {
+  text-shadow: none !important;
+}
+
 .ui-content {
   padding: unset !important;
 }
@@ -60,4 +30,12 @@
 
 .ui-bar-a {
   border: none !important;
+}
+
+.ui-btn {
+  text-shadow: none !important;
+  font-family: 'Roboto' !important;
+  &:active {
+    text-shadow: none !important;
+  }
 }
