@@ -24,11 +24,26 @@
 <body>
 <div data-role="page">
   <?php require './components/sidebar.php'?><!-- /panel -->
-  <?php require './components/header.php'?><!-- header -->
+  <?php require './components/header.php'?><!-- /header -->
   <div role="main" class="overlay ui-content main-content">
     <div class="ui-grid-a ui-responsive">
-  </div><!-- /content -->
-  <?php require './components/footer.php'?><!--footer -->
-</div><!-- page -->
+      <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
+    </div><!-- /content -->
+    <?php require './components/footer.php'?><!--/footer -->
+  </div><!-- /page -->
+
+  <script type="text/javascript">
+    var breadcrumb = [
+      {
+        name: 'Home',
+        href: 'index.php'
+      },
+      {
+        name: 'Events',
+        href: 'events.php'
+      }
+    ];
+    setBreadcrumb(breadcrumb);
+  </script>
 </body>
 </html>

@@ -21,6 +21,12 @@ $header-height: 50px;
 $header-border-bottom: 1px solid #f0f0f0;
 $header-padding: 10px 30px;
 
+// Breadcrumb
+$breadcrumb-container-height: 40px;
+$breadcrumb-container-bg-color: $white;
+$breadcrumb-container-padding: 7px 15px;
+$breadcrumb-container-border-bottom: 2px solid #eee;
+
 // Sidebar
 $sidebar-content-height: calc(100vh - 50px);
 $sidebar-border-right: 1px solid $dark-gray;

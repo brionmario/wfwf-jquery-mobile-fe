@@ -95,7 +95,6 @@
   <div class="copyright">
     <a rel="external" target="_blank" href="http://apareciumlabs.com/">
       <p>&copy; Copyright
-        <span id="year">1999<span>
         <script type="text/javascript">
           document.write(getCurrentYear());
         </script>
