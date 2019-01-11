@@ -16,11 +16,22 @@
   }
   .mini-logo {
     height: 28px;
+    margin-top: 10px;
   }
 
   .login-btn {
     margin-right: 8px !important;
     margin-top: 4px !important;
+  }
+  .avatar-container {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    .avatar {
+      height: 30px;
+      width: 30px;
+    }
   }
 }
 

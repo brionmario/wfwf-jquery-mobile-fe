@@ -183,6 +183,9 @@
         display: block;
       }
     }
+    .copyright {
+      border-top: unset;
+    }
   }
 }
 
@@ -218,6 +221,9 @@
       }
       .accordion {
         display: block;
+      }
+      .copyright {
+        border-top: unset;
       }
     }
   }
