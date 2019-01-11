@@ -17,9 +17,14 @@
   }
   .footer-content {
     padding: $footer-padding;
+    display: inline-block;
+    width: 100%;
     .logo-area {
+      display: inline-block;
       text-align: left;
       margin-top: 10px;
+      width: 100%;
+      float: left;
       img {
         height: 100px;
         margin-bottom: 10px;
@@ -28,7 +33,6 @@
         padding-left: 4px;
         h6 {
           color: $white;
-          font-size: 12px;
         }
         ul > li {
           > a {
@@ -80,21 +84,43 @@
     }
     .footer-content-grid {
       display: none;
-    }
-    .copyright {
-      font-size: $footer-copyright-font-size;
-      img {
-        position: absolute;
+      float: left;
+      margin-top: 10px;
+      .footer-content-block {
+        text-align: left;
+        margin-bottom: 15px;
+        h5 {
+          color: $white;
+        }
+        ul > li {
+          display: block;
+          color: $placeholder-gray;
+          font-size: $default-font-size;
+        }
       }
+    }
+  }
+  .copyright {
+    padding: 10px 15px;
+    border-top: 1px solid darken($secondary-color, 10);
+    img {
+      position: absolute;
+    }
+    p {
+      color: $placeholder-gray;
+      display: inline-block;
+      font-size: $footer-copyright-font-size;
+      &:first-child {
+        margin-right: 5px;
+      }
+      &:last-child {
+        margin-left: 28px;
+      }
+    }
+    &:hover {
+      cursor: pointer;
       p {
         color: $white;
-        display: inline-block;
-        &:first-child {
-          margin-right: 5px;
-        }
-        &:last-child {
-          margin-left: 28px;
-        }
       }
     }
   }
@@ -150,6 +176,9 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
   .footer {
     .footer-content {
+      .logo-area {
+        margin-bottom: 10px;
+      }
       .accordion {
         display: block;
       }
@@ -161,8 +190,20 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
   .footer {
     .footer-content {
+      padding: 10px 20px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
       .footer-content-grid {
-        display: block;
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 50%;
+        }
       }
     }
   }
@@ -172,6 +213,9 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
   .footer {
     .footer-content {
+      .logo-area {
+        margin-bottom: 10px;
+      }
       .accordion {
         display: block;
       }
@@ -183,19 +227,66 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
   .footer {
     .footer-content {
+      padding: 10px 20px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
       .footer-content-grid {
-        display: block;
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 50%;
+        }
       }
     }
   }
 }
 
-/** iPad in portrait & landscape **/
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+/** iPad in portrait **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .footer {
     .footer-content {
+      padding: 10px 30px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
       .footer-content-grid {
-        display: block;
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+/** iPad in landscape **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .footer {
+    .footer-content {
+      padding: 10px 40px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
+      .footer-content-grid {
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 25%;
+        }
       }
     }
   }
@@ -205,8 +296,20 @@
 @media only screen and (min-device-width: 1024px) {
   .footer {
     .footer-content {
+      padding: 10px 40px;
+      .logo-area {
+        width: 30%;
+        margin-right: 25px;
+      }
       .footer-content-grid {
-        display: block;
+        width: 60%;
+        display: inline-block;
+        .breakpoint .ui-block-a,
+        .breakpoint .ui-block-b,
+        .breakpoint .ui-block-c,
+        .breakpoint .ui-block-d {
+          width: 25%;
+        }
       }
     }
   }
