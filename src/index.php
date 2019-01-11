@@ -16,18 +16,28 @@
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
   <!-- inject:css -->
   <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
 </head>
 
 <body>
 <div data-role="page">
   <?php require './components/sidebar.php'?><!-- /panel -->
-  <?php require './components/header.php'?><!-- header -->
+  <?php require './components/header.php'?><!-- /header -->
   <div role="main" class="overlay ui-content main-content">
-    <div class="ui-grid-a ui-responsive">
-  </div><!-- /content -->
-  <?php require './components/footer.php'?><!--footer -->
-</div><!-- page -->
-<!-- inject:js -->
-<!-- endinject -->
+    <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
+    <?php require './components/footer.php'?><!--/footer -->
+  </div><!-- /page -->
+
+  <script type="text/javascript">
+    var breadcrumb = [
+      {
+        name: 'Home',
+        href: 'index.php'
+      }
+    ];
+    setBreadcrumb(breadcrumb);
+  </script>
 </body>
 </html>
