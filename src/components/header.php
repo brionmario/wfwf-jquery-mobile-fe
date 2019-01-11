@@ -1,4 +1,4 @@
-<div data-role="header" class="header">
+<div data-role="header" class="header" data-position="fixed">
   <a href="#sidepanel">
     <i class="fa fa-bars"></i>
   </a>
