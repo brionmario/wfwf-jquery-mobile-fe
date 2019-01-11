@@ -3,6 +3,18 @@
     <i class="fa fa-angle-double-up" onclick="window.scrollTo(0, 0);"></i>
   </div>
   <div class="footer-content">
+    <div class="logo-area">
+      <img src="assets/img/logos/logo-full-colour.png" />
+      <div class="social-icons">
+        <h6>Connect With Us</h6>
+        <ul>
+          <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+          <li><a href="https://instagram.com/apareciumlabs" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://youtube.com/apareciumlabs" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+        </ul>
+      </div>
+    </div>
     <div class="accordion">
       <div data-role="collapsible-set" data-iconpos="right" data-inset="false" data-corners="false">
         <div data-role="collapsible">

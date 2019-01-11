@@ -17,39 +17,60 @@
   }
   .footer-content {
     padding: $footer-padding;
-    .footer-icons > li {
-      > a {
-        display: inline-block;
-        font-size: $footer-icons-font-size;
-        padding: 0;
+    .logo-area {
+      text-align: left;
+      margin-top: 10px;
+      img {
+        height: 100px;
+        margin-bottom: 10px;
       }
-      > a > i {
-        display: inline-block;
-        height: 35px;
-        line-height: 33px;
-        transition: all 0.2s;
-        border-radius: 40px;
-        text-align: center;
-        width: 35px;
-        &[class*='facebook'] {
-          color: $facebook-icon-color;
-          border-color: $facebook-icon-color;
-          &:hover {
-            color: lighten($facebook-icon-color, 10);
-          }
+      .social-icons {
+        padding-left: 4px;
+        h6 {
+          color: $white;
+          font-size: 12px;
         }
-        &[class*='twitter'] {
-          color: $twitter-icon-color;
-          border-color: $twitter-icon-color;
-          &:hover {
-            color: lighten($twitter-icon-color, 10);
+        ul > li {
+          > a {
+            display: inline-block;
+            font-size: $footer-icons-font-size;
+            padding: 0;
           }
-        }
-        &[class*='github'] {
-          color: $github-icon-color;
-          border-color: $github-icon-color;
-          &:hover {
-            color: lighten($github-icon-color, 10);
+          > a > i {
+            display: inline-block;
+            line-height: 33px;
+            transition: all 0.2s;
+            border-radius: 40px;
+            text-align: center;
+            margin-right: 15px;
+            &[class*='facebook'] {
+              color: $facebook-icon-color;
+              border-color: $facebook-icon-color;
+              &:hover {
+                color: lighten($facebook-icon-color, 10);
+              }
+            }
+            &[class*='twitter'] {
+              color: $twitter-icon-color;
+              border-color: $twitter-icon-color;
+              &:hover {
+                color: lighten($twitter-icon-color, 10);
+              }
+            }
+            &[class*='instagram'] {
+              color: $instagram-icon-color;
+              border-color: $instagram-icon-color;
+              &:hover {
+                color: lighten($instagram-icon-color, 10);
+              }
+            }
+            &[class*='youtube'] {
+              color: $youtube-icon-color;
+              border-color: $youtube-icon-color;
+              &:hover {
+                color: lighten($youtube-icon-color, 10);
+              }
+            }
           }
         }
       }
@@ -86,6 +107,7 @@
       color: $white !important;
       background-color: $secondary-color !important;
       font-size: $footer-accordion-font-size !important;
+      padding-left: 20px !important;
       width: 100%;
       border: unset !important;
       border-bottom: $footer-accordion-link-border !important;
