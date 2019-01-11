@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>jQuery Mobile Seed by Aparecium Labs</title>
+  <title>Profile | Westminster Fashion Week Festival 2019</title>
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon_package/favicon-32x32.png">
@@ -23,6 +23,7 @@
 <div data-role="page">
   <?php require './components/sidebar.php'?><!-- /panel -->
   <?php require './components/header.php'?><!-- header -->
+  <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
   <div role="main" class="overlay ui-content main-content">
     <div class="ui-grid-a ui-responsive">
       <div class="ui-block-a">
@@ -63,7 +64,7 @@
                       </button>
             </div>
             <div>
-            <button id="mc-embedded-tasks" class="view-tasks-btn" name="view-tasks" type="submit">
+            <button id="mc-embedded-tasks" class="view-tasks-btn" name="view-tasks" type="submit" onclick="location.href='tasks.php'">
                         <b>View Tasks</b>
                       </button>
            </div>  
@@ -85,6 +86,15 @@
 </div><!-- page -->
 <!-- inject:js -->
 <!-- endinject -->
+<script type="text/javascript">
+    var breadcrumb = [
+      {
+        name: 'Profile',
+        href: 'profile.php'
+      }
+    ];
+    setBreadcrumb(breadcrumb);
+  </script>
 <script async="" src="/browser-sync/browser-sync-client.2.11.1.js"></script>
 </body>
 </html>
