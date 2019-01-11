@@ -14,10 +14,19 @@ export function setBreadcrumb(arr) {
 
     ul.appendChild(li);
     li.appendChild(a);
+
     a.setAttribute('href', item.href);
     a.setAttribute('rel', 'external');
-    a.innerHTML += item.name;
-    a.appendChild(i);
+
+    if (breadcrumb.length === 1) {
+      a.appendChild(i);
+      a.innerHTML += item.name;
+    } else if (breadcrumb.indexOf(item) === breadcrumb.length - 1) {
+      a.innerHTML += item.name;
+    } else {
+      a.innerHTML += item.name;
+      a.appendChild(i);
+    }
   });
 }
 
