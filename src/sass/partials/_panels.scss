@@ -1,2 +1,27 @@
 .filter-panel {
+  background-color: $white;
+  height: 40px;
+  width: 100%;
+  padding: 4px 10px;
+  border-bottom: $header-border-bottom !important;
+  .filter-input-container {
+  }
+  .filter-btn-container {
+    float: right;
+    .filter-btn {
+      margin: unset !important;
+    }
+  }
+}
+
+/** JQuery Mobile Framework Overrides **/
+.filter-input-container {
+  .ui-filterable {
+    .ui-input-search {
+      margin: unset !important;
+      input {
+        padding-top: 7px;
+      }
+    }
+  }
 }

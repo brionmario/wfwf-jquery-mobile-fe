@@ -29,10 +29,30 @@
     <?php require './components/header.php'?><!-- header -->
     <div role="main" class="overlay ui-content main-content">
       <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
+      <div class="filter-panel">
+        <div class="ui-grid-a breakpoint">
+          <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a">
+              <div class="filter-input-container">
+                <form class="ui-filterable">
+                  <input class="form-control" id="filter-input" data-type="search" placeholder="Search Events">
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a">
+              <div class="filter-btn-container">
+                <button class="btn btn-primary btn-sm filter-btn"><i class="fa fa-sliders"></i></button>
+              </div>
+            </div>
+          </div>
+        </div><!-- /grid-a -->
+      </div>
       <div  class="ui-content events_body rebdytrndng">
         <div class="tab_body">
           <div class="listCont events_list reEvents">
-            <ul data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">
+            <ul data-role="listview" data-filter="true" data-input="#filter-input" data-inset="true">
               <li>
                 <a href="event_description.php" rel="external">
                   <img src="assets/img/images/gettyimages.jpg">
