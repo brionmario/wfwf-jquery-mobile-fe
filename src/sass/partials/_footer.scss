@@ -75,6 +75,12 @@
         }
       }
     }
+    .accordion {
+      display: none;
+    }
+    .footer-content-grid {
+      display: none;
+    }
     .copyright {
       font-size: $footer-copyright-font-size;
       img {
@@ -131,6 +137,76 @@
         text-shadow: none !important;
         font-size: $default-font-size !important;
         background-color: lighten($secondary-color, 2) !important;
+      }
+    }
+  }
+}
+
+/**++++++++-----------------------------------------------------------++++++++**/
+/** ----------------------------  Media Queries  ---------------------------- **/
+/**++++++++-----------------------------------------------------------++++++++**/
+
+/** iPhone 6, 7, & 8 in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+  .footer {
+    .footer-content {
+      .accordion {
+        display: block;
+      }
+    }
+  }
+}
+
+/** iPhone 6, 7, & 8 in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .footer {
+    .footer-content {
+      .footer-content-grid {
+        display: block;
+      }
+    }
+  }
+}
+
+/** iPhone X in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  .footer {
+    .footer-content {
+      .accordion {
+        display: block;
+      }
+    }
+  }
+}
+
+/** iPhone X in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .footer {
+    .footer-content {
+      .footer-content-grid {
+        display: block;
+      }
+    }
+  }
+}
+
+/** iPad in portrait & landscape **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .footer {
+    .footer-content {
+      .footer-content-grid {
+        display: block;
+      }
+    }
+  }
+}
+
+/** Desktop **/
+@media only screen and (min-device-width: 1024px) {
+  .footer {
+    .footer-content {
+      .footer-content-grid {
+        display: block;
       }
     }
   }
