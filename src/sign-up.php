@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>Login</title>
+  <title>Sign Up</title>
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon_package/favicon-32x32.png">
@@ -21,19 +21,15 @@
 <body>
 <div data-role="page">
   <div role="main" class="overlay ui-content main-content">
-  <h1>Login</h1>
-  <h3>Welcome Back</h3>
-  <h5>Sign in to continue</h5>
+  <h1>Sign up</h1>
+  <h3>Howdy stranger,</h3>
+  <h5>Complete the form to create an account</h5>
+  <input type="text" name="fname" placeholder="First Name">
+  <input type="text" name="lname" placeholder="Last Name">
   <input type="text" name="email" placeholder="Email">
   <input type="text" name="password" placeholder="Password">
-  <button type="button" onclick="alert('Login')">Login</button>
-  <h6>Don't have an account? click here to sign up new !</h6>
-  <h3>------------Or------------</h3>
-  <ul class="sign-in-with-icons">
-    <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-    <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-    <li><a href="https://github.com/apareciumlabs" target="_blank"><i class="fa fa-github-square"></i></a></li>
-  </ul>
+  <button type="button" onclick="alert('Sign up')">Sign up</button>
+  <h6>Alredy have an account? Click here to sign in!</h6>
   </div><!-- /content -->
 </div><!-- page -->
 <!-- inject:js -->
