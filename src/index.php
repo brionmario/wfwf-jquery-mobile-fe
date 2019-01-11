@@ -26,9 +26,7 @@
   <?php require './components/sidebar.php'?><!-- /panel -->
   <?php require './components/header.php'?><!-- /header -->
   <div role="main" class="overlay ui-content main-content">
-    <div class="ui-grid-a ui-responsive">
-      <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-    </div><!-- /content -->
+    <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
     <?php require './components/footer.php'?><!--/footer -->
   </div><!-- /page -->
 

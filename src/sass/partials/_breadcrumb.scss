@@ -6,7 +6,6 @@
   .breadcrumb {
     .breadcrumb-list {
       .breadcrumb-item {
-        margin-right: 10px;
         a {
           color: $default-font-color;
           font-weight: 600;
@@ -19,16 +18,9 @@
           i {
             font-size: 18px;
             font-weight: bold;
-            margin-left: 10px;
+            margin: 0 10px;
             top: 2px;
             position: relative;
-          }
-        }
-        &:last-child {
-          a {
-            i {
-              display: none;
-            }
           }
         }
       }
