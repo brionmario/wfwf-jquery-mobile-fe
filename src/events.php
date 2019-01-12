@@ -52,7 +52,7 @@
       <div class="list-wrapper">
         <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
           <li class="list-item card">
-            <a class="content" href="#">
+            <a class="content" href="event-description.php" rel="external">
               <img src="assets/img/default-image-placeholder.png">
               <h2>Hipster Fashion Catwalk</h2>
               <p>Dec 10, 3.00 p.m</p>
@@ -84,7 +84,7 @@
         </div>
       </div>
     </div><!-- /content -->
-      <?php require './components/footer.php'?><!--footer -->
+    <?php require './components/footer.php'?><!--footer -->
   </div><!-- page -->
 
   <script type="text/javascript">

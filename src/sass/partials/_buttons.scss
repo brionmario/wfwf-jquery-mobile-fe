@@ -50,6 +50,26 @@
     }
   }
 
+  &.btn-secondary {
+    background-color: $tertiary-color !important;
+    border-color: $tertiary-color !important;
+
+    &:hover {
+      background-color: lighten($tertiary-color, 5) !important;
+      border-color: lighten($tertiary-color, 5) !important;
+    }
+  }
+
+  &.btn-transparent {
+    background-color: transparent !important;
+    border-color: transparent !important;
+
+    &:hover {
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+  }
+
   &.btn-success {
     background-color: $success-color !important;
     border-color: $success-color !important;
@@ -68,4 +88,14 @@
 .btn-sm {
   padding: 5px 8px !important;
   width: auto !important;
+  font-size: 13px !important;
+}
+
+.btn-full {
+  width: 100% !important;
+}
+
+.btn-round {
+  border-radius: 50% !important;
+  padding: 10px !important;
 }

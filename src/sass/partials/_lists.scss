@@ -57,5 +57,10 @@
         box-shadow: unset !important;
       }
     }
+    .fav-btn {
+      &.ui-btn {
+        width: 2.5em !important;
+      }
+    }
   }
 }
