@@ -1,4 +1,4 @@
-<div data-role="footer" class="footer">
+<div data-role="footer" class="footer" id="footer">
   <div class="navigate-top">
     <i class="fa fa-angle-double-up" onclick="scrollToTop()"></i>
   </div>

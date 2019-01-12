@@ -43,7 +43,7 @@
           <div class="ui-block-b">
             <div class="ui-bar ui-bar-a">
               <div class="filter-btn-container">
-                <button class="btn btn-primary btn-sm filter-btn"><i class="fa fa-sliders"></i><span>Filter</span></button>
+                <a href="#filter-popup" data-rel="popup" data-position-to="#footer" data-transition="slideup"><button class="btn btn-primary btn-sm filter-btn"><i class="fa fa-sliders"></i><span>Filter</span></button></a>
               </div>
             </div>
           </div>
@@ -54,8 +54,8 @@
           <?php
             $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events";
 
-            if ($_GET['sort'] != '') {
-              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[order]={$_GET['sort']}%20{$_GET['order']}";
+            if ($_GET['sort'] != '' && $_GET['sort_order'] != '') {
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
               echo $url;
             }
 
@@ -105,7 +105,9 @@
             <?php endforeach; ?>
             
         </ul>
-        <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center">
+
+        <!-- /success popup -->
+        <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
           <?php
             if ($event['favourited'] == 'true') {
               echo '<h3>Event Unfavourited</h3>';
@@ -116,7 +118,24 @@
             }
           ?>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="refreshPage()">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('events.php')">Continue</a>
+        </div>
+
+        <!-- /filter popup -->
+        <div data-role="popup" id="filter-popup" data-theme="a" data-overlay-theme="b" class="popup filter-popup">
+          <div class="filter-popup-inner">
+            <h3>Filter</h3>
+            <div class="sort-block">
+              <h5>Sort by</h5>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=date&sort_order=DESC')">Latest</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=DESC')"> Z-A</button>
+            </div>
+            <div class="filter-block">
+              <h5>Filter by</h5>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?filter=favourited&filter_value=true')">Favourited</button>
+            </div>
+          </div>
         </div>
       </div>
     </div><!-- /content -->
