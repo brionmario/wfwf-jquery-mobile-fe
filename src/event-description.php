@@ -24,73 +24,78 @@
 </head>
 
 <body>
-  <div data-role="page">
-    <?php require './components/sidebar.php'?><!-- /panel -->
-    <?php require './components/header.php'?><!-- header -->
-    <div role="main" class="overlay ui-content main-content event-description">
-      <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-      <div class="event-slider">
-        <img src="assets/img/events/1.jpg" />
-        <img src="assets/img/events/2.jpg" />
-      </div>
-      <div class="ui-grid-a ui-responsive">
-        <div class="ui-block-solo">
-          <div class="event-description-container body-padding text-center">
-            <h2 class="event-title">
-              Hipster Fashion Catwalk
-            </h2>
-            <p class="event-description-text">
-            Checks, plaids and tartans have been adopted by musical subcultures for decades, from punk to grunge or hip-hop. For a preppier take on the tartan look, think Cher Horowitz in 90s classic Clueless, teaming mini kilts with mohair knits and cropped jackets.Mix and match clashing checks in bright colours – orange, purple, blue and yellow – and dress them up as tailored separates and outerwear, or down by teaming them with denim and oversized pieces.
-            </p>
-            <button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>
-          </div><!-- /event-description-container -->
-          <div data-role="collapsible-set" data-corners="false" data-theme="false" data-content-theme="false">
-            <div data-role="collapsible">
-              <h3>Models</h3>
-              <ul data-role="listview" data-inset="false">
-                <li>Cara Delevingne</li>
-                <li>kate moss</li>
-                <li>Rosie Huntington-Whiteley</li>
-                <li>Leomie Anderson</li>
-              </ul>
-            </div>
-            <div data-role="collapsible">
-              <h3>Designers</h3>
-              <ul data-role="listview" data-inset="false">
-                <li>Tom Ford</li>
-                <li>Sandy Powell</li>
-                <li>Alexandra Byrne</li>
-              </ul>
-            </div>
-          </div><!-- /collapsible-set -->
-          <div class="action-button-container body-padding text-center">
-            <button class="btn btn-primary btn-full book-tickets-btn">Book Tickets</button>
-            <button class="btn btn-secondary directions-btn ui-btn-inline">Get Directions</button>
-            <button class="btn btn-outline favourites-btn ui-btn-inline"><i class="fa fa-heart-o"></i>Add To Favourites</button>
-          </div><!-- /action-button-container  -->
-        </div><!-- /ui-block -->
-      </div><!-- /grid-a -->
-    </div><!-- /content -->
-    <?php require './components/footer.php'?><!--footer -->
-  </div><!-- page -->
+  <?php
+    echo '<div data-role="page">';
+      require './components/sidebar.php';
+      require './components/header.php';
+      echo '<div role="main" class="overlay ui-content main-content event-description">';
+        require './components/breadcrumb.php';
 
-  <script type="text/javascript">
-    var breadcrumb = [
-      {
-        name: 'Home',
-        href: 'index.php'
-      },
-      {
-        name: 'Events',
-        href: 'events.php'
-      },
-      {
-        name: 'Hipster Fashion Catwalk',
-        href: 'event-description.php'
-      }
-    ];
-    setBreadcrumb(breadcrumb);
-  </script>
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
+        
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => $url,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache"
+            ),
+          ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        $event = json_decode($response);
+
+        echo '<div class="event-slider">';
+          foreach($event->imageSlider as $image):
+            echo '<img src="'.$image.'" />';
+          endforeach;
+        echo '</div>';
+        echo '<div class="ui-grid-a ui-responsive">';
+          echo '<div class="ui-block-solo">';
+            echo '<div class="event-description-container body-padding text-center">';
+              echo '<h2 class="event-title">'.$event->title.'</h2>';
+              echo '<p class="event-description-text">'.$event->description.'</p>';
+              echo '<button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>';
+            echo '</div>';
+
+            echo '<div data-role="collapsible-set" data-corners="false" data-theme="false" data-content-theme="false">';
+              echo '<div data-role="collapsible">';
+                echo '<h3>Models</h3>';
+                echo '<ul data-role="listview" data-inset="false">';
+                  foreach($event->models as $model):
+                    echo '<li>'.$model.'</li>';
+                  endforeach;
+                echo '</ul>';
+              echo '</div>';
+              echo '<div data-role="collapsible">';
+                echo '<h3>Designers</h3>';
+                echo '<ul data-role="listview" data-inset="false">';
+                  foreach($event->designers as $designer):
+                    echo '<li>'.$designer.'</li>';
+                  endforeach;
+                echo '</ul>';
+              echo '</div>';
+            echo '</div>';
+
+            echo '<div class="action-button-container body-padding text-center">';
+              echo '<button class="btn btn-primary btn-full book-tickets-btn">Book Tickets</button>';
+              echo '<button class="btn btn-secondary directions-btn ui-btn-inline">Get Directions</button>';
+              echo '<button class="btn btn-outline favourites-btn ui-btn-inline"><i class="fa fa-heart-o"></i>Add To Favourites</button>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+      require './components/footer.php';
+    echo '</div>';
+
+  echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Events\',href: \'events.php\'},{name: \''.$event->title.'\',href: \'event-description.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+  ?>
   <script type="text/javascript">
     $(document).ready(function(){
       $('.event-slider').slick();
