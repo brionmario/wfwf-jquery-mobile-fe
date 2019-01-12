@@ -26,7 +26,7 @@
 <div data-role="page">
   <div role="main" class="overlay ui-content main-content auth-page">
     <div class="close-icon-container">
-      <i class="fa fa-times fa-2x"></i>
+      <a data-rel="back" rel="external"><i class="fa fa-times fa-2x"></i></a>
     </div>
     <div class="content">
       <div class="main-heading-container">

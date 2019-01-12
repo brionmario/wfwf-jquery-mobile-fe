@@ -19,6 +19,12 @@
   .close-icon-container {
     text-align: right;
     padding: 15px 20px;
+    i {
+      color: $dark-gray;
+      &:hover {
+        color: darken($dark-gray, 10);
+      }
+    }
   }
 
   .main-heading-container {

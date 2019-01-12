@@ -108,15 +108,8 @@
 
         <!-- /success popup -->
         <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-          <?php
-            if ($event['favourited'] == 'true') {
-              echo '<h3>Event Unfavourited</h3>';
-              echo '<p>The event has been successfully added to your favourites list</p>';
-            } else if ($event['favourited'] == 'false') {
-              echo '<h3>Event Favourited</h3>';
-              echo '<p>The event has been successfully removed from your favourites list</p>';
-            }
-          ?>
+          <h3>Success!</h3>
+          <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
           <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('events.php')">Continue</a>
         </div>

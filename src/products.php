@@ -88,7 +88,7 @@
                 <a class="content" href="<?php echo 'product-description.php?id='.$product['id']; ?>" rel="external">
                   <img src="<?php echo $product['thumbnail']; ?>">
                   <h2><?php echo $product['title']; ?></h2>
-                  <p>£&ensp;<?php echo $product['price']; ?></p>
+                  <p>£<?php echo $product['price']; ?></p>
                   <p class="location"><i class="fa fa-location-arrow"></i><?php echo $product['location']; ?></p>
                 </a>
                 <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $product['category']; ?>, 'products','<?php echo $product['id']; ?>')">Add to favourites</a>
@@ -108,15 +108,8 @@
 
         <!-- /success popup -->
         <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-          <?php
-            if ($product['favourited'] == 'true') {
-              echo '<h3>Product Unfavourited</h3>';
-              echo '<p>The produc has been successfully added to your favourites list</p>';
-            } else if ($product['favourited'] == 'false') {
-              echo '<h3>Product Favourited</h3>';
-              echo '<p>The product has been successfully removed from your favourites list</p>';
-            }
-          ?>
+          <h3>Success!</h3>
+          <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
           <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('products.php')">Continue</a>
         </div>
