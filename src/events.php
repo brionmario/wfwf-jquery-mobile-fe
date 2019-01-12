@@ -85,7 +85,7 @@
               ?>
               
               <li class="list-item card">
-                <a class="content" href="<?php echo 'event-description.php?id'.$event['id']; ?>" rel="external">
+                <a class="content" href="<?php echo 'event-description.php?id='.$event['id']; ?>" rel="external">
                   <img src="<?php echo $event['thumbnail']; ?>">
                   <h2><?php echo $event['title']; ?></h2>
                   <p><?php echo $event['date']; ?></p>
