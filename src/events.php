@@ -50,7 +50,7 @@
         </div><!-- /grid-a -->
       </div>
       <div class="list-wrapper">
-        <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
+        <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-input="#filter-input" data-inset="true" data-filter="true">
           <?php
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -80,25 +80,33 @@
                   <p><?php echo $event['date']; ?></p>
                   <p class="location"><i class="fa fa-location-arrow"></i><?php echo $event['location']; ?></p>
                 </a>
-                <a  class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop">Add to favourites</a>
+                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $event['favourited']; ?>, 'event','<?php echo $event['id']; ?>')">Add to favourites</a>
                 <div class = "heart-icon-container">
                   <?php 
-                    if ($event['favourited'] == true) {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="favourited fa fa-heart"></i></a>';
-                    } else {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-heart-o"></i></a>';
+                    if ($event['favourited'] == 'true') {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',"event","'.$event['id'].'")"><i class="favourited fa fa-heart"></i></a>';
+                    } else if ($event['favourited'] == 'false') {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',"event","'.$event['id'].'")"><i class="fa fa-heart-o"></i></a>';
                     }
                   ?>
                 </div>
               </li>
 
             <?php endforeach; ?>
+            
         </ul>
         <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center">
-          <h3>Event Favourited</h3>
-          <p>The event has been successfully added to your favourites list</p>
+          <?php
+            if ($event['favourited'] == 'true') {
+              echo '<h3>Event Unfavourited</h3>';
+              echo '<p>The event has been successfully added to your favourites list</p>';
+            } else if ($event['favourited'] == 'false') {
+              echo '<h3>Event Favourited</h3>';
+              echo '<p>The event has been successfully removed from your favourites list</p>';
+            }
+          ?>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="refresh()">Continue</a>
         </div>
       </div>
     </div><!-- /content -->
