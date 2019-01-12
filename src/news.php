@@ -27,7 +27,7 @@
   <div data-role="page">
     <?php require './components/sidebar.php'?><!-- /panel -->
     <?php require './components/header.php'?><!-- header -->
-    <div role="main" class="overlay ui-content main-content">
+    <div role="main" class="overlay ui-content main-content list-page">
       <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
       <div class="filter-panel">
         <div class="ui-grid-a breakpoint">

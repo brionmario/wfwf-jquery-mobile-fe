@@ -65,7 +65,7 @@
             echo '</div>';
 
             echo '<div data-role="collapsible-set" data-corners="false" data-theme="false" data-content-theme="false">';
-              echo '<div data-role="collapsible">';
+              echo '<div data-role="collapsible" data-collapsed="false">';
                 echo '<h3>Models</h3>';
                 echo '<ul data-role="listview" data-inset="false">';
                   foreach($event->models as $model):

@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./products.php" rel="external">
                     <i class="fa fa-dropbox"></i>
                     Products
                 </a>
