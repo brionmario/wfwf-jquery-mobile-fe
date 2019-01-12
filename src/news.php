@@ -89,7 +89,7 @@
                   <img src="<?php echo $newsItem['thumbnail']; ?>">
                   <h2><?php echo $newsItem['title']; ?></h2>
                   <p><?php echo $newsItem['date']; ?></p>
-                  <p class="location"><i class="fa fa-location-arrow"></i><?php echo $newsItem['author']; ?></p>
+                  <p class="location"><i class="fa fa-user"></i><?php echo $newsItem['author']; ?></p>
                 </a>
                 <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $newsItem['favourited']; ?>, 'news','<?php echo $newsItem['id']; ?>')">Add to favourites</a>
                 <div class = "heart-icon-container">
