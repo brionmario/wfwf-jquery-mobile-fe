@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>Event Description | Westminster Fashion Week Festival 2019</title>
+  <title>About | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -27,17 +27,16 @@
   <div data-role="page">
     <?php require './components/sidebar.php'?><!-- /panel -->
     <?php require './components/header.php'?><!-- header -->
-    <div role="main" class="overlay ui-content main-content event-description">
+    <div role="main" class="overlay ui-content main-content about">
       <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-      <div class="event-slider">
+      <div class="about-slider">
         <img src="assets/img/events/1.jpg" />
-        <img src="assets/img/events/2.jpg" />
       </div>
       <div class="ui-grid-a ui-responsive">
         <div class="ui-block-solo">
           <div class="event-description-container body-padding text-center">
             <h2 class="event-title">
-              Hipster Fashion Catwalk
+              About
             </h2>
             <p class="event-description-text">
             Checks, plaids and tartans have been adopted by musical subcultures for decades, from punk to grunge or hip-hop. For a preppier take on the tartan look, think Cher Horowitz in 90s classic Clueless, teaming mini kilts with mohair knits and cropped jackets.Mix and match clashing checks in bright colours – orange, purple, blue and yellow – and dress them up as tailored separates and outerwear, or down by teaming them with denim and oversized pieces.
@@ -81,19 +80,15 @@
         href: 'index.php'
       },
       {
-        name: 'Events',
-        href: 'events.php'
-      },
-      {
-        name: 'Hipster Fashion Catwalk',
-        href: 'event-description.php'
+        name: 'About',
+        href: 'about.php'
       }
     ];
     setBreadcrumb(breadcrumb);
   </script>
   <script type="text/javascript">
     $(document).ready(function(){
-      $('.event-slider').slick();
+      $('.about-slider').slick();
     });
 
     $(document).ready(function () {

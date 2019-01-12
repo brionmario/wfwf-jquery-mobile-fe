@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./about.php" rel="external">
                     <i class="fa fa-info"></i>
                     About
                 </a>
@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./contact.php" rel="external">
                     <i class="fa fa-phone"></i>
                     Contact
                 </a>
