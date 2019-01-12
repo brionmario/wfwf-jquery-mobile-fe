@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./events.php" rel="external">
                     <i class="fa fa-calendar"></i>
                     Events
                 </a>

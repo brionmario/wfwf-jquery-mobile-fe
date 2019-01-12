@@ -30,6 +30,16 @@
     cursor: initial;
   }
 
+  &.btn-default {
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
+
+    &:hover {
+      background-color: lighten($secondary-color, 5) !important;
+      border-color: lighten($secondary-color, 5) !important;
+    }
+  }
+
   &.btn-primary {
     background-color: $primary-color !important;
     border-color: $primary-color !important;
@@ -40,7 +50,82 @@
     }
   }
 
+  &.btn-secondary {
+    background-color: $tertiary-color !important;
+    border-color: $tertiary-color !important;
+
+    &:hover {
+      background-color: lighten($tertiary-color, 5) !important;
+      border-color: lighten($tertiary-color, 5) !important;
+    }
+  }
+
+  &.btn-transparent {
+    background-color: transparent !important;
+    border-color: transparent !important;
+
+    &:hover {
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+  }
+
+  &.btn-info {
+    background-color: $info-color !important;
+    border-color: $info-color !important;
+
+    &:hover {
+      background-color: lighten($info-color, 5) !important;
+      border-color: lighten($info-color, 5) !important;
+    }
+  }
+
+  &.btn-success {
+    background-color: $success-color !important;
+    border-color: $success-color !important;
+
+    &:hover {
+      background-color: lighten($success-color, 5) !important;
+      border-color: lighten($success-color, 5) !important;
+    }
+  }
+
+  &.btn-warning {
+    background-color: $warning-color !important;
+    border-color: $warning-color !important;
+
+    &:hover {
+      background-color: lighten($warning-color, 5) !important;
+      border-color: lighten($warning-color, 5) !important;
+    }
+  }
+
+  &.btn-danger {
+    background-color: $danger-color !important;
+    border-color: $danger-color !important;
+
+    &:hover {
+      background-color: lighten($danger-color, 5) !important;
+      border-color: lighten($danger-color, 5) !important;
+    }
+  }
+
   &.text-uppercase {
     text-transform: uppercase;
   }
+}
+
+.btn-sm {
+  padding: 5px 8px !important;
+  width: auto !important;
+  font-size: 13px !important;
+}
+
+.btn-full {
+  width: 100% !important;
+}
+
+.btn-round {
+  border-radius: 50% !important;
+  padding: 10px !important;
 }

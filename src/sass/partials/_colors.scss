@@ -38,3 +38,9 @@ $youtube-icon-color: #ff5353;
 // Font Colours
 $default-font-color: #494949;
 $light-font-color: #696969;
+
+// Notification Colours
+$success-color: #87cb16 !default;
+$warning-color: #ffa534 !default;
+$info-color: #23ccef !default;
+$danger-color: darken(#fb404b, 8%) !default;

@@ -6,12 +6,24 @@
   text-align: center;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.center-button {
+  margin: 0 auto !important;
+}
+
 .full-height {
   height: 100%;
 }
 
 .font-white {
   color: $white;
+}
+
+.body-padding {
+  padding: 5% 10%;
 }
 
 /** JQuery Mobile Framework GLobal Style Overrides **/
@@ -26,15 +38,18 @@
 
 .ui-bar {
   padding: unset !important;
+  background-color: $white !important;
 }
 
 .ui-bar-a {
   border: none !important;
+  background-color: $white !important;
 }
 
 .ui-btn {
   text-shadow: none !important;
   font-family: 'Roboto', sans-serif !important;
+  font-size: $default-font-size;
   &:active {
     text-shadow: none !important;
   }
