@@ -55,7 +55,7 @@
       <hr class="hr-text" data-content="OR">
 
       <div class="social-login-container">
-        <h5>Sign in with</h5>
+        <h6>Sign in with</h6>
         <div class="social-icons">
           <ul>
             <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
