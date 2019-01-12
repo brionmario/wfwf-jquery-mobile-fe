@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>jQuery Mobile Seed by Aparecium Labs</title>
+  <title>Event Description | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
