@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./news.php" rel="external">
                     <i class="fa fa-globe"></i>
                     News
                 </a>
