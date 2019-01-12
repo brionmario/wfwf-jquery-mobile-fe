@@ -52,9 +52,20 @@
       <div class="list-wrapper">
         <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-input="#filter-input" data-inset="true" data-filter="true">
           <?php
+            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events";
+
+            if ($_GET['sort'] != '') {
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[order]={$_GET['sort']}%20{$_GET['order']}";
+              echo $url;
+            }
+
+            if ($_GET['filter'] != '' && $_GET['filter_value'] != '') {
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[where][{$_GET['filter']}]={$_GET['filter_value']}";
+            }
+
             $curl = curl_init();
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://westminster-fashion-week-api.herokuapp.com/api/v1/events",
+              CURLOPT_URL => $url,
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_TIMEOUT => 30,
               CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -91,7 +102,6 @@
                   ?>
                 </div>
               </li>
-
             <?php endforeach; ?>
             
         </ul>
@@ -106,7 +116,7 @@
             }
           ?>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="refresh()">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="refreshPage()">Continue</a>
         </div>
       </div>
     </div><!-- /content -->

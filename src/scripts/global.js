@@ -11,6 +11,14 @@ export function scrollToTop() {
   window.scrollTo(0, 0);
 }
 
-export function refresh() {
+export function refreshPage() {
   window.location.reload(true);
+}
+
+export function replacePage(url) {
+  window.location.replace(url);
+}
+
+export function navigatePage(url) {
+  window.location.href(url);
 }
