@@ -70,6 +70,16 @@
     }
   }
 
+  &.btn-info {
+    background-color: $info-color !important;
+    border-color: $info-color !important;
+
+    &:hover {
+      background-color: lighten($info-color, 5) !important;
+      border-color: lighten($info-color, 5) !important;
+    }
+  }
+
   &.btn-success {
     background-color: $success-color !important;
     border-color: $success-color !important;
@@ -77,6 +87,26 @@
     &:hover {
       background-color: lighten($success-color, 5) !important;
       border-color: lighten($success-color, 5) !important;
+    }
+  }
+
+  &.btn-warning {
+    background-color: $warning-color !important;
+    border-color: $warning-color !important;
+
+    &:hover {
+      background-color: lighten($warning-color, 5) !important;
+      border-color: lighten($warning-color, 5) !important;
+    }
+  }
+
+  &.btn-danger {
+    background-color: $danger-color !important;
+    border-color: $danger-color !important;
+
+    &:hover {
+      background-color: lighten($danger-color, 5) !important;
+      border-color: lighten($danger-color, 5) !important;
     }
   }
 
