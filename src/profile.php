@@ -8,14 +8,18 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
   <title>Profile | Westminster Fashion Week Festival 2019</title>
+
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon_package/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon_package/favicon-16x16.png">
   <link rel="manifest" href="./assets/icons/favicon_package/site.webmanifest">
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
+
   <!-- inject:css -->
-  
+  <!-- endinject -->
+
+  <!-- inject:js -->
   <!-- endinject -->
 </head>
 
@@ -84,10 +88,12 @@
   </div><!-- /content -->
   <?php require './components/footer.php'?><!--footer -->
 </div><!-- page -->
-<!-- inject:js -->
-<!-- endinject -->
 <script type="text/javascript">
     var breadcrumb = [
+      {
+        name: 'Home',
+        href: 'index.php'
+      },
       {
         name: 'Profile',
         href: 'profile.php'
@@ -95,6 +101,5 @@
     ];
     setBreadcrumb(breadcrumb);
   </script>
-<script async="" src="/browser-sync/browser-sync-client.2.11.1.js"></script>
 </body>
 </html>
