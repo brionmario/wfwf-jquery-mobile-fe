@@ -110,6 +110,17 @@
     }
   }
 
+  &.btn-outline {
+    background-color: transparent !important;
+    border-color: $dark-gray !important;
+    color: $dark-gray !important;
+
+    &:hover {
+      background-color: transparent !important;
+      border-color: $dark-gray !important;
+    }
+  }
+
   &.text-uppercase {
     text-transform: uppercase;
   }

@@ -51,36 +51,54 @@
       </div>
       <div class="list-wrapper">
         <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
-          <li class="list-item card">
-            <a class="content" href="event-description.php" rel="external">
-              <img src="assets/img/default-image-placeholder.png">
-              <h2>Hipster Fashion Catwalk</h2>
-              <p>Dec 10, 3.00 p.m</p>
-              <p class="location"><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
-            </a>
-            <a  class="fav-btn" href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop">Add to favourites</a>
-            <div class = "heart-icon-container">
-                <a href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-heart-o"></i></a>
-            </div>
-          </li>
+          <?php
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://westminster-fashion-week-api.herokuapp.com/api/v1/events",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache"
+                ),
+              ));
 
-          <li class="list-item card">
-            <a class="content" href="#">
-              <img src="assets/img/default-image-placeholder.png">
-              <h2>Hipster Fashion Catwalk</h2>
-              <p>Dec 10, 3.00 p.m</p>
-              <p class="location"><i class="fa fa-location-arrow"></i>King James Hall, Westminster University</p>
-            </a>
-            <a  class="fav-btn" href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop">Add to favourites</a>
-            <div class = "heart-icon-container">
-                <a href="#favourites" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-heart-o"></i></a>
-            </div>
-          </li>
+              $response = curl_exec($curl);
+              $err = curl_error($curl);
+              curl_close($curl);
+
+              $events = json_decode($response, true);
+
+              foreach($events as $event):
+              ?>
+              
+              <li class="list-item card">
+                <a class="content" href="event-description.php" rel="external">
+                  <img src="<?php echo $event['thumbnail']; ?>">
+                  <h2><?php echo $event['title']; ?></h2>
+                  <p><?php echo $event['date']; ?></p>
+                  <p class="location"><i class="fa fa-location-arrow"></i><?php echo $event['location']; ?></p>
+                </a>
+                <a  class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop">Add to favourites</a>
+                <div class = "heart-icon-container">
+                  <?php 
+                    if ($event['favourited'] == true) {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="favourited fa fa-heart"></i></a>';
+                    } else {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-heart-o"></i></a>';
+                    }
+                  ?>
+                </div>
+              </li>
+
+            <?php endforeach; ?>
         </ul>
-        <div data-role="popup" id="favourites" data-theme="a" data-overlay-theme="b" class="" style="max-width:500px; padding: 0.8em 2em !important;">
-          <h3>Success!</h3>
-          <p>The item is added to favourites.</p>
-          <a href="index.html" data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
+        <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center">
+          <h3>Event Favourited</h3>
+          <p>The event has been successfully added to your favourites list</p>
+          <img class="check-mark" src="assets/img/check-mark-circular.svg" />
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
         </div>
       </div>
     </div><!-- /content -->

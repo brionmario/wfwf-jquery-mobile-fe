@@ -66,7 +66,7 @@
           <div class="action-button-container body-padding text-center">
             <button class="btn btn-primary btn-full book-tickets-btn">Book Tickets</button>
             <button class="btn btn-secondary directions-btn ui-btn-inline">Get Directions</button>
-            <button class="btn btn-secondary favourites-btn ui-btn-inline"><i class="fa fa-heart-o"></i>&ensp;Add To Favourites</button>
+            <button class="btn btn-outline favourites-btn ui-btn-inline"><i class="fa fa-heart-o"></i>Add To Favourites</button>
           </div><!-- /action-button-container  -->
         </div><!-- /ui-block -->
       </div><!-- /grid-a -->

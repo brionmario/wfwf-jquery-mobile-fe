@@ -32,7 +32,10 @@
         bottom: 7px;
         i {
           font-size: 20px;
-          color: black;
+          color: $dark-gray;
+        }
+        .favourited {
+          color: $danger-color;
         }
       }
     }
