@@ -91,13 +91,13 @@
                   <p><?php echo $event['date']; ?></p>
                   <p class="location"><i class="fa fa-location-arrow"></i><?php echo $event['location']; ?></p>
                 </a>
-                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $event['favourited']; ?>, 'event','<?php echo $event['id']; ?>')">Add to favourites</a>
+                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $event['favourited']; ?>, 'events','<?php echo $event['id']; ?>')">Add to favourites</a>
                 <div class = "heart-icon-container">
                   <?php 
                     if ($event['favourited'] == 'true') {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',"event","'.$event['id'].'")"><i class="favourited fa fa-heart"></i></a>';
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',\'events\',\''.$event['id'].'\')"><i class="favourited fa fa-heart"></i></a>';
                     } else if ($event['favourited'] == 'false') {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',"event","'.$event['id'].'")"><i class="fa fa-heart-o"></i></a>';
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',\'events\',\''.$event['id'].'\')"><i class="fa fa-heart-o"></i></a>';
                     }
                   ?>
                 </div>
