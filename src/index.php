@@ -286,7 +286,9 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function(){
-      $('.page-slider').slick();
+      $('.page-slider').slick({
+        dots: true
+      });
     });
 
     $(document).ready(function () {
