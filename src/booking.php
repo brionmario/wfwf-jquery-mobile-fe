@@ -24,47 +24,71 @@
 </head>
 
 <body>
-  <div data-role="page" class="booking">
-    <?php require './components/sidebar.php'?><!-- /panel -->
-    <?php require './components/header.php'?><!-- header -->
-    <div role="main" class="overlay ui-content main-content about">
-      <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-      <div class="ui-grid-a">
-        <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:120px"><img src="assets/img/images/about-image.jpg" /></div></div>
-        <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:120px">
-        <h5>Hipster Fashion Catwalk</h5>
-        <p class="event-description-text">Checks, plaids and tartans have been adopted by musical subcultures for decades, from punk to grunge or hip-hop. For a preppier take on the tartan look, think Cher Horowitz in 90s classic Clueless, teaming mini kilts with mohair knits and cropped jackets.Mix and match clashing checks in bright colours – orange, purple, blue and yellow – and dress them up as tailored separates and outerwear, or down by teaming them with denim and oversized pieces.</p>
-        <P>Tickets </p><input type="number" name="quantity" min="1" max="5">
-    </div></div>
-      </div><!-- /grid-a -->
-      <hr class="style14"> 
-     <div class="form-area">
-       <h5>Pay with Paypal</h5>
-       <div class="inputWithIcon"> 
-           <input type="email" name="email" placeholder="Email">
-           <i class="fa fa-envelope fa-lg"></i>
-           </div>
-           <div class="inputWithIcon">  
-          <input type="password" name="password" placeholder="Password">
-          <i class="fa fa-lock fa-lg"></i>
-          </div>
-           <p><a href="www.paypal.com">Don't have paypal account</a></p>
-    </div>
-    
-    <hr class="style14">
-     <div class="booking-detils">
-     <h5>Booking Deatils</h5>
-       <p>Number of tickets:   2</p>
-       <h2>Total Amount:  $20.00</h2>
-       <div class="form-button">
-            <button type="button" onclick="alert('Submit')">Confirm & Pay</button>
-          </div>
-     </div>
-     
-    </div><!-- /content -->
-    <?php require './components/footer.php'?><!--footer -->
-  </div><!-- page -->
+    <?php
+  echo '<div data-role="page" class="booking">';
+    require './components/sidebar.php';
+    require './components/header.php';
+    echo '<div role="main" class="overlay ui-content main-content about">';
+    require './components/breadcrumb.php';
 
+    $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
+        
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => array(
+        "cache-control: no-cache"
+        ),
+      ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    curl_close($curl);
+
+    $event = json_decode($response);
+
+
+    echo '<div class="ui-grid-a">';
+      echo '<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:160px">';
+        echo '<img src="'.$event->imageSlider[0].'" />';
+      echo '</div></div>';
+      echo '<div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:160px">';
+        echo '<h5  class="event-title">'.$event->title.'</h5>';
+        echo  '<p class="event-description-text">'.$event->description.'</p>';
+        echo '<P>Tickets </p><input type="number" id="total" name="quantity" min="1" max="5" value="0">';
+        echo '<h2>$ '.$event->ticketPrice.'.00</h2>';
+      echo '</div></div>';
+    echo '</div><!-- /grid-a -->';
+    echo '<hr class="style14">'; 
+    echo '<div class="form-area">';
+        echo ' <h5>Pay with Paypal</h5>';
+            echo '<div class="inputWithIcon">';
+                echo '<input type="email" name="email" placeholder="Email">';
+                echo ' <i class="fa fa-envelope fa-lg"></i>';
+            echo '</div>';
+            echo ' <div class="inputWithIcon">';
+                echo ' <input type="password" name="password" placeholder="Password">';
+                echo ' <i class="fa fa-lock fa-lg"></i>';
+            echo ' </div>';
+            echo ' <p><a href="www.paypal.com">Don\'t have paypal account</a></p>';
+        echo '</div>';
+        echo '<hr class="style14">';
+        echo ' <div class="booking-detils">';
+            echo '<h5>Booking Deatils</h5>';
+            echo ' <p>Number of tickets:   </p>';
+            echo '<h2>Total Amount:  $20.00</h2>';
+                echo ' <div class="form-button">';
+                echo ' <button type="button" onclick="alert(\'Submit\')">Confirm & Pay</button>';
+                echo ' </div>';
+        echo ' </div>';
+    echo ' </div><!-- /content -->';
+     require './components/footer.php';
+   echo '</div><!-- page -->';
+   ?>
   
   <script type="text/javascript">
     var breadcrumb = [
