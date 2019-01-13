@@ -65,7 +65,7 @@
             echo '</div>';
 
             echo '<div class="action-button-container body-padding text-center">';
-              echo '<button class="btn btn-secondary directions-btn" onclick="navigatePage(\'get-directions.php?id='.$news->id.'\')">Get Directions</button>';
+              echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$news->id.'&lat='.$news->latitude.'&lon='.$news->longitude.'\')">Get Directions</button>';
               echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$news->favourited.',\'news\',\''.$news->id.'\'); navigatePage(\'news-description.php?id='.$news->id.'\')">';    
                 if ($news->favourited == 'true') {
                   echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
@@ -80,8 +80,8 @@
       require './components/footer.php';
     echo '</div>';
 
-  echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'News\',href: \'news.php\'},{name: \''.$news->title.'\',href: \'news-description.php?id='.$news->id.'\'}];setBreadcrumb(breadcrumb);</script>';
-  ?>
+    echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'News\',href: \'news.php\'},{name: \''.$news->title.'\',href: \'news-description.php?id='.$news->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+    ?>
   
   <script type="text/javascript">
     $(document).ready(function(){
