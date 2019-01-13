@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
-  <meta name="author" content="Brion Silva">
+  <meta name="author" content="Thisura Sagara">
   <title>About | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
@@ -24,49 +24,33 @@
 </head>
 
 <body>
-  <div data-role="page">
+  <div data-role="page" class="about">
     <?php require './components/sidebar.php'?><!-- /panel -->
     <?php require './components/header.php'?><!-- header -->
     <div role="main" class="overlay ui-content main-content about">
       <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
       <div class="about-slider">
-        <img src="assets/img/events/1.jpg" />
+        <img src="assets/img/about/about-image.jpg" />
       </div>
       <div class="ui-grid-a ui-responsive">
         <div class="ui-block-solo">
           <div class="event-description-container body-padding text-center">
             <h2 class="event-title">
-              About
+              WESMINSTER FASHION WEEK FESTIVAL
             </h2>
             <p class="event-description-text">
             Checks, plaids and tartans have been adopted by musical subcultures for decades, from punk to grunge or hip-hop. For a preppier take on the tartan look, think Cher Horowitz in 90s classic Clueless, teaming mini kilts with mohair knits and cropped jackets.Mix and match clashing checks in bright colours – orange, purple, blue and yellow – and dress them up as tailored separates and outerwear, or down by teaming them with denim and oversized pieces.
             </p>
-            <button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>
-          </div><!-- /event-description-container -->
-          <div data-role="collapsible-set" data-corners="false" data-theme="false" data-content-theme="false">
-            <div data-role="collapsible">
-              <h3>Models</h3>
-              <ul data-role="listview" data-inset="false">
-                <li>Cara Delevingne</li>
-                <li>kate moss</li>
-                <li>Rosie Huntington-Whiteley</li>
-                <li>Leomie Anderson</li>
-              </ul>
-            </div>
-            <div data-role="collapsible">
-              <h3>Designers</h3>
-              <ul data-role="listview" data-inset="false">
-                <li>Tom Ford</li>
-                <li>Sandy Powell</li>
-                <li>Alexandra Byrne</li>
-              </ul>
-            </div>
-          </div><!-- /collapsible-set -->
-          <div class="action-button-container body-padding text-center">
-            <button class="btn btn-primary btn-full book-tickets-btn">Book Tickets</button>
-            <button class="btn btn-secondary directions-btn ui-btn-inline">Get Directions</button>
-            <button class="btn btn-secondary favourites-btn ui-btn-inline"><i class="fa fa-heart-o"></i>&ensp;Add To Favourites</button>
-          </div><!-- /action-button-container  -->
+          </div>
+          <hr class="hr-text" data-content="Share on">
+          <div class="social-icons">
+            <ul>
+              <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+              <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+              <li><a href="https://instagram.com/apareciumlabs" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://youtube.com/apareciumlabs" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
+            </ul>
+          </div>
         </div><!-- /ui-block -->
       </div><!-- /grid-a -->
     </div><!-- /content -->
@@ -91,33 +75,7 @@
       $('.about-slider').slick();
     });
 
-    $(document).ready(function () {
-      var defaultHeight = 40;
-      var text = $(".event-description-text");
-      var textHeight = text[0].scrollHeight;
-      var button = $(".show-more-btn");
-      text.css({"max-height": defaultHeight, "overflow": "hidden"});
-
-      button.on("click", function(){
-        var newHeight = 0;
-        var label = 'Shore more';
-
-        if (text.hasClass("active")) {
-          newHeight = defaultHeight;
-          text.removeClass("active");
-          label = "Show more";
-        } else {
-          newHeight = textHeight;
-          text.addClass("active");
-          label = 'Shore less';
-        }
-        text.animate({
-          "max-height": newHeight
-        }, 200);
-
-        $(".show-more-btn").text(label);
-      });
-    });
+    
   </script>
 </body>
 </html>
