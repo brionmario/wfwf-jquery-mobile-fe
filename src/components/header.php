@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="./team.php" rel="external">
+                <a href="./members.php" rel="external">
                     <i class="fa fa-group"></i>
                     Team
                 </a>
