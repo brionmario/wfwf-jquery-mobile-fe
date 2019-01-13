@@ -5,6 +5,12 @@
   padding: $header-padding;
   height: $header-height !important;
   text-align: center;
+  .navbar {
+    display: none !important;
+  }
+  .hamburger {
+    display: block !important;
+  }
   a {
     background-color: $secondary-color !important;
     border-color: $secondary-color !important;
@@ -40,55 +46,84 @@
 
 /** iPhone 6, 7, & 8 in portrait **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
-  .navbar {
-    display: none;
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
   }
 }
 
 /** iPhone 6, 7, & 8 in landscape **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
-  .navbar {
-    display: none;
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
   }
 }
 
 /** iPhone X in portrait **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
-  .navbar {
-    display: none;
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
   }
 }
 
 /** iPhone X in landscape **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
-  .navbar {
-    display: none;
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
   }
 }
 
 /** iPad in portrait **/
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  .navbar {
-    display: none;
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
   }
 }
 
 /** iPad in landscape **/
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .navbar {
-    display: inline-block !important;
-  }
-  .hamburger {
-    display: none !important;
+  .header {
+    .navbar {
+      display: inline-block !important;
+    }
+    .hamburger {
+      display: none !important;
+    }
   }
 }
 
 /** Desktop **/
 @media only screen and (min-device-width: 1024px) {
-  .navbar {
-    display: inline-block !important;
-  }
-  .hamburger {
-    display: none !important;
+  .header {
+    .navbar {
+      display: inline-block !important;
+    }
+    .hamburger {
+      display: none !important;
+    }
   }
 }

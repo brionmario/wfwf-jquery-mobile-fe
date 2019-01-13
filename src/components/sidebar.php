@@ -2,7 +2,7 @@
     <div data-role="navbar" class="navbar">
         <ul>
             <li class="nav-link">
-                <a href="#">
+                <a href="./index.php" rel="external">
                     <i class="fa fa-home"></i>
                     Home
                 </a>
@@ -26,27 +26,33 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./poi.php" rel="external">
                     <i class="fa fa-map-marker"></i>
                     Points of Interests
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./about.php" rel="external">
                     <i class="fa fa-info"></i>
                     About
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./team.php" rel="external">
                     <i class="fa fa-group"></i>
                     Team
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./contact.php" rel="external">
                     <i class="fa fa-phone"></i>
                     Contact
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="./logout.php" rel="external">
+                    <i class="fa fa-power-off"></i>
+                    Logout
                 </a>
             </li>
         </ul>
