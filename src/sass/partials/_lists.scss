@@ -32,7 +32,53 @@
         bottom: 7px;
         i {
           font-size: 20px;
-          color: black;
+          color: $dark-gray;
+        }
+        .favourited {
+          color: $danger-color;
+        }
+      }
+    }
+    &.tasks {
+      .task-block {
+        width: 100px !important;
+        border-image: 30 round !important;
+        float: left;
+        margin: 3px 0;
+        h2 {
+          font-size: 16px;
+        }
+      }
+      .bar-con {
+        margin-right: 2%;
+        background-color: #ccc;
+        height: 2.5em;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        width: 35%;
+        float: right;
+        border-style: ridge;
+        //border-color: #0cf10822;
+      }
+      .bar {
+        float: left;
+        height: 100%;
+        width: 100%;
+      }
+      .bar-one .bar {
+        background-color: #31bf0d;
+        h2 {
+          color: #ffffff;
+          text-align: center;
+          font-family: 'Roboto', sans-serif !important;
+        }
+      }
+      .bar-two .bar {
+        background-color: #a90c13;
+        h2 {
+          color: #ffffff;
+          text-align: center;
+          font-family: 'Roboto', sans-serif !important;
         }
       }
     }

@@ -1,0 +1,21 @@
+.popup {
+  padding: 20px 30px;
+  .check-mark {
+    margin: 10px 0;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.filter-popup {
+  min-width: 300px;
+  button {
+    margin-right: 5px;
+  }
+  h3 {
+    margin-bottom: 10px;
+  }
+  .sort-block {
+    margin-bottom: 5px;
+  }
+}

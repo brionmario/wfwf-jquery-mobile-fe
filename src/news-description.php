@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>Event Description | Westminster Fashion Week Festival 2019</title>
+  <title>News Description | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -31,7 +31,7 @@
       echo '<div role="main" class="overlay ui-content main-content page-description">';
         require './components/breadcrumb.php';
 
-        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/news/{$_GET['id']}";
         
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -49,47 +49,27 @@
         $err = curl_error($curl);
         curl_close($curl);
 
-        $event = json_decode($response);
+        $news = json_decode($response);
 
-        echo '<div class="page-slider">';
-          foreach($event->imageSlider as $image):
+        echo '<div class="news-slider">';
+          foreach($news->imageSlider as $image):
             echo '<img src="'.$image.'" />';
           endforeach;
         echo '</div>';
         echo '<div class="ui-grid-a ui-responsive">';
           echo '<div class="ui-block-solo">';
             echo '<div class="page-description-container body-padding text-center">';
-              echo '<h2 class="page-title">'.$event->title.'</h2>';
-              echo '<p class="page-description-text">'.$event->description.'</p>';
+              echo '<h2 class="page-title">'.$news->title.'</h2>';
+              echo '<p class="page-description-text">'.$news->description.'</p>';
               echo '<button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>';
             echo '</div>';
 
-            echo '<div data-role="collapsible-set" data-corners="false" data-theme="false" data-content-theme="false">';
-              echo '<div data-role="collapsible" data-collapsed="false">';
-                echo '<h3>Models</h3>';
-                echo '<ul data-role="listview" data-inset="false">';
-                  foreach($event->models as $model):
-                    echo '<li>'.$model.'</li>';
-                  endforeach;
-                echo '</ul>';
-              echo '</div>';
-              echo '<div data-role="collapsible">';
-                echo '<h3>Designers</h3>';
-                echo '<ul data-role="listview" data-inset="false">';
-                  foreach($event->designers as $designer):
-                    echo '<li>'.$designer.'</li>';
-                  endforeach;
-                echo '</ul>';
-              echo '</div>';
-            echo '</div>';
-
             echo '<div class="action-button-container body-padding text-center">';
-              echo '<button class="btn btn-primary btn-full book-tickets-btn" onclick="navigatePage(\'booking.php?id='.$event->id.'\')">Book Tickets</button>';
-              echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$event->id.'\')">Get Directions</button>';
-              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$event->favourited.',\'events\',\''.$event->id.'\'); navigatePage(\'event-description.php?id='.$event->id.'\')">';    
-                if ($event->favourited == 'true') {
+              echo '<button class="btn btn-secondary directions-btn" onclick="navigatePage(\'get-directions.php?id='.$news->id.'\')">Get Directions</button>';
+              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$news->favourited.',\'news\',\''.$news->id.'\'); navigatePage(\'news-description.php?id='.$news->id.'\')">';    
+                if ($news->favourited == 'true') {
                   echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
-                } else if ($event->favourited == 'false') {
+                } else if ($news->favourited == 'false') {
                   echo '<i class="favourited fa fa-heart"></i>Add To Favourites';
                 }
               echo '</button>';
@@ -100,7 +80,7 @@
       require './components/footer.php';
     echo '</div>';
 
-  echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Events\',href: \'events.php\'},{name: \''.$event->title.'\',href: \'event-description.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+  echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'News\',href: \'news.php\'},{name: \''.$news->title.'\',href: \'news-description.php?id='.$news->id.'\'}];setBreadcrumb(breadcrumb);</script>';
   ?>
   
   <script type="text/javascript">

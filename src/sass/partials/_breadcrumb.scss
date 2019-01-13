@@ -11,6 +11,10 @@
           font-weight: 600;
           text-decoration: none;
           font-size: $default-font-size;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 70px;
           &:hover {
             color: $light-font-color;
             text-decoration: underline;

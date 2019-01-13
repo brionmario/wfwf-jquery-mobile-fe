@@ -1,0 +1,94 @@
+.card-flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  .card {
+    flex: 1 0 $card-max-width;
+    max-width: $card-max-width;
+    margin: 0 10px 20px 10px;
+    background-color: $white;
+    box-shadow: $card-box-shadow;
+    border-radius: $card-border-radius;
+    position: relative;
+    cursor: pointer;
+    min-height: 110px;
+    &:empty {
+      display: flex;
+      height: 0;
+      border: none;
+      margin-bottom: 0;
+      min-height: 0;
+      padding: 0;
+    }
+    &:hover {
+      box-shadow: $card-hover-box-shadow;
+    }
+    .card-thumbnail-container {
+      width: $card-max-width;
+      height: 200px;
+      text-align: center;
+      margin: 0 auto;
+      .thumbnail {
+        background: $medium-gray;
+        border-top-right-radius: $card-border-radius;
+        border-top-left-radius: $card-border-radius;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        z-index: 3;
+        text-align: center;
+        overflow: hidden;
+        img {
+          vertical-align: middle;
+          width: 100%;
+          display: inline-block;
+          overflow: hidden;
+        }
+      }
+    }
+    .card-content-container {
+      padding: 10px 12px;
+      .card-heading {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 5px 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .card-description {
+        .meta-1 {
+          color: $light-font-color;
+          margin-bottom: 5px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .meta-2 {
+          font-size: 11px;
+          margin-top: 4px;
+          color: $lighter-font-color;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          i {
+            margin-right: 5px;
+          }
+        }
+        .favourite-btn-container {
+          text-align: right;
+          padding-top: 8px;
+          i {
+            font-size: 25px;
+          }
+          .favourited {
+            color: $red-colour;
+          }
+        }
+      }
+    }
+  }
+}

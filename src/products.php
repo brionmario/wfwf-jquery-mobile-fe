@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>Events | Westminster Fashion Week Festival 2019</title>
+  <title>Products | Westminster Fashion Week Festival 2019</title>
 
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -35,7 +35,7 @@
             <div class="ui-bar ui-bar-a">
               <div class="filter-input-container">
                 <form class="ui-filterable">
-                  <input class="form-control" id="filter-input" data-type="search" placeholder="Search Events">
+                  <input class="form-control" id="filter-input" data-type="search" placeholder="Search Products">
                 </form>
               </div>
             </div>
@@ -52,15 +52,15 @@
       <div class="list-wrapper">
         <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-input="#filter-input" data-inset="true" data-filter="true">
           <?php
-            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events";
+            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/products";
 
             if ($_GET['sort'] != '' && $_GET['sort_order'] != '') {
-              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/products?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
               echo $url;
             }
 
             if ($_GET['filter'] != '' && $_GET['filter_value'] != '') {
-              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[where][{$_GET['filter']}]={$_GET['filter_value']}";
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/products?filter[where][{$_GET['filter']}]={$_GET['filter_value']}";
             }
 
             $curl = curl_init();
@@ -79,25 +79,25 @@
               $err = curl_error($curl);
               curl_close($curl);
 
-              $events = json_decode($response, true);
+              $products = json_decode($response, true);
 
-              foreach($events as $event):
+              foreach($products as $product):
               ?>
               
               <li class="list-item card">
-                <a class="content" href="<?php echo 'event-description.php?id='.$event['id']; ?>" rel="external">
-                  <img src="<?php echo $event['thumbnail']; ?>">
-                  <h2><?php echo $event['title']; ?></h2>
-                  <p><?php echo $event['date']; ?></p>
-                  <p class="location"><i class="fa fa-location-arrow"></i><?php echo $event['location']; ?></p>
+                <a class="content" href="<?php echo 'product-description.php?id='.$product['id']; ?>" rel="external">
+                  <img src="<?php echo $product['thumbnail']; ?>">
+                  <h2><?php echo $product['title']; ?></h2>
+                  <p>£<?php echo $product['price']; ?></p>
+                  <p class="location"><i class="fa fa-location-arrow"></i><?php echo $product['location']; ?></p>
                 </a>
-                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $event['favourited']; ?>, 'events','<?php echo $event['id']; ?>')">Add to favourites</a>
+                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $product['category']; ?>, 'products','<?php echo $product['id']; ?>')">Add to favourites</a>
                 <div class = "heart-icon-container">
                   <?php 
-                    if ($event['favourited'] == 'true') {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',\'events\',\''.$event['id'].'\')"><i class="favourited fa fa-heart"></i></a>';
-                    } else if ($event['favourited'] == 'false') {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$event['favourited'].',\'events\',\''.$event['id'].'\')"><i class="fa fa-heart-o"></i></a>';
+                    if ($product['favourited'] == 'true') {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$product['favourited'].',\'products\',\''.$product['id'].'\')"><i class="favourited fa fa-heart"></i></a>';
+                    } else if ($product['favourited'] == 'false') {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$product['favourited'].',\'products\',\''.$product['id'].'\')"><i class="fa fa-heart-o"></i></a>';
                     }
                   ?>
                 </div>
@@ -111,7 +111,7 @@
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('events.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('products.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->
@@ -120,13 +120,15 @@
             <h3>Filter</h3>
             <div class="sort-block">
               <h5>Sort by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=date&sort_order=DESC')">Latest</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=ASC')">A-Z</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=DESC')"> Z-A</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?sort=price&sort_order=ASC')">Cheapest</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?sort=title&sort_order=DESC')"> Z-A</button>
             </div>
             <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=category&filter_value=dresses')">Dresses</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=category&filter_value=denims')">Denims</button>
             </div>
           </div>
         </div>
@@ -142,8 +144,8 @@
         href: 'index.php'
       },
       {
-        name: 'Events',
-        href: 'events.php'
+        name: 'Products',
+        href: 'products.php'
       }
     ];
     setBreadcrumb(breadcrumb);

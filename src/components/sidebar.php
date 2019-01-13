@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./products.php" rel="external">
                     <i class="fa fa-dropbox"></i>
                     Products
                 </a>
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-link">
-                <a href="#">
+                <a href="./news.php" rel="external">
                     <i class="fa fa-globe"></i>
                     News
                 </a>
