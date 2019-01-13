@@ -5,6 +5,47 @@
   padding: $header-padding;
   height: $header-height !important;
   text-align: center;
+  .navbar {
+    display: none !important;
+    text-align: left;
+    padding-left: 10px;
+    width: 829px;
+    .ui-grid-a > .ui-block-a,
+    .ui-grid-a > .ui-block-b {
+      width: 10%;
+      float: none;
+    }
+    .nav-link {
+      a {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid $dark-gray;
+        padding: 13px 7px;
+        color: white;
+        background-color: $secondary-color;
+        font-size: 12px;
+        text-align: left;
+        min-height: 45px;
+        i {
+          font-size: 16px;
+          margin-right: 5px;
+          width: 16px;
+        }
+        &:hover {
+          background-color: lighten($secondary-color, 5);
+          border-right: 5px solid $tertiary-color !important;
+        }
+        &:focus {
+          box-shadow: unset !important;
+        }
+      }
+      width: 100%;
+    }
+  }
+  .hamburger {
+    display: block !important;
+  }
   a {
     background-color: $secondary-color !important;
     border-color: $secondary-color !important;
@@ -18,7 +59,6 @@
     height: 28px;
     margin-top: 10px;
   }
-
   .login-btn {
     margin-right: 8px !important;
     margin-top: 4px !important;
@@ -35,4 +75,98 @@
   }
 }
 
-/** JQuery Mobile Framework Overrides **/
+/**++++++++-----------------------------------------------------------++++++++**/
+/** ----------------------------  Media Queries  ---------------------------- **/
+/**++++++++-----------------------------------------------------------++++++++**/
+
+/** iPhone 6, 7, & 8 in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
+  }
+}
+
+/** iPhone 6, 7, & 8 in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
+  }
+}
+
+/** iPhone X in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
+  }
+}
+
+/** iPhone X in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
+  }
+}
+
+/** iPad in portrait **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .header {
+    .navbar {
+      display: none !important;
+    }
+    .hamburger {
+      display: block !important;
+    }
+  }
+}
+
+/** iPad in landscape **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .header {
+    text-align: left;
+    .mini-logo {
+      float: left;
+    }
+    .navbar {
+      display: inline-block !important;
+    }
+    .hamburger {
+      display: none !important;
+    }
+  }
+}
+
+/** Desktop **/
+@media only screen and (min-device-width: 1024px) {
+  .header {
+    text-align: left;
+    .mini-logo {
+      float: left;
+    }
+    .navbar {
+      display: inline-block !important;
+    }
+    .hamburger {
+      display: none !important;
+    }
+  }
+}

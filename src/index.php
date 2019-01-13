@@ -37,7 +37,7 @@
         <img src="assets/img/home/6.jpg" />
       </div>
 
-      <div class="content">
+      <div class="padded-content full-height">
         <div class="welcome-placeholder-container text-center">
           <h2>WELCOME</h2>
           <h6 class="description">Home to official Westminster Fashion Week Festival 2018. Catwalk shows, a series of inspiring talks by industry experts, exclusive events and curated shopping galleries,.
