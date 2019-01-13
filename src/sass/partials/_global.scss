@@ -56,6 +56,10 @@
   );
 }
 
+.slick-dots li button:before {
+  font-size: 18px !important;
+}
+
 /** JQuery Mobile Framework GLobal Style Overrides **/
 .ui-page-theme-a,
 .ui-bar-inherit {
