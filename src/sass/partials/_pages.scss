@@ -187,6 +187,12 @@
   }
 }
 
+.directions-page {
+  .google-map {
+    height: calc(100vh - 90px);
+  }
+}
+
 .padded-content {
   padding: 5% 10%;
   &.full-height {
