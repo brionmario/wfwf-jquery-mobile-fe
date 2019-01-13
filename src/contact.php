@@ -24,50 +24,60 @@
 </head>
 
 <body>
-  <div data-role="page" class="contact">
+  <div data-role="page">
     <?php require './components/sidebar.php'?><!-- /panel -->
     <?php require './components/header.php'?><!-- header -->
-    <div role="main" class="overlay ui-content main-content about">
+    <div role="main" class="overlay ui-content main-content page-description contact-page">
       <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-      <div id="map" class="map"></div><!-- map -->
-     <div class="contact-detils">
-       <p><b>Address:</b>   309 Regent Street, London W1B 2HW</p>
-       <p><b>Hotline:</b>   +44 (0)20 7911 5000</p>
-       <p><b>Email:</b>   wfwf@westminster.ac.uk</p>
-     </div>
-     <hr class="style14"> 
-     <div class="form-area">
-       <p>Send us a message</p>
-          <div class="inputWithIcon">
-            <input type="text" name="name" placeholder="Name">
-            <i class="fa fa-user fa-lg"></i>
+      <div id="map" class="google-map"></div><!-- map -->
+      <div class="padded-content full-height">
+        <div class="ui-grid-a breakpoint">
+          <div class="ui-block-a">
+            <div class="contact-details">
+              <p class="address"><span>Address</span>309 Regent Street, London W1B 2HW</p>
+              <p class="phone"><span>Hotline</span>+44(0)20 7911 5000</p>
+              <p class="email"><span>Email</span>wfwf@apareciumlabs.com</p>
+            </div>
+            <hr class="hr vertical" /> 
           </div>
-           <div class="inputWithIcon"> 
-           <input type="email" name="email" placeholder="Email">
-           <i class="fa fa-envelope fa-lg"></i>
-           </div>
-          <div class="inputWithIcon">  
-          <textarea rows="2" placeholder="Type your message here"></textarea>
+          <div class="ui-block-b">
+            <div class="form-container">
+              <h4>Send us a message</h4>
+              <div class="input-with-icon">
+                <input type="text" name="name" placeholder="Name">
+                <i class="fa fa-user fa-lg"></i>
+              </div>
+              <div class="input-with-icon"> 
+                <input type="email" name="email" placeholder="Email">
+                <i class="fa fa-envelope fa-lg"></i>
+              </div>
+              <div class="input-with-icon">  
+                <textarea rows="2" placeholder="Type your message here"></textarea>
+              </div>
+              <div class="form-button-container">
+                <button type="button" class="btn btn-primary" onclick="alert('Sign up')">Submit</button>
+              </div>
+            </div>
           </div>
-          <div class="form-button">
-            <button type="button" onclick="alert('Sign up')">Submit</button>
-          </div>
-    </div>
+        </div><!-- /grid-a -->
+      </div>
     </div><!-- /content -->
     <?php require './components/footer.php'?><!--footer -->
   </div><!-- page -->
 
   <script>
-    mail(thisuras4@gmail.com, )
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVbXTnxIFacAj5Yp67HgRX2yykjUD9BYg&callback=initMap"
+    function initMap() {
+      var lon = -0.141086;
+      var lat = 51.520692;
+      var location = {lat: lat, lng: lon}
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: lat, lng: lon},
+        zoom: 17
+      });
+      var marker = new google.maps.Marker({position: location, map: map});
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYqG3QmAKCWHw5E5Z19jvNPjnqaFBOPDA&callback=initMap"
     async defer></script>
   <script type="text/javascript">
     var breadcrumb = [

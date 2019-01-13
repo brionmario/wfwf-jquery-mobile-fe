@@ -34,7 +34,7 @@
         <h3>Welcome Back,</h3>
         <h5>Sign in to continue</h5>
       </div>
-      <div class="form-area">
+      <div class="form-container">
         <div class="input-with-icon">
           <input type="email" name="email" placeholder="Email">
           <i class="fa fa-envelope"></i>
@@ -43,7 +43,7 @@
           <input type="password" name="password" placeholder="Password">
           <i class="fa fa-lock"></i>
         </div>
-        <div class="form-button">
+        <div class="form-button-container">
           <button type="submit" class="btn btn-primary" onclick="alert('Login')">Login</button>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <p>Don't have an account? Click <a href="sign-up.php">here</a> to sign up now!</p>
       </div>
 
-      <hr class="hr-text" data-content="OR">
+      <hr class="hr" data-content="OR">
 
       <div class="social-login-container">
         <h6>Sign in with</h6>
