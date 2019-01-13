@@ -23,12 +23,12 @@
 </head>
 
 <body>
-<div data-role="page">
+<div data-role="page" class="auth-page-wrapper">
   <div role="main" class="overlay ui-content main-content auth-page">
     <div class="close-icon-container">
       <a data-rel="back" rel="external"><i class="fa fa-times fa-2x"></i></a>
     </div>
-    <div class="content">
+    <div class="padded-content full-height">
       <div class="main-heading-container">
         <h1>Sign up</h1>
         <h3>Howdy stranger,</h3>

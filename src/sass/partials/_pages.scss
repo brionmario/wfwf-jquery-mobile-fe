@@ -46,131 +46,139 @@
   }
 }
 
-.auth-page {
-  height: 100vh;
-  .content {
-    padding: 5% 10%;
-    height: 100%;
-  }
-  .close-icon-container {
-    text-align: right;
-    padding: 15px 20px;
-    i {
-      color: $dark-gray;
-      &:hover {
-        color: darken($dark-gray, 10);
-      }
+.auth-page-wrapper {
+  background-color: $white !important;
+  .auth-page {
+    background-color: $white !important;
+    .content {
+      padding: 5% 10%;
+      height: 100%;
     }
-  }
-
-  .main-heading-container {
-    margin: 15px 0 20px 0;
-    h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-    h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-  }
-
-  .form-area {
-    .input-with-icon {
-      position: relative;
-      padding: 5px 0px;
-      input {
-        padding: 10px 45px;
-      }
+    .close-icon-container {
+      text-align: right;
+      padding: 15px 20px;
       i {
-        position: absolute;
-        left: 4px;
-        top: 17px;
-        padding: 9px 12px;
-        transition: 0.3s;
+        color: $dark-gray;
+        &:hover {
+          color: darken($dark-gray, 10);
+        }
       }
     }
-  }
-  .route-area {
-    padding: 10px 20px;
-    text-align: center;
-  }
 
-  .hr-text {
-    top: 15px;
-    line-height: 1em;
-    position: relative;
-    outline: 0;
-    border: 0;
-    color: black;
-    text-align: center;
-    height: 1.5em;
-    opacity: 0.5;
-    &:before {
-      content: '';
-      background: linear-gradient(to right, transparent, #818078, transparent);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 1px;
+    .main-heading-container {
+      margin: 15px 0 20px 0;
+      h1 {
+        font-size: 50px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      h3 {
+        font-size: 25px;
+        margin-bottom: 10px;
+      }
     }
-    &:after {
-      content: attr(data-content);
-      position: relative;
-      display: inline-block;
-      color: black;
 
-      padding: 0 0.5em;
-      line-height: 1.5em;
-      // this is really the only tricky part, you need to specify the background color of the container element...
-      color: #818078;
-      background-color: #fcfcfa;
-    }
-  }
-  .social-login-container {
-    margin-top: 40px;
-    padding: 0px 20px;
-    text-align: center;
-    h6 {
-      margin-bottom: 10px;
-    }
-    .social-icons {
-      ul > li {
-        > a {
-          display: inline-block;
-          font-size: $footer-icons-font-size;
-          padding: 0;
+    .form-area {
+      .input-with-icon {
+        position: relative;
+        padding: 5px 0px;
+        input {
+          padding: 10px 45px;
         }
-        > a > i {
-          display: inline-block;
-          line-height: 33px;
-          font-size: 20px;
-          transition: all 0.2s;
-          border-radius: 40px;
-          text-align: center;
-          margin: 0 8px;
+        i {
+          position: absolute;
+          left: 4px;
+          top: 17px;
+          padding: 9px 12px;
+          transition: 0.3s;
+        }
+      }
+    }
+    .route-area {
+      padding: 10px 20px;
+      text-align: center;
+    }
 
-          &[class*='facebook'] {
-            color: $facebook-icon-color;
-            border-color: $facebook-icon-color;
-            &:hover {
-              color: lighten($facebook-icon-color, 10);
-            }
+    .hr-text {
+      top: 15px;
+      line-height: 1em;
+      position: relative;
+      outline: 0;
+      border: 0;
+      color: black;
+      text-align: center;
+      height: 1.5em;
+      opacity: 0.5;
+      &:before {
+        content: '';
+        background: linear-gradient(
+          to right,
+          transparent,
+          #818078,
+          transparent
+        );
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+      }
+      &:after {
+        content: attr(data-content);
+        position: relative;
+        display: inline-block;
+        color: black;
+
+        padding: 0 0.5em;
+        line-height: 1.5em;
+        // this is really the only tricky part, you need to specify the background color of the container element...
+        color: #818078;
+        background-color: #fcfcfa;
+      }
+    }
+    .social-login-container {
+      margin-top: 40px;
+      padding: 0px 20px;
+      text-align: center;
+      h6 {
+        margin-bottom: 10px;
+      }
+      .social-icons {
+        ul > li {
+          > a {
+            display: inline-block;
+            font-size: $footer-icons-font-size;
+            padding: 0;
           }
-          &[class*='twitter'] {
-            color: $twitter-icon-color;
-            border-color: $twitter-icon-color;
-            &:hover {
-              color: lighten($twitter-icon-color, 10);
+          > a > i {
+            display: inline-block;
+            line-height: 33px;
+            font-size: 20px;
+            transition: all 0.2s;
+            border-radius: 40px;
+            text-align: center;
+            margin: 0 8px;
+
+            &[class*='facebook'] {
+              color: $facebook-icon-color;
+              border-color: $facebook-icon-color;
+              &:hover {
+                color: lighten($facebook-icon-color, 10);
+              }
             }
-          }
-          &[class*='google-plus'] {
-            color: $google-plus-icon-color;
-            border-color: $google-plus-icon-color;
-            &:hover {
-              color: lighten($google-plus-icon-color, 10);
+            &[class*='twitter'] {
+              color: $twitter-icon-color;
+              border-color: $twitter-icon-color;
+              &:hover {
+                color: lighten($twitter-icon-color, 10);
+              }
+            }
+            &[class*='google-plus'] {
+              color: $google-plus-icon-color;
+              border-color: $google-plus-icon-color;
+              &:hover {
+                color: lighten($google-plus-icon-color, 10);
+              }
             }
           }
         }
@@ -179,12 +187,22 @@
   }
 }
 
+.padded-content {
+  padding: 5% 10%;
+  &.full-height {
+    height: 100%;
+  }
+}
+
 /**++++++++-----------------------------------------------------------++++++++**/
-/** --------------------  Media Queries For Home Page ----------------------- **/
+/** ----------------------------  Media Queries  ---------------------------- **/
 /**++++++++-----------------------------------------------------------++++++++**/
 
 /** iPhone 6, 7, & 8 in portrait **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+  .padded-content {
+    padding: 3% 6%;
+  }
   .intro-page {
     .sponsor-logo-container {
       .breakpoint {
@@ -202,6 +220,9 @@
 
 /** iPhone 6, 7, & 8 in landscape **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .padded-content {
+    padding: 3% 8%;
+  }
   .intro-page {
     .sponsor-logo-container {
       .breakpoint {
@@ -219,6 +240,9 @@
 
 /** iPhone X in portrait **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  .padded-content {
+    padding: 3% 6%;
+  }
   .intro-page {
     .sponsor-logo-container {
       .breakpoint {
@@ -236,6 +260,9 @@
 
 /** iPhone X in landscape **/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .padded-content {
+    padding: 3% 8%;
+  }
   .intro-page {
     .sponsor-logo-container {
       .breakpoint {
@@ -248,5 +275,26 @@
         }
       }
     }
+  }
+}
+
+/** iPad in portrait **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .padded-content {
+    padding: 4% 9%;
+  }
+}
+
+/** iPad in landscape **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .padded-content {
+    padding: 5% 10%;
+  }
+}
+
+/** Desktop **/
+@media only screen and (min-device-width: 1024px) {
+  .padded-content {
+    padding: 5% 10%;
   }
 }
