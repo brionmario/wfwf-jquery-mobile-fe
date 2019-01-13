@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>News | Westminster Fashion Week Festival 2019</title>
+  <title>Points of Interests | Westminster Fashion Week Festival 2019</title>
 
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -35,7 +35,7 @@
             <div class="ui-bar ui-bar-a">
               <div class="filter-input-container">
                 <form class="ui-filterable">
-                  <input class="form-control" id="filter-input" data-type="search" placeholder="Search News">
+                  <input class="form-control" id="filter-input" data-type="search" placeholder="Search Points of Interests">
                 </form>
               </div>
             </div>
@@ -52,14 +52,14 @@
       <div class="list-wrapper">
         <ul class="list" data-role="listview" data-split-icon="gear" data-split-theme="a" data-input="#filter-input" data-inset="true" data-filter="true">
           <?php
-            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/news";
+            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/poi";
 
             if ($_GET['sort'] != '' && $_GET['sort_order'] != '') {
-              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/news?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/poi?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
             }
 
             if ($_GET['filter'] != '' && $_GET['filter_value'] != '') {
-              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/news?filter[where][{$_GET['filter']}]={$_GET['filter_value']}";
+              $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/poi?filter[where][{$_GET['filter']}]={$_GET['filter_value']}";
             }
 
             $curl = curl_init();
@@ -78,25 +78,25 @@
               $err = curl_error($curl);
               curl_close($curl);
 
-              $news = json_decode($response, true);
+              $poi = json_decode($response, true);
 
-              foreach($news as $newsItem):
+              foreach($poi as $poiItem):
               ?>
               
               <li class="list-item card">
-                <a class="content" href="<?php echo 'news-description.php?id='.$newsItem['id']; ?>" rel="external">
-                  <img src="<?php echo $newsItem['thumbnail']; ?>">
-                  <h2><?php echo $newsItem['title']; ?></h2>
-                  <p><?php echo $newsItem['date']; ?></p>
-                  <p class="location"><i class="fa fa-user"></i><?php echo $newsItem['author']; ?></p>
+                <a class="content" href="<?php echo 'poi-description.php?id='.$poiItem['id']; ?>" rel="external">
+                  <img src="<?php echo $poiItem['thumbnail']; ?>">
+                  <h2><?php echo $poiItem['title']; ?></h2>
+                  <p><?php echo $poiItem['interests']; ?></p>
+                  <p class="location"><i class="fa fa-map-marker"></i><?php echo $poiItem['location']; ?></p>
                 </a>
-                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $newsItem['favourited']; ?>, 'news','<?php echo $newsItem['id']; ?>')">Add to favourites</a>
+                <a class="fav-btn" href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite(<?php echo $poiItem['favourited']; ?>, 'poi','<?php echo $poiItem['id']; ?>')">Add to favourites</a>
                 <div class = "heart-icon-container">
                   <?php 
-                    if ($newsItem['favourited'] == 'true') {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$newsItem['favourited'].',\'news\',\''.$newsItem['id'].'\')"><i class="favourited fa fa-heart"></i></a>';
-                    } else if ($newsItem['favourited'] == 'false') {
-                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$newsItem['favourited'].',\'news\',\''.$newsItem['id'].'\')"><i class="fa fa-heart-o"></i></a>';
+                    if ($poiItem['favourited'] == 'true') {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$poiItem['favourited'].',\'poi\',\''.$poiItem['id'].'\')"><i class="favourited fa fa-heart"></i></a>';
+                    } else if ($poiItem['favourited'] == 'false') {
+                      echo '<a href="#add-remove-favourite" data-rel="popup" data-position-to="window" data-transition="pop" onclick="favourite('.$poiItem['favourited'].',\'poi\',\''.$poiItem['id'].'\')"><i class="fa fa-heart-o"></i></a>';
                     }
                   ?>
                 </div>
@@ -110,7 +110,7 @@
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('news.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('poi.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->
@@ -119,13 +119,15 @@
             <h3>Filter</h3>
             <div class="sort-block">
               <h5>Sort by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('news.php?sort=date&sort_order=DESC')">Latest</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('news.php?sort=title&sort_order=ASC')">A-Z</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('news.php?sort=title&sort_order=DESC')"> Z-A</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?sort=interests&sort_order=ASC')">Interests</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?sort=title&sort_order=DESC')"> Z-A</button>
             </div>
             <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('news.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=poiType&filter_value=auditorium')">Auditoriums</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=poiType&filter_value=hall')">Hall</button>
             </div>
           </div>
         </div>
@@ -141,8 +143,8 @@
         href: 'index.php'
       },
       {
-        name: 'News',
-        href: 'news.php'
+        name: 'POI',
+        href: 'poi.php'
       }
     ];
     setBreadcrumb(breadcrumb);

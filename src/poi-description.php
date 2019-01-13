@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>News Description | Westminster Fashion Week Festival 2019</title>
+  <title>Points of Interests Description | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -31,7 +31,7 @@
       echo '<div role="main" class="overlay ui-content main-content page-description">';
         require './components/breadcrumb.php';
 
-        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/news/{$_GET['id']}";
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/poi/{$_GET['id']}";
         
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -49,27 +49,27 @@
         $err = curl_error($curl);
         curl_close($curl);
 
-        $news = json_decode($response);
+        $poi = json_decode($response);
 
         echo '<div class="page-slider">';
-          foreach($news->imageSlider as $image):
+          foreach($poi->imageSlider as $image):
             echo '<img src="'.$image.'" />';
           endforeach;
         echo '</div>';
         echo '<div class="ui-grid-a ui-responsive">';
           echo '<div class="ui-block-solo">';
             echo '<div class="page-description-container body-padding text-center">';
-              echo '<h2 class="page-title">'.$news->title.'</h2>';
-              echo '<p class="page-description-text">'.$news->description.'</p>';
+              echo '<h2 class="page-title">'.$poi->title.'</h2>';
+              echo '<p class="page-description-text">'.$poi->description.'</p>';
               echo '<button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>';
             echo '</div>';
 
             echo '<div class="action-button-container body-padding text-center">';
-              echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$news->id.'&lat='.$news->latitude.'&lon='.$news->longitude.'\')">Get Directions</button>';
-              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$news->favourited.',\'news\',\''.$news->id.'\'); navigatePage(\'news-description.php?id='.$news->id.'\')">';    
-                if ($news->favourited == 'true') {
+              echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$poi->id.'&lat='.$poi->latitude.'&lon='.$poi->longitude.'\')">Get Directions</button>';
+              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$poi->favourited.',\'poi\',\''.$poi->id.'\'); navigatePage(\'poi-description.php?id='.$poi->id.'\')">';    
+                if ($poi->favourited == 'true') {
                   echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
-                } else if ($news->favourited == 'false') {
+                } else if ($poi->favourited == 'false') {
                   echo '<i class="favourited fa fa-heart"></i>Add To Favourites';
                 }
               echo '</button>';
@@ -80,7 +80,7 @@
       require './components/footer.php';
     echo '</div>';
 
-    echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'News\',href: \'news.php\'},{name: \''.$news->title.'\',href: \'news-description.php?id='.$news->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+    echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'POI\',href: \'poi.php\'},{name: \''.$poi->title.'\',href: \'poi-description.php?id='.$poi->id.'\'}];setBreadcrumb(breadcrumb);</script>';
     ?>
   
   <script type="text/javascript">

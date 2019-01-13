@@ -56,7 +56,6 @@
 
             if ($_GET['sort'] != '' && $_GET['sort_order'] != '') {
               $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
-              echo $url;
             }
 
             if ($_GET['filter'] != '' && $_GET['filter_value'] != '') {
