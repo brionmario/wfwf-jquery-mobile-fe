@@ -1,17 +1,49 @@
-// Theme Colors
-$primary-color: #0d1421 !default;
-$secondary-color: #f1582d !default;
-$tertiary-color: #26334A !default;;
+// Theme Colors Primary Colours
+$primary-color: #8e44ad !default;
+$secondary-color: #0e1728 !default;
+$tertiary-color: #5f93e7 !default;
+$quaternary-color: #1b4c7c !default;
+
+//Theme Dark Colours
+$dark-color-1: #2e2f3f;
+$dark-color-2: #333333;
+$dark-color-3: #4b5163;
+$dark-color-4: #13151a;
+
+// Theme General Colours
+$bg-color: #fbfbfb;
+
+// Gray Colors
+$lighter-gray: #f9f9f9 !default;
+$light-gray: #e3e3e3 !default;
+$medium-gray: #dddddd !default;
+$placeholder-gray: #c3c3c3 !default;
+$medium-dark-gray: #aaaaaa !default;
+$dark-gray: #9a9a9a !default;
 
 // General Colors
 $white: #ffffff;
 $black: #000000;
 $gallery: #eeeeee;
-$porcelain: #F1F2F3;
+$porcelain: #f1f2f3;
 $dark-gray: #494949;
 $dusty-gray: #999999;
+$red-colour: #ff3b21;
 
 // Social
-$facebook-icon-color: #2A61D6;
-$twitter-icon-color: #3AA4F8;
-$github-icon-color: #292929;
+$facebook-icon-color: #2a61d6;
+$twitter-icon-color: #3aa4f8;
+$google-plus-icon-color: #d34836;
+$instagram-icon-color: #ff9100;
+$youtube-icon-color: #ff5353;
+
+// Font Colours
+$default-font-color: #494949;
+$light-font-color: #696969;
+$lighter-font-color: #6b6b6b;
+
+// Notification Colours
+$success-color: #87cb16 !default;
+$warning-color: #ffa534 !default;
+$info-color: #23ccef !default;
+$danger-color: darken(#fb404b, 8%) !default;

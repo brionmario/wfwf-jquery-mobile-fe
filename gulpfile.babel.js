@@ -110,7 +110,7 @@ const CONFIG = {
     dev: {
       proxy: '127.0.0.1:8010',
       tunnel: 8010,
-      port: 8000
+      port: 4200
     },
     prod: {
       proxy: '127.0.0.1:8010',
@@ -356,7 +356,7 @@ gulp.task('browserSync', (callback) => {
 
   browserSync.init({
     proxy: proxy,
-    port: port,
+    port: 8010,
     open: true,
     notify: false
   });

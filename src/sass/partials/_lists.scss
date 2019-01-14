@@ -1,0 +1,112 @@
+.list {
+  padding: 0 15px !important;
+  background-color: $bg-color;
+  .list-item {
+    &.card {
+      margin-bottom: 10px;
+      border-radius: $card-border-radius !important;
+      border: $card-border;
+      .content {
+        background-color: $white;
+        border-top-left-radius: $card-border-radius !important;
+        border-bottom-left-radius: $card-border-radius !important;
+        .location {
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+      .fav-btn {
+        background-color: $white;
+        border-left: 0;
+        z-index: unset !important;
+        border-top-right-radius: $card-border-radius !important;
+        border-bottom-right-radius: $card-border-radius !important;
+        &:after {
+          visibility: hidden;
+        }
+      }
+      .heart-icon-container {
+        position: absolute;
+        right: 9px;
+        bottom: 7px;
+        i {
+          font-size: 20px;
+          color: $dark-gray;
+        }
+        .favourited {
+          color: $danger-color;
+        }
+      }
+    }
+    &.tasks {
+      .task-block {
+        width: 100px !important;
+        border-image: 30 round !important;
+        float: left;
+        margin: 3px 0;
+        h2 {
+          font-size: 16px;
+        }
+      }
+      .bar-con {
+        margin-right: 2%;
+        background-color: #ccc;
+        height: 2.5em;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        width: 35%;
+        float: right;
+        border-style: ridge;
+        //border-color: #0cf10822;
+      }
+      .bar {
+        float: left;
+        height: 100%;
+        width: 100%;
+      }
+      .bar-one .bar {
+        background-color: #31bf0d;
+        h2 {
+          color: #ffffff;
+          text-align: center;
+          font-family: 'Roboto', sans-serif !important;
+        }
+      }
+      .bar-two .bar {
+        background-color: #a90c13;
+        h2 {
+          color: #ffffff;
+          text-align: center;
+          font-family: 'Roboto', sans-serif !important;
+        }
+      }
+    }
+  }
+}
+
+/** JQuery Mobile Framework GLobal Style Overrides **/
+.list-wrapper {
+  .ui-shadow {
+    box-shadow: unset;
+  }
+  .ui-listview .ui-li-has-thumb > .ui-btn {
+    padding-left: 8em;
+    > img {
+      max-height: 7em !important;
+      max-width: 7em !important;
+    }
+  }
+  .list-item {
+    .ui-btn {
+      &:focus {
+        box-shadow: unset !important;
+      }
+    }
+    .fav-btn {
+      &.ui-btn {
+        width: 2.5em !important;
+      }
+    }
+  }
+}

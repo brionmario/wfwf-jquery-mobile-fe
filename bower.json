@@ -2,9 +2,7 @@
   "name": "jquery-mobile-seed",
   "description": "A quick start kit for jQuery Mobile Framework based website development with SASS support",
   "main": "",
-  "authors": [
-    "Brion Mario"
-  ],
+  "authors": ["Brion Mario"],
   "license": "MIT",
   "keywords": [
     "jquery",
@@ -20,17 +18,12 @@
   ],
   "homepage": "https://github.com/apareciumlabs/jquery-mobile-seed",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
     "jquery": "1.11.1",
     "font-awesome": "~4.4.0",
-    "jquery-mobile": "https://github.com/brionmario/jquery-mobile.git#1.4.5-stable-bower"
+    "jquery-mobile": "https://github.com/brionmario/jquery-mobile.git#1.4.5-stable-bower",
+    "slick-carousel": "^1.8.1"
   },
   "resolutions": {
     "jquery": "~1.11.1"
@@ -42,13 +35,22 @@
         "fonts/fontawesome-webfont.eot",
         "fonts/fontawesome-webfont.woff",
         "fonts/fontawesome-webfont.ttf",
-        "fonts/fontawesome-webfont.svg"
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.woff2"
       ]
     },
     "jquery-mobile": {
+      "main": ["dist/jquery.mobile.min.css", "dist/jquery.mobile.min.js"]
+    },
+    "slick-carousel": {
       "main": [
-        "dist/jquery.mobile.min.css",
-        "dist/jquery.mobile.min.js"
+        "slick/slick.css",
+        "slick/slick-theme.css",
+        "slick/slick.min.js",
+        "slick/fonts/slick.eot",
+        "slick/fonts/slick.svg",
+        "slick/fonts/slick.ttf",
+        "slick/fonts/slick.woff"
       ]
     }
   }

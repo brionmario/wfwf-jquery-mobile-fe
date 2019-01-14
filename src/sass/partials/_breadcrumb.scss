@@ -1,0 +1,33 @@
+.breadcrumb-container {
+  height: $breadcrumb-container-height;
+  background: $breadcrumb-container-bg-color;
+  padding: $breadcrumb-container-padding;
+  border-bottom: $breadcrumb-container-border-bottom;
+  .breadcrumb {
+    .breadcrumb-list {
+      .breadcrumb-item {
+        a {
+          color: $default-font-color;
+          font-weight: 600;
+          text-decoration: none;
+          font-size: $default-font-size;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 90px;
+          &:hover {
+            color: $light-font-color;
+            text-decoration: underline;
+          }
+          i {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 10px;
+            top: 2px;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}

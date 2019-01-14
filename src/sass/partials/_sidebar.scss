@@ -1,15 +1,36 @@
 .sidebar {
+  background-color: $secondary-color !important;
   .brand {
     height: $header-height;
     padding: 10px 15px;
     border-bottom: $header-border-bottom;
   }
-  .sidebar-content {
-    height: $sidebar-content-height;
-    text-align: center;
-    .hint {
-      margin: 50% 0;
-      width: 250px;
+  .navbar {
+    .nav-link {
+      a {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid $dark-gray;
+        padding: 15px 20px;
+        color: white;
+        background-color: $secondary-color;
+        font-size: 14px;
+        text-align: left;
+        min-height: 50px;
+        i {
+          margin-right: 5px;
+          width: 20px;
+        }
+        &:hover {
+          background-color: lighten($secondary-color, 5);
+          border-right: 5px solid $tertiary-color !important;
+        }
+        &:focus {
+          box-shadow: unset !important;
+        }
+      }
+      width: 100%;
     }
   }
 }
@@ -22,5 +43,8 @@
   }
   .ui-panel-inner {
     padding: 0 !important;
+  }
+  .ui-navbar li:last-child .ui-btn {
+    margin-right: unset !important;
   }
 }

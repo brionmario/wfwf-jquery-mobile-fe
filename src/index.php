@@ -7,87 +7,323 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>jQuery Mobile Seed by Aparecium Labs</title>
+  <title>Home | Westminster Fashion Week Festival 2019</title>
+
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon_package/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon_package/favicon-16x16.png">
   <link rel="manifest" href="./assets/icons/favicon_package/site.webmanifest">
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
+
   <!-- inject:css -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
   <!-- endinject -->
 </head>
 
 <body>
-<div data-role="page">
-  <?php require './components/sidebar.php'?><!-- /panel -->
-  <?php require './components/header.php'?><!-- header -->
-  <div role="main" class="overlay ui-content main-content">
-    <div class="ui-grid-a ui-responsive">
-      <div class="ui-block-a">
-        <section class="left-section">
-          <div class="display-table">
-            <div class="display-table-cell">
-              <div class="content">
-                <div class="aparecium-logo-container">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1200px" height="1200px" viewBox="0 0 1200 1200" enable-background="new 0 0 1200 1200" xml:space="preserve" class="aparecium-logo fox"><g id="Fox"><polygon fill="#BDBEC0" stroke="#FFFFFF" stroke-miterlimit="10" points="1058.977,356.682 1100.332,463.247 926.018,623.893 926.214,567.694 	"/><polygon fill="#F15F3E" stroke="#FFFFFF" stroke-miterlimit="10" points="837.496,532.569 872.783,588.951 716.814,817.89 	"/><polygon fill="#BDBEC0" stroke="#FFFFFF" stroke-miterlimit="10" points="136.135,354.199 292.34,568.224 270.073,626.543 89.287,460.594 	"/><polygon fill="#1B2635" stroke="#FFFFFF" stroke-miterlimit="10" points="1058.977,122.343 1030.348,332.029 926.214,567.694 1058.977,356.682 	"/><polygon fill="#202E42" stroke="#FFFFFF" stroke-miterlimit="10" points="945.253,338.657 1058.977,122.343 1030.348,332.029 926.214,567.694 	"/><polyline fill="#364867" stroke="#FFFFFF" stroke-miterlimit="10" points="721.387,343.694 1058.977,122.343 945.253,338.657 721.387,343.694 	"/><polyline fill="#2C3B56" stroke="#FFFFFF" stroke-miterlimit="10" points="721.387,343.694 926.214,567.694 945.253,338.657 721.387,343.694 	"/><polygon fill="#2C3B56" stroke="#FFFFFF" stroke-miterlimit="10" points="136.469,121.814 252.579,338.657 292.34,568.224 174.11,350.851 	"/><polygon fill="#1C2635" stroke="#FFFFFF" stroke-miterlimit="10" points="136.469,121.814 174.11,350.851 292.34,568.224 136.135,354.199 	"/><polygon fill="#364867" stroke="#FFFFFF" stroke-miterlimit="10" points="136.469,121.814 472.603,343.699 252.579,338.657 	"/><polygon fill="#2C3B56" stroke="#FFFFFF" stroke-miterlimit="10" points="292.869,567.434 471.556,344.886 472.603,343.699 253.107,337.87 	"/><polygon fill="#F58846" stroke="#FFFFFF" stroke-miterlimit="10" points="370.276,532.437 472.603,343.699 292.34,568.224 	"/><polygon fill="#F05A2B" stroke="#FFFFFF" stroke-miterlimit="10" points="596.996,615.94 721.387,343.694 598.782,411.289 472.603,343.699 	"/><polygon fill="#C74227" stroke="#FFFFFF" stroke-miterlimit="10" points="721.387,343.694 472.603,343.699 598.782,411.289 	"/><polygon fill="#F58846" stroke="#FFFFFF" stroke-miterlimit="10" points="721.387,343.694 926.214,567.694 837.496,532.569 	"/><polygon fill="#F36B2F" stroke="#FFFFFF" stroke-miterlimit="10" points="721.387,343.694 837.496,532.569 716.814,817.89 598.916,751.268 487.179,817.89 370.276,532.437 472.603,343.699 596.996,615.94 	"/><polygon fill="#F89C68" stroke="#FFFFFF" stroke-miterlimit="10" points="292.34,568.224 370.276,532.437 352.78,588.951 	"/><polygon fill="#F15E3E" stroke="#FFFFFF" stroke-miterlimit="10" points="370.276,532.437 487.179,817.89 352.78,588.951 	"/><polyline fill="#D34E29" stroke="#FFFFFF" stroke-miterlimit="10" points="292.34,568.224 352.78,588.951 487.179,817.89 292.34,568.224 	"/><polygon fill="#0B1525" stroke="#FFFFFF" stroke-miterlimit="10" points="292.34,568.224 270.868,626.277 487.179,817.89 	"/><polygon fill="#F6921E" stroke="#FFFFFF" stroke-miterlimit="10" points="487.179,817.89 598.916,751.268 716.814,817.89 	"/><polygon fill="#0B1525" stroke="#FFFFFF" stroke-miterlimit="10" points="487.179,817.89 716.814,817.89 596.928,972.406 	"/><polygon fill="#F15A2B" stroke="#FFFFFF" stroke-miterlimit="10" points="716.814,817.89 823.181,900.646 596.928,972.406 	"/><polygon fill="#F15A2B" stroke="#FFFFFF" stroke-miterlimit="10" points="487.179,817.89 596.928,972.406 365.107,898.654 	"/><path fill="#DD5432" stroke="#FFFFFF" stroke-miterlimit="10" d="M596.928,972.406c1.191,0,225.855-72.16,225.855-72.16 l-16.302,54.875l-105.375,60.041L596.928,972.406z"/><polygon fill="#DD5432" stroke="#FFFFFF" stroke-miterlimit="10" points="365.107,898.654 596.928,972.406 485.988,1015.162 377.831,956.907 	"/><polygon fill="#E6E7E9" stroke="#FFFFFF" stroke-miterlimit="10" points="596.928,972.406 486.385,1015.559 548.018,1069.639 590.168,1043.791 635.099,1067.652 701.106,1014.764 	"/><polygon fill="#DEDEE0" stroke="#FFFFFF" stroke-miterlimit="10" points="89.287,460.594 487.179,817.89 9.228,668.955 	"/><polygon fill="#DEDEE0" stroke="#FFFFFF" stroke-miterlimit="10" points="716.814,817.89 1100.332,463.247 1184.629,662.065 	"/><polygon fill="#E9EAEB" stroke="#FFFFFF" stroke-miterlimit="10" points="716.814,817.89 1183.038,662.86 1027.961,825.094 	"/><polygon fill="#EDEDED" stroke="#FFFFFF" stroke-miterlimit="10" points="716.814,817.89 818.807,900.646 1028.757,826.686 	"/><polygon fill="#EDEDED" stroke="#FFFFFF" stroke-miterlimit="10" points="153.963,825.094 487.179,817.89 365.107,898.654 	"/><path fill="#C74227" stroke="#FFFFFF" stroke-miterlimit="10" d="M482.409,1015.958"/><polygon fill="#E9EAEB" stroke="#FFFFFF" stroke-width="0.25" stroke-miterlimit="10" points="9.228,668.955 153.963,825.094 487.179,817.89 	"/><polygon fill="#D34E29" stroke="#FFFFFF" stroke-miterlimit="10" points="872.783,588.951 926.214,567.694 716.814,817.89 	"/><polygon fill="#0B1525" stroke="#FFFFFF" stroke-miterlimit="10" points="926.214,567.694 926.018,623.893 716.814,817.89 	"/><polygon fill="#F89C68" stroke="#FFFFFF" stroke-miterlimit="10" points="872.783,588.951 837.496,532.569 926.214,567.694 	"/></g></svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div data-role="page">
+    <?php require './components/sidebar.php'?><!-- /panel -->
+    <?php require './components/header.php'?><!-- /header -->
+    <div role="main" class="overlay ui-content main-content intro-page">
+      <div class="page-slider">
+        <img src="assets/img/home/1.jpg" />
+        <img src="assets/img/home/2.jpg" />
+        <img src="assets/img/home/3.jpg" />
+        <img src="assets/img/home/4.jpg" />
+        <img src="assets/img/home/5.jpg" />
+        <img src="assets/img/home/6.jpg" />
       </div>
-      <div class="ui-block-b">
-        <section class="right-section">
-          <div class="display-table">
-            <div class="display-table-cell">
-              <div class="content">
-                <h2 class="title">
-                  <img src="assets/img/jquery-mobile.svg" class="jquery-mobile-logo">
-                </h2>
-                <p class="desc">We <span style="color: red">&hearts;</span> open-source and always trying our best to
-                  contribute back to the community.
-                  Please Subscribe to our newsletter to stay up to date with more awesome projects like this.
-                </p>
-                <div class="email-subscription-container" id="mc_embed_signup">
-                  <form
-                    action="https://apareciumlabs.us15.list-manage.com/subscribe/post?u=41620257667e0123ce58b4277&amp;id=c1c1df411f"
-                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank"
-                    novalidate>
-                    <div id="mc_embed_signup_scroll">
-                      <input type="email"
-                             class="email-input"
-                             value=""
-                             name="EMAIL"
-                             id="mce-EMAIL"
-                             placeholder="Enter your email"
-                             required/>
-                      <!-- real people should not fill this in and expect good things - do not remove this or
-                      risk form bot -->
-                      <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                        <input
-                          type="text"
-                          name="b_41620257667e0123ce58b4277_c1c1df411f"
-                          tabindex="-1"
-                          value=""/>
-                      </div>
-                      <button id="mc-embedded-subscribe" class="subscribe-btn" name="subscribe" type="submit">
-                        <b>Subscribe</b>
-                      </button>
+
+      <div class="padded-content full-height">
+        <div class="welcome-placeholder-container text-center">
+          <h2>WELCOME</h2>
+          <h6 class="description">Home to official Westminster Fashion Week Festival 2018. Catwalk shows, a series of inspiring talks by industry experts, exclusive events and curated shopping galleries,.
+            Come and treat yourself to a VIP experience.</h6>
+        </div>
+
+        <!-- Event Cards -->
+        <div class="card-grid-wrapper">
+          <h3 class="text-center">LATEST EVENTS</h3>
+          <div class="card-flex-container">
+          <?php
+            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events?filter[limit]=6";
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => $url,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache"
+                ),
+              ));
+
+              $response = curl_exec($curl);
+              $err = curl_error($curl);
+              curl_close($curl);
+
+              $events = json_decode($response, true);
+
+              foreach($events as $event):
+              ?>
+              <div class="card" onclick="navigatePage('<?php echo 'event-description.php?id='.$event['id']; ?>')">
+                <div class="card-thumbnail-container">
+                  <div class="thumbnail">
+                    <img src="<?php echo $event['thumbnail']; ?>" />
+                  </div>
+                </div>
+                <div class="card-content-container">
+                  <div class="card-heading"><?php echo $event['title']; ?></div>
+                  <div class="card-description">
+                    <div class="meta-1"><?php echo $event['date']; ?></div>
+                    <div class="meta-2">
+                      <i class="fa fa-location-arrow"></i>
+                      <?php echo $event['location']; ?>
                     </div>
-                  </form>
+                    <div class="favourite-btn-container">
+                      <?php 
+                        if ($event['favourited'] == 'true') {
+                          echo '<i class="favourited fa fa-heart"></i>';
+                        } else if ($event['favourited'] == 'false') {
+                          echo '<i class="fa fa-heart-o"></i>';
+                        }
+                      ?>
+                    </div>
+                  </div>
                 </div>
-                <p class="post-desc">Please note that this subscription can be cancelled at any time.</p>
               </div>
-            </div>
+            <?php endforeach; ?>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
           </div>
-        </section>
+          
+          <div class="show-more-btn-container">
+            <button class="btn btn-default btn-sm center-button show-more-btn" onclick="navigatePage('events.php')">Show more</button>
+          </div>
+        </div>
+        <!-- /Event Cards -->
+
+        <!-- Products Cards -->
+        <div class="card-grid-wrapper">
+          <h3 class="text-center">FEATURED PRODUCTS</h3>
+          <div class="card-flex-container">
+          <?php
+            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/products?filter[limit]=6";
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => $url,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache"
+                ),
+              ));
+
+              $response = curl_exec($curl);
+              $err = curl_error($curl);
+              curl_close($curl);
+
+              $products = json_decode($response, true);
+
+              foreach($products as $product):
+              ?>
+              <div class="card" onclick="navigatePage('<?php echo 'product-description.php?id='.$product['id']; ?>')">
+                <div class="card-thumbnail-container">
+                  <div class="thumbnail">
+                    <img src="<?php echo $product['thumbnail']; ?>" />
+                  </div>
+                </div>
+                <div class="card-content-container">
+                  <div class="card-heading"><?php echo $product['title']; ?></div>
+                  <div class="card-description">
+                    <div class="meta-1">£<?php echo $product['price']; ?></div>
+                    <div class="meta-2">
+                      <i class="fa fa-tag"></i>
+                      <?php echo $product['category']; ?>
+                    </div>
+                    <div class="favourite-btn-container">
+                      <?php 
+                        if ($product['favourited'] == 'true') {
+                          echo '<i class="favourited fa fa-heart"></i>';
+                        } else if ($product['favourited'] == 'false') {
+                          echo '<i class="fa fa-heart-o"></i>';
+                        }
+                      ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+          </div>
+          
+          <div class="show-more-btn-container">
+            <button class="btn btn-default btn-sm center-button show-more-btn" onclick="navigatePage('products.php')">Show more</button>
+          </div>
+        </div>
+        <!-- /Product Cards -->
+
+
+        <!-- News Cards -->
+        <div class="card-grid-wrapper">
+          <h3 class="text-center">HOT NEWS</h3>
+          <div class="card-flex-container">
+          <?php
+            $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/news?filter[limit]=6";
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => $url,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache"
+                ),
+              ));
+
+              $response = curl_exec($curl);
+              $err = curl_error($curl);
+              curl_close($curl);
+
+              $news = json_decode($response, true);
+
+              foreach($news as $newsItem):
+              ?>
+              <div class="card" onclick="navigatePage('<?php echo 'news-description.php?id='.$newsItem['id']; ?>')">
+                <div class="card-thumbnail-container">
+                  <div class="thumbnail">
+                    <img src="<?php echo $newsItem['thumbnail']; ?>" />
+                  </div>
+                </div>
+                <div class="card-content-container">
+                  <div class="card-heading"><?php echo $newsItem['title']; ?></div>
+                  <div class="card-description">
+                    <div class="meta-1"><?php echo $newsItem['date']; ?></div>
+                    <div class="meta-2">
+                      <i class="fa fa-user"></i>
+                      <?php echo $newsItem['author']; ?>
+                    </div>
+                    <div class="favourite-btn-container">
+                      <?php 
+                        if ($newsItem['favourited'] == 'true') {
+                          echo '<i class="favourited fa fa-heart"></i>';
+                        } else if ($newsItem['favourited'] == 'false') {
+                          echo '<i class="fa fa-heart-o"></i>';
+                        }
+                      ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+            <div class="card empty"></div>
+          </div>
+          
+          <div class="show-more-btn-container">
+            <button class="btn btn-default btn-sm center-button show-more-btn" onclick="navigatePage('news.php')">Show more</button>
+          </div>
+        </div>
+        <!-- /News Cards -->
+
+        <!-- Sponsors -->
+        <div class="sponsor-logo-container">
+          <div class="ui-grid-c sponsor-logo-grid breakpoint">
+            <div class="ui-block-a"><img src="assets/img/sponsors/1.png" /></div>
+            <div class="ui-block-b"><img src="assets/img/sponsors/2.png" /></div>
+            <div class="ui-block-c"><img src="assets/img/sponsors/3.png" /></div>
+            <div class="ui-block-d"><img src="assets/img/sponsors/4.png" /></div>
+            <div class="ui-block-a"><img src="assets/img/sponsors/5.png" /></div>
+            <div class="ui-block-b"><img src="assets/img/sponsors/6.png" /></div>
+            <div class="ui-block-c"><img src="assets/img/sponsors/7.png" /></div>
+            <div class="ui-block-d"><img src="assets/img/sponsors/8.png" /></div>
+          </div><!-- /grid-c -->
+        </div>
+        <!-- /Sponsors -->
+
       </div>
-    </div><!-- /grid-a -->
-  </div><!-- /content -->
-  <?php require './components/footer.php'?><!--footer -->
-</div><!-- page -->
-<!-- inject:js -->
-<!-- endinject -->
+      <?php require './components/footer.php'?><!--/footer -->
+    </div><!-- /content -->  
+  </div><!-- /page -->
+
+  <script type="text/javascript">
+    var breadcrumb = [
+      {
+        name: 'Home',
+        href: 'index.php'
+      }
+    ];
+    setBreadcrumb(breadcrumb);
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.favourite-btn-container').hide();
+      }
+    });
+
+    $(document).ready(function(){
+      $('.page-slider').slick({
+        dots: true
+      });
+    });
+
+    $(document).ready(function () {
+      var defaultHeight = 40;
+      var text = $(".page-description-text");
+      var textHeight = text[0].scrollHeight;
+      var button = $(".show-more-btn");
+      text.css({"max-height": defaultHeight, "overflow": "hidden"});
+
+      button.on("click", function(){
+        var newHeight = 0;
+        var label = 'Shore more';
+
+        if (text.hasClass("active")) {
+          newHeight = defaultHeight;
+          text.removeClass("active");
+          label = "Show more";
+        } else {
+          newHeight = textHeight;
+          text.addClass("active");
+          label = 'Shore less';
+        }
+        text.animate({
+          "max-height": newHeight
+        }, 200);
+
+        $(".show-more-btn").text(label);
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,435 @@
+.intro-page {
+  .content {
+    padding: 5% 10%;
+    height: 100%;
+  }
+  .welcome-placeholder-container {
+    margin-bottom: 20px;
+    h2 {
+      margin: 10px 0;
+    }
+  }
+  .card-grid-wrapper {
+    margin-bottom: 35px;
+    h3 {
+      margin-bottom: 15px;
+    }
+    .card-flex-container {
+      margin-bottom: 20px;
+    }
+  }
+  .sponsor-logo-container {
+    img {
+      max-width: 120px;
+      margin: 10px 0;
+    }
+    .breakpoint {
+      .ui-block-a,
+      .ui-block-b,
+      .ui-block-c,
+      .ui-block-d {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.sponsor-page {
+  .top-panel {
+    height: 40px;
+    background-color: $white;
+    padding: 5px 15px;
+    p {
+      display: inline-block;
+      margin: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    button {
+      display: inline-block;
+      margin: unset;
+      float: right;
+    }
+  }
+  .iframe-container {
+    background-color: $black;
+    height: calc(100vh - 40px);
+    iframe {
+      margin: 0 auto;
+      display: block;
+      width: 100%;
+      border: 1px solid $black;
+    }
+  }
+}
+
+.page-description {
+  .page-description-text {
+    margin: 15px 5px 10px 5px;
+  }
+  .favourites-btn {
+    i {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+  }
+  .profile-icon-container {
+    text-align: center;
+    padding: 20px 10px;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.auth-page-wrapper {
+  background-color: $white !important;
+  .auth-page {
+    background-color: $white !important;
+    .content {
+      padding: 5% 10%;
+      height: 100%;
+    }
+    .close-icon-container {
+      text-align: right;
+      padding: 15px 20px;
+      i {
+        color: $dark-gray;
+        &:hover {
+          color: darken($dark-gray, 10);
+        }
+      }
+    }
+
+    .main-heading-container {
+      margin: 15px 0 20px 0;
+      h1 {
+        font-size: 50px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      h3 {
+        font-size: 25px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .route-area {
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .social-login-container {
+      margin-top: 40px;
+      padding: 0px 20px;
+      text-align: center;
+      h6 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.directions-page {
+  .google-map {
+    height: calc(100vh - 90px);
+  }
+}
+
+.padded-content {
+  padding: 5% 10%;
+  &.full-height {
+    height: 100%;
+  }
+}
+
+.about-page {
+  .social-icon-container {
+    margin: 10px 0;
+  }
+}
+
+.contact-page {
+  .google-map {
+    height: 40vh;
+  }
+  .contact-details {
+    margin: 10px 0 20px 0;
+    .address,
+    .phone,
+    .email {
+      font-size: 16px;
+      margin-bottom: 5px;
+      span {
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;
+        min-width: 70px;
+      }
+    }
+  }
+  hr.vertical {
+    display: none;
+  }
+  .form-container {
+    margin: 10px 0 10px 0;
+    h4 {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.booking {
+  img {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .booking-detils {
+    padding: 5px 20px;
+    h5 {
+      padding: 5px 0px;
+    }
+    p {
+      padding: 5px 0px;
+    }
+    h2 {
+      padding: 5px 0px;
+    }
+  }
+  hr.style14 {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: 0.5;
+    &:before {
+      content: '';
+      // use the linear-gradient for the fading effect
+      // use a solid background color for a solid bar
+      background: linear-gradient(to right, transparent, #818078, transparent);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+    }
+    &:after {
+      content: attr(data-content);
+      position: relative;
+      display: inline-block;
+      color: black;
+
+      padding: 0 0.5em;
+      line-height: 1.5em;
+      // this is really the only tricky part, you need to specify the background color of the container element...
+      color: #818078;
+      background-color: #fcfcfa;
+    }
+  }
+
+  .form-area {
+    top: 25px;
+    padding: 0px 20px;
+
+    .inputWithIcon input {
+      padding: 15px 45px;
+    }
+
+    .inputWithIcon {
+      position: relative;
+      padding: 5px 0px;
+    }
+
+    .inputWithIcon i {
+      position: absolute;
+      left: 0;
+      top: 22px;
+      padding: 9px 12px;
+      transition: 0.3s;
+    }
+
+    .inputWithIcon input[type='text']:focus + i {
+      color: dodgerBlue;
+    }
+  }
+}
+
+/**++++++++-----------------------------------------------------------++++++++**/
+/** ----------------------------  Media Queries  ---------------------------- **/
+/**++++++++-----------------------------------------------------------++++++++**/
+
+/** iPhone 6, 7, & 8 in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+  .padded-content {
+    padding: 3% 6%;
+  }
+  .intro-page {
+    .sponsor-logo-container {
+      .breakpoint {
+        .ui-block-a,
+        .ui-block-b,
+        .ui-block-c,
+        .ui-block-d {
+          min-height: 60px;
+          width: 50%;
+        }
+      }
+    }
+  }
+  .contact-page {
+    .contact-details {
+      .address {
+        span {
+          display: block;
+        }
+      }
+    }
+    hr.vertical {
+      display: none;
+    }
+    .breakpoint {
+      .ui-block-a,
+      .ui-block-b {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/** iPhone 6, 7, & 8 in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .padded-content {
+    padding: 3% 8%;
+  }
+  .intro-page {
+    .sponsor-logo-container {
+      .breakpoint {
+        .ui-block-a,
+        .ui-block-b,
+        .ui-block-c,
+        .ui-block-d {
+          min-height: 60px;
+          width: 50%;
+        }
+      }
+    }
+  }
+  .contact-page {
+    hr.vertical {
+      display: none;
+    }
+    .breakpoint {
+      .ui-block-a,
+      .ui-block-b {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/** iPhone X in portrait **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  .padded-content {
+    padding: 3% 6%;
+  }
+  .intro-page {
+    .sponsor-logo-container {
+      .breakpoint {
+        .ui-block-a,
+        .ui-block-b,
+        .ui-block-c,
+        .ui-block-d {
+          min-height: 60px;
+          width: 50%;
+        }
+      }
+    }
+  }
+  .contact-page {
+    .contact-details {
+      .address {
+        span {
+          display: block;
+        }
+      }
+    }
+    hr.vertical {
+      display: none;
+    }
+    .breakpoint {
+      .ui-block-a,
+      .ui-block-b {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/** iPhone X in landscape **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .padded-content {
+    padding: 3% 8%;
+  }
+  .intro-page {
+    .sponsor-logo-container {
+      .breakpoint {
+        .ui-block-a,
+        .ui-block-b,
+        .ui-block-c,
+        .ui-block-d {
+          min-height: 60px;
+          width: 50%;
+        }
+      }
+    }
+  }
+  .contact-page {
+    hr.vertical {
+      display: none;
+    }
+    .breakpoint {
+      .ui-block-a,
+      .ui-block-b {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/** iPad in portrait **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .padded-content {
+    padding: 4% 9%;
+  }
+  .contact-page {
+    hr.vertical {
+      display: none;
+    }
+    .breakpoint {
+      .ui-block-a,
+      .ui-block-b {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/** iPad in landscape **/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .padded-content {
+    padding: 5% 10%;
+  }
+}
+
+/** Desktop **/
+@media only screen and (min-device-width: 1024px) {
+  .padded-content {
+    padding: 5% 10%;
+  }
+}
