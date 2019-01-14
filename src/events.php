@@ -101,10 +101,77 @@
                   ?>
                 </div>
               </li>
-            <?php endforeach; ?>
+              <?php endforeach; 
             
-        </ul>
+            echo ' <div class="fabs">';
+            echo '<a id="prime" class="fab" href="#send-email-event" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
+            echo '</div>';
 
+            
+            echo '</ul>';
+
+            echo '<!-- /success popup email send -->';
+            echo '<div data-role="popup" id="send-email-event" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">';
+            echo '<form action="events.php" method="post">';
+            echo '<h3>Email Event List</h3>';
+            foreach($events as $list):?>
+            <ol>
+            <li><?php echo $list['title']; ?></li>
+            </ol>
+              <?php endforeach; 
+            echo ' <input type="email" name="email" placeholder="Email">';
+            echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
+            echo '<input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" type="submit" value="Send Email" name="send"/>';
+            echo '</form>';
+            echo ' </div>';    
+
+            require 'lib/PHPMailerAutoload.php';
+            if(isset($_POST['send']))
+                {
+
+                  $eventList = [];
+
+                  for($i=0; $i < sizeof($events); $i++) {
+                    $eventList[$i] = $i+1 .". ".$events[$i]['title'];
+                  }
+
+                  $test = implode("<br>",$eventList);
+              
+                  $email = $_POST['email'];                    
+
+                  $mail = new PHPMailer;
+
+                  $mail->isSMTP();
+
+                  $mail->Host = 'smtp.gmail.com';
+
+                  $mail->Port = 587;
+
+                  $mail->SMTPSecure = 'tls';
+
+                  $mail->SMTPAuth = true;
+
+                  $mail->Username = 'westministerfashionweek@gmail.com';
+
+                  $mail->Password = 'wfwf1234';
+
+                  $mail->setFrom('westministerfashionweek@gmail.com', 'Event List');
+
+                  $mail->addAddress($email);
+
+                  $mail->Subject = 'Westminister Fashion Week Event List';
+
+                  $mail->msgHTML($test);
+
+                  if (!$mail->send()) {
+                     $error = "Mailer Error: " . $mail->ErrorInfo;
+                      ?><script>alert('<?php echo $error ?>');</script><?php
+                  } 
+                  else {
+                     echo '<script>alert("Message sent!");</script>';
+                  }
+             }
+        ?>
         <!-- /success popup -->
         <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
           <h3>Success!</h3>

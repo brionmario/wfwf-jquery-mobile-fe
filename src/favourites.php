@@ -102,26 +102,79 @@
                 </div>
               </li>
             <?php endforeach; 
-            echo '<div class="fabs">';
+            
+            echo ' <div class="fabs">';
             echo '<a id="prime" class="fab" href="#send-email-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
             echo '</div>';
-            ?>
+
             
-        </ul>
+            echo '</ul>';
 
-        <!-- /success popup email send -->
-        <div data-role="popup" id="send-email-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-          <h3>Email Favourites List</h3>
-          <p> </p>
-          <p>1. Hipster Fasion Catwalk </p>
-          <p>2. Model Zone </p>
-          <p>3. Asiana Bridal Show </p>
-          <p>4. The Hammersmith Vintage Fashion, Textiles and Accessories Fair </p>
-          <input type="email" name="email" placeholder="Email">
-          <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('favourites.php')">Send Email</a>
-        </div>                     
+            echo '<!-- /success popup email send -->';
+            echo '<div data-role="popup" id="send-email-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">';
+            echo '<form action="favourites.php" method="post">';
+            echo '<h3>Email Favourites List</h3>';
+            foreach($favourites as $list):?>
+            <ol>
+            <li><?php echo $list['title']; ?></li>
+            </ol>
+              <?php endforeach; 
+            echo ' <input type="email" name="email" placeholder="Email">';
+            echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
+            echo '<input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" type="submit" value="Send Email" name="send"/>';
+            echo '</form>';
+            echo ' </div>';    
 
+            require 'lib/PHPMailerAutoload.php';
+            if(isset($_POST['send']))
+                {
+
+                  $favouriteList = [];
+
+                  for($i=0; $i < sizeof($favourites); $i++) {
+                    $favouriteList[$i] = $i+1 .". ".$favourites[$i]['title'];
+                  }
+
+                  echo '<script>alert('.sizeof($favourites).')</script>';
+
+
+                  $test = implode("<br>",$favouriteList);
+              
+                  $email = $_POST['email'];                    
+
+                  $mail = new PHPMailer;
+
+                  $mail->isSMTP();
+
+                  $mail->Host = 'smtp.gmail.com';
+
+                  $mail->Port = 587;
+
+                  $mail->SMTPSecure = 'tls';
+
+                  $mail->SMTPAuth = true;
+
+                  $mail->Username = 'westministerfashionweek@gmail.com';
+
+                  $mail->Password = 'wfwf1234';
+
+                  $mail->setFrom('westministerfashionweek@gmail.com', 'Favourites List');
+
+                  $mail->addAddress($email);
+
+                  $mail->Subject = 'Westminister Fashion Week Favourites List';
+
+                  $mail->msgHTML($test);
+
+                  if (!$mail->send()) {
+                     $error = "Mailer Error: " . $mail->ErrorInfo;
+                      ?><script>alert('<?php echo $error ?>');</script><?php
+                  } 
+                  else {
+                     echo '<script>alert("Message sent!");</script>';
+                  }
+             }
+        ?>
 
 
         <!-- /success popup -->
