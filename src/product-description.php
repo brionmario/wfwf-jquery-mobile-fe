@@ -90,7 +90,7 @@
                     echo '<button class="btn btn-primary ui-btn-inline check-availability-btn">Check Availability</button>';
                   echo '</a>';
                   echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$product->id.'&lat='.$product->latitude.'&lon='.$product->longitude.'\')">Get Directions</button>';
-                  echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$product->favourited.',\'products\',\''.$product->id.'\'); navigatePage(\'product-description.php?id='.$product->id.'\')">';    
+                  echo '<button class="btn btn-outline favourites-btn ui-btn-inline" id="favourited-filter-button" onclick="favourite('.$product->favourited.',\'products\',\''.$product->id.'\'); navigatePage(\'product-description.php?id='.$product->id.'\')">';    
                     if ($product->favourited == 'true') {
                       echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
                     } else if ($product->favourited == 'false') {
@@ -129,6 +129,12 @@
       $('.page-slider').slick({
         dots: true
       });
+    });
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('#favourited-filter-button').hide();
+      }
     });
 
     $(document).ready(function () {

@@ -125,7 +125,7 @@
             </div>
             <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=favourited&filter_value=true')">Favourited</button>
+              <span class="favourited-filter-button"><button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=favourited&filter_value=true')">Favourited</button></span>
               <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=poiType&filter_value=auditorium')">Auditoriums</button>
               <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('poi.php?filter=poiType&filter_value=hall')">Hall</button>
             </div>
@@ -148,6 +148,13 @@
       }
     ];
     setBreadcrumb(breadcrumb);
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.heart-icon-container').hide();
+        $('.favourited-filter-button').hide();
+      }
+    });
   </script>
 </body>
 </html>
