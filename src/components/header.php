@@ -52,8 +52,8 @@
                     Contact
                 </a>
             </li>
-            <li class="nav-link">
-                <a href="./logout.php" rel="external">
+            <li class="nav-link logout-link">
+                <a onclick='return logout()' rel="external">
                     <i class="fa fa-power-off"></i>
                     Logout
                 </a>
@@ -66,3 +66,14 @@
         <img class="avatar" src="assets/img/avatars/avatar.svg" />
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      if (isLoggedIn()) {
+        $('.login-btn').hide();
+      } else {
+        $('.avatar-container').hide();
+        $('.logout-link').hide();
+      }
+    });
+</script>

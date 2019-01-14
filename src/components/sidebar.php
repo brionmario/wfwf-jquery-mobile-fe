@@ -49,8 +49,8 @@
                     Contact
                 </a>
             </li>
-            <li class="nav-link">
-                <a href="./logout.php" rel="external">
+            <li class="nav-link logout-link">
+                <a onclick='return logout()' rel="external">
                     <i class="fa fa-power-off"></i>
                     Logout
                 </a>
@@ -58,3 +58,11 @@
         </ul>
     </div><!-- /navbar -->
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.logout-link').hide();
+      }
+    });
+</script>

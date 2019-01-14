@@ -286,6 +286,12 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.favourite-btn-container').hide();
+      }
+    });
+
+    $(document).ready(function(){
       $('.page-slider').slick({
         dots: true
       });
