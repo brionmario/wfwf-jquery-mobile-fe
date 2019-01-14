@@ -212,6 +212,13 @@
       }
     ];
     setBreadcrumb(breadcrumb);
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.heart-icon-container').hide();
+        $('.filter-block').hide();
+      }
+    });
   </script>
 </body>
 </html>

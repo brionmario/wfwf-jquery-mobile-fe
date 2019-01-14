@@ -66,7 +66,7 @@
 
             echo '<div class="action-button-container body-padding text-center">';
               echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$poi->id.'&lat='.$poi->latitude.'&lon='.$poi->longitude.'\')">Get Directions</button>';
-              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$poi->favourited.',\'poi\',\''.$poi->id.'\'); navigatePage(\'poi-description.php?id='.$poi->id.'\')">';    
+              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" id="favourited-filter-button" onclick="favourite('.$poi->favourited.',\'poi\',\''.$poi->id.'\'); navigatePage(\'poi-description.php?id='.$poi->id.'\')">';    
                 if ($poi->favourited == 'true') {
                   echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
                 } else if ($poi->favourited == 'false') {
@@ -86,6 +86,12 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.page-slider').slick();
+    });
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('#favourited-filter-button').hide();
+      }
     });
 
     $(document).ready(function () {

@@ -39,6 +39,7 @@
     height: 40px;
     background-color: $white;
     padding: 5px 15px;
+    border-bottom: $header-border-bottom !important;
     p {
       display: inline-block;
       margin: 5px;
@@ -84,14 +85,10 @@
   }
 }
 
-.auth-page-wrapper {
+.white-full-page-wrapper {
   background-color: $white !important;
-  .auth-page {
+  .white-full-page {
     background-color: $white !important;
-    .content {
-      padding: 5% 10%;
-      height: 100%;
-    }
     .close-icon-container {
       text-align: right;
       padding: 15px 20px;
@@ -102,32 +99,55 @@
         }
       }
     }
+  }
+}
 
-    .main-heading-container {
-      margin: 15px 0 20px 0;
-      h1 {
-        font-size: 50px;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      h3 {
-        font-size: 25px;
-        margin-bottom: 10px;
-      }
+.auth-page {
+  .main-heading-container {
+    margin: 15px 0 20px 0;
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
-
-    .route-area {
-      padding: 10px 20px;
-      text-align: center;
+    h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
     }
+  }
 
-    .social-login-container {
-      margin-top: 40px;
-      padding: 0px 20px;
-      text-align: center;
-      h6 {
-        margin-bottom: 10px;
-      }
+  .route-area {
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .social-login-container {
+    margin-top: 40px;
+    padding: 0px 20px;
+    text-align: center;
+    h6 {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.scan-qr-page {
+  height: calc(100vh - 80px);
+  .top-panel {
+    min-height: 80px;
+    background-color: $white;
+    padding: 5px 15px;
+    border-bottom: $header-border-bottom !important;
+    .main-heading {
+      display: inline-block;
+      margin: 5px;
+      font-weight: bold;
+    }
+    a {
+      display: inline-block;
+      margin: unset;
+      float: right;
+      margin-top: 10px;
     }
   }
 }

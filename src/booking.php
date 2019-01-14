@@ -23,45 +23,48 @@
   <!-- endinject -->
 </head>
 
-<body>
+<body onload="myFunction()">
     <?php
-echo '<div data-role="page">';
+    echo '<div data-role="page">';
     require './components/sidebar.php';
     require './components/header.php';
-    echo '<div role="main" class="overlay ui-content main-content booking-page">';
-    require './components/breadcrumb.php';
+        echo '<div role="main" class="overlay ui-content main-content booking-page">';
+        require './components/breadcrumb.php';
 
-    $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
         
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => $url,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_TIMEOUT => 30,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "GET",
-      CURLOPT_HTTPHEADER => array(
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
         "cache-control: no-cache"
-        ),
-      ));
+                ),
+        ));
 
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-    curl_close($curl);
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
 
-    $event = json_decode($response);
+        $event = json_decode($response);
 
 
-    echo '<div class="ui-grid-a">';
-        echo '<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:160px">';
-            echo '<img src="'.$event->imageSlider[0].'" />';
-        echo '</div></div>';
-        echo '<div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:160px">';
-            echo '<h5  class="event-title">'.$event->title.'</h5>';
-            echo  '<p class="event-description-text">'.$event->description.'</p>';
-            echo '<P>Tickets </p><input type="number" id="total" name="quantity" min="1" max="5" value="1">';
-            echo '<h2 id="ticketprice">£'.$event->ticketPrice.'.00</h2>';
-        echo '</div></div>';
+            echo '<div class="ui-grid-a">';
+                echo '<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:160px">';
+                    echo '<img src="'.$event->imageSlider[0].'" />';
+                echo '</div>';
+            echo '</div>';
+        echo '<div class="ui-block-b">';
+            echo'<div class="ui-bar ui-bar-a" style="height:160px">';
+                echo '<h5  class="event-title">'.$event->title.'</h5>';
+                echo  '<p class="event-description-text">'.$event->description.'</p>';
+                echo '<P>Tickets </p><input type="number" id="total" name="quantity" min="1"  value="1">';
+                echo '<h2 id="ticketprice">£'.$event->ticketPrice.'.00</h2>';
+            echo '</div>';
+            echo '</div>';
         echo '
             <script type="text/javascript">
             $( "#total" ).keyup(function() {
@@ -73,35 +76,46 @@ echo '<div data-role="page">';
                 $( "#numticket" ).text( value );
                 $( "#totalprice" ).text( totalprice );
                 }).keyup();
-            </script>
-        ';
-    echo '</div><!-- /grid-a -->';
-    echo '<hr class="style14">';
-        echo '<form id="first_form" method="post" action="">'; 
-            echo '<div class="form-area">';
-                echo ' <h5>Pay with Paypal</h5>';
-                    echo '<div class="inputWithIcon">';
-                        echo '<input type="email" id="email" name="email" placeholder="Email">';
-                        echo ' <i class="fa fa-envelope fa-lg"></i>';
-                    echo '</div>';
-                    echo ' <div class="inputWithIcon">';
-                        echo ' <input type="password" id="password" name="password" placeholder="Password">';
-                        echo ' <i class="fa fa-lock fa-lg"></i>';
-                    echo ' </div>';
-                    echo ' <p><a href="www.paypal.com">Don\'t have paypal account</a></p>';
-            echo '</div>';
-            echo '<hr class="style14">';
-            echo ' <div class="booking-detils">';
-                echo '<h5>Booking Deatils</h5>';
-                echo '<p>Number of tickets:</p><p id=numticket></p>';
-                echo '<h2>Total Amount &ensp; £<span id=totalprice></span></h2>';
-                    echo ' <div class="form-button">';
-                        echo '<button type="submit" value="Submit">Confirm & Pay</button>';
-                    echo ' </div>';
-            echo ' </div>';
-        echo '</form>';
 
-        echo '<!-- /success popup -->
+                function myFunction() {
+                    var value = $(\'#total\' ).val();
+                    var ticketprice = $(\'#ticketprice\').val();
+                    var totalprice = value * '.$event->ticketPrice.';
+                    $( "#numticket" ).text( value );
+                    $( "#totalprice" ).text( totalprice );
+                }
+                
+            </script>';
+            echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Events\',href: \'events.php\'},{name: \''.$event->title.'\',href: \'event-description.php?id='.$event->id.'\'},{name: \'Booking\',href: \'booking.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+            
+            ?>
+    </div><!-- /grid-a -->
+    <hr class="style14">
+        <form id="first_form" method="post" action="">
+            <div class="form-area">
+                 <h5>Pay with Paypal</h5>
+                    <div class="inputWithIcon">
+                        <input type="email" id="email" name="email" placeholder="Email">
+                         <i class="fa fa-envelope fa-lg"></i>
+                    </div>
+                    <div class="inputWithIcon">
+                        <input type="password" id="password" name="password" placeholder="Password">
+                        <i class="fa fa-lock fa-lg"></i>
+                    </div>
+                    <p><a href="www.paypal.com">Don\'t have paypal account</a></p>
+            </div>
+            <hr class="style14">
+             <div class="booking-detils">
+                <h5>Booking Deatils</h5>
+                <p>Number of tickets: &ensp;<span id=numticket></span></p>
+                <h2>Total Amount: &ensp; £<span id=totalprice></span></h2>
+                     <div class="form-button">
+                        <button type="submit" value="Submit">Confirm & Pay</button>
+                    </div>
+            </div>
+        </form>
+
+        <!-- /success popup -->
         <div data-role="popup" id="payment-successful" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
             <h3>Success!</h3>
             <p>Your payment was successful</p>
@@ -117,12 +131,12 @@ echo '<div data-role="page">';
             <p>Check youre mail and password</p>
             <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
             <a data-rel="back" class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
-        </div>';
-    echo ' </div><!-- /content -->';
-     require './components/footer.php';
-echo '</div><!-- page -->';
-   ?>
-          
+        </div>
+    </div><!-- /content -->
+    <?php require './components/footer.php'?><!--footer -->
+</div><!-- page -->
+   
+<!--           
 <script type="text/javascript">
     var breadcrumb = [
       {
@@ -135,7 +149,7 @@ echo '</div><!-- page -->';
       }
     ];
     setBreadcrumb(breadcrumb);
-</script>
+</script> -->
 <script type="text/javascript">
     $(document).ready(function(){
       $('.event-slider').slick();

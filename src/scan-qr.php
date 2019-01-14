@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Thisura Sagara">
-  <title>Login | Westminster Fashion Week Festival 2019</title>
+  <title>Scan QR | Westminster Fashion Week Festival 2019</title>
   
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -25,46 +25,16 @@
 
 <body>
 <div data-role="page" class="white-full-page-wrapper">
-  <div role="main" class="overlay ui-content main-content white-full-page auth-page">
-    <div class="close-icon-container">
+  <div role="main" class="overlay ui-content main-content white-full-page scan-qr-page">
+    <div class="top-panel">
+      <div class="main-heading">
+        <h3>Scan QR</h3>
+        <p>Point your camera to the QR code on the price tag.</p>
+      </div>
       <a href="index.php" rel="external"><i class="fa fa-times fa-2x"></i></a>
-    </div><!--/close-icon-container -->
+    </div><!-- /top-panel -->
+    
     <div class="padded-content full-height">
-      <div class="main-heading-container">
-        <h1>Login</h1>
-        <h3>Welcome Back,</h3>
-        <h5>Sign in to continue</h5>
-      </div><!--/main-heading-container -->
-      <div class="form-container">
-        <form id="login-form" method="post" action="">
-          <div class="input-with-icon">
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <i class="fa fa-envelope"></i>
-            <p class="input-error"></p>
-          </div>
-          <div class="input-with-icon">  
-            <input type="password" name="password" id="password" placeholder="Password" required>
-            <i class="fa fa-lock"></i>
-          </div>
-          <div class="form-button-container">
-            <button type="submit" class="btn btn-primary">Login</button>
-          </div>
-        </form>
-      </div><!--/form-container --> 
-      <div class="route-area">        
-        <p>Don't have an account? Click <a href="sign-up.php">here</a> to sign up now!</p>
-      </div><!--/route-area -->
-      <hr class="hr" data-content="OR">
-      <div class="social-login-container">
-        <h6>Sign in with</h6>
-        <div class="social-icons">
-          <ul>
-            <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-            <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="https://instagram.com/apareciumlabs" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
-          </ul>
-        </div>
-      </div><!--/social-login-container -->
       <div data-role="popup" id="auth-mismatched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
         <h3>Oops!</h3>
         <p>You've entered an incorrect email or password. Please retry!</p>

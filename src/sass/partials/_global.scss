@@ -10,6 +10,10 @@
   text-transform: uppercase;
 }
 
+.white-bg {
+  background-color: $white !important;
+}
+
 .fabs {
   bottom: 0;
   position: fixed;
@@ -219,6 +223,10 @@
 .ui-page-theme-a,
 .ui-bar-inherit {
   text-shadow: none !important;
+}
+
+.ui-page-theme-a {
+  background-color: $bg-color !important;
 }
 
 .ui-content {
