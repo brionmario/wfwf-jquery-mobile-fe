@@ -23,17 +23,17 @@
 </head>
 
 <body>
-<div data-role="page" class="auth-page-wrapper">
-  <div role="main" class="overlay ui-content main-content auth-page">
+<div data-role="page" class="white-full-page-wrapper">
+  <div role="main" class="overlay ui-content main-content white-full-page auth-page">
     <div class="close-icon-container">
       <a data-rel="back" rel="external"><i class="fa fa-times fa-2x"></i></a>
-    </div>
+    </div><!--/close-icon-container -->
     <div class="padded-content full-height">
       <div class="main-heading-container">
         <h1>Sign up</h1>
         <h3>Howdy stranger,</h3>
         <h5>Complete the form to create an account</h5>
-      </div>
+      </div><!--/main-heading-container -->
       <div class="form-container">
         <form id="sign-up-form" method="post" action="">
           <div class="input-with-icon">
@@ -56,22 +56,20 @@
             <button type="submit" class="btn btn-primary">Sign up</button>
           </div>
         </form>
-      </div>
-    
+      </div><!--/form-container -->
       <div class="route-area">        
         <p>Alredy have an account? Click <a href="login.php">here</a> to sign in!</p>
-      </div>
-    </div><!-- /content -->
-
-     <!-- /Success message popup -->
-     <div data-role="popup" id="sign-up-success-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
+      </div><!--/route-area -->
+      <div data-role="popup" id="sign-up-success-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
         <h3>Success!</h3>
         <p>Account created successfully. Please press the login button to continue.</a></p>
         <img class="check-mark" src="assets/img/check-mark-circular.svg" />
         <a class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('login.php')">Login</a>
-      </div>
-  </div><!-- /main-content -->
+      </div><!-- /Success message popup -->
+    </div><!-- /content -->
+  </div><!-- /main -->
 </div><!-- page -->
+
 <script type="text/javascript">
 $(document).ready(function () {
   $('#sign-up-form').on('submit', function(e){
