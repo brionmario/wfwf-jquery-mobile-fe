@@ -51,10 +51,8 @@
 
         $team = json_decode($response);
 
-        echo '<div class="page-slider">';
-          foreach($team->imageSlider as $image):
-            echo '<img src="'.$image.'" />';
-          endforeach;
+        echo '<div class="profile-icon-container">';
+            echo '<img src="'.$team->imageSlider[0].'" />';
         echo '</div>';
         echo '<div class="ui-grid-a ui-responsive">';
           echo '<div class="ui-block-solo">';
