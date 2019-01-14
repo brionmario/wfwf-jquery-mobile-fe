@@ -24,15 +24,14 @@
 
 <body>
 <div data-role="page" class="auth-page-wrapper">
-    <div role="main" class="overlay ui-content main-content sponsor-page">
-        <div class="page-header">
-            <h3>Sponsor Ad</h3>
+    <div role="main" class="overlay ui-content main-content auth-page sponsor-page">
+        <div class="top-panel">
+            <p>Sponsor Ad</p>
+            <button class="btn btn-outline btn-sm" onclick="navigatePage('index.php')">Skip</button>
         </div>
-        <div>
-            <button type="submit" onclick="navigatePage('index.php')">Skip</button>
+        <div class="iframe-container">
+            <iframe width="400" height="345" src="https://www.youtube.com/embed/w-OM667PEM8"></iframe>
         </div>
-       
-    <iframe width="400" height="345" src="https://www.youtube.com/embed/w-OM667PEM8"></iframe>
     </div> 
 </div><!-- page -->
 </body>
