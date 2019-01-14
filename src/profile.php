@@ -31,57 +31,62 @@
   <div role="main" class="overlay ui-content main-content">
     <div class="ui-grid-a ui-responsive">
       <div class="ui-block-a">
-                <div class="profile-image">
-                <img src="assets/img/profile/tila.jpg">
-          </div>
+          <div class="profile-image">
+          <img src="assets/img/default-avatar.png" />
+        </div>
       </div>
       <div class="ui-block-b">
-        <section class="right-section">
-              <div class="desc-content">
-                <h2 class="desc-title" style="font-size:18px;font-weight:bold;">Bindula Sagara</h2>
-                <p class="desc-para">The 2010s have thus far been defined by hipster fashion, athleisure, a revival of
-                  contribute back to the community.sssssss sssssssssssssa sssssss ssdsdasdasd asdasdassda scdsac
-                  sasa sdhksd sdasldksad  skldadasdk  sdjkasd asdhasld sd sjkdsajdksad ksdsa. 
-                </p>
-                <div class = "ui-content events_body rebdytrndng">
-      <div class="tab_body">
-        <div class="profile-content">
-            <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
-                        <li class="profile-content-list">  
-                        <div class="current-position">
-                            <h2>Current Position</h2>
-                            <div class="trophy-icon">
-                            <i class="fa fa-trophy"></i>
-                            </div>
-                            <h3>2</h3>
-                        </div>
+        <section class="profile-right-side">
+        <?php
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/users/{$_GET['id']}";
+        
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => $url,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache"
+            ),
+          ));
 
-                        <div class="total-points">
-                            <h2>Total Points</h2>
-                            <h3>80</h3>
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        $user = json_decode($response);
+          echo '<div class="desc-content">
+            <h2 class="desc-title text-uppercase text-center">'.$user->displayName.'</h2>
+            <h5 class="desc-para text-center">'.$user->email.'</h5>
+            <div class = "ui-content events_body">
+              <div class="tab_body">
+                <div class="profile-content">
+                  <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
+                    <li class="profile-content-list">  
+                      <div class="current-position">
+                        <h2>Current Position</h2>
+                        <div class="trophy-icon">
+                          <i class="fa fa-trophy"></i>
                         </div>
-                        </li>
-            </ul>
-            <div>
-            <button id="mc-embedded-favourites" class="view-favourites-btn" name="view-favourites" type="submit">
-                        <b>View Favourites</b>
-                      </button>
-            </div>
-            <div>
-            <button id="mc-embedded-tasks" class="view-tasks-btn" name="view-tasks" type="submit" onclick="location.href='tasks.php'">
-                        <b>View Tasks</b>
-                      </button>
-           </div>  
-           <div>
-            <button id="mc-embedded-game" class="join-game-btn" name="join-game" type="submit">
-                        <b>Join Game</b>
-                      </button>
-           </div>  
-                          
+                        <h3>2</h3>
+                      </div>
+                      <div class="total-points">
+                        <h2>Total Points</h2>
+                        <h3>80</h3>
+                      </div>
+                    </li>
+                  </ul>
+                <div>
             
-        </div>
-        
-        
+                <button class="btn btn-primary" onclick="routeWithId(\'favourites.php\')">View Favourites</button>
+                <button class="btn btn-default" onclick="routeWithId(\'tasks.php\')">View Tasks</button>
+                <button class="btn btn-secondary" onclick="routeWithId(\'game.php\')">Join Game</button>
+              </div>
+            </div>
+          </div>';
+        ?>
         </section>
       </div>
     </div><!-- /grid-a -->

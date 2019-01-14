@@ -24,87 +24,58 @@
 </head>
 
 <body>
-<div data-role="page" id="events">
+<div data-role="page">
   <?php require './components/sidebar.php'?><!-- /panel -->
   <?php require './components/header.php'?><!-- header -->
-  <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-   <div role="main" class="overlay ui-content main-content">
-      <div  class="ui-content events_body rebdytrndng">
-      <div class="tab_body">
-        <div class="task-content">
-            <ul data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">
-                        <li class="list-item tasks"> 
-                          <div class="task-block">
-                          <h2>Day 01 Task</h2>
-                          <p>Dec 10, 3.00 p.m</p>
-                          </div>
-                          <div class="bar-one bar-con">
-		                      <div class="bar" data-percent="100"><h2>COMPLETED</h2></div>
-                        	</div>
-                        </li>
-                        <li class="list-item tasks">  
-                        <div class="task-block">
-                            <h2>Day 02 Task</h2>
-                            <p>Dec 10, 5.00 p.m</p> 
-                            </div>
-                          <div class="bar-one bar-con">
-		                      <div class="bar" data-percent="100"><h2>COMPLETED</h2></div>
-                        	</div>
-                        </li>
-                        <li class="list-item tasks">     
-                        <div class="task-block">                     
-                            <h2>Day 03 Task</h2>
-                            <p>Dec 11, 10.00 a.m</p>
-                            </div>
-                          <div class="bar-two bar-con">
-		                      <div class="bar" data-percent="100"><h2>PENDING</h2></div>
-                        	</div>
-                        </li>
-                        <li class="list-item tasks">  
-                        <div class="task-block">
-                            <h2>Day 04 Task</h2>
-                            <p>Dec 11, 1.00 p.m</p> 
-                            </div>
-                          <div class="bar-two bar-con">
-		                      <div class="bar" data-percent="100"><h2>PENDING</h2></div>
-                        	</div>
-                        </li>
-                        <li class="list-item tasks">  
-                        <div class="task-block">
-                            <h2>Day 05 Task</h2>
-                            <p>Dec 11, 3.00 p.m</p> 
-                            </div>
-                          <div class="bar-two bar-con">
-		                      <div class="bar" data-percent="100"><h2>PENDING</h2></div>
-                        	</div>
-                        </li>
-                        <li class="list-item tasks">
-                        <div class="task-block">                          
-                            <h2>Day 06 Task</h2>
-                            <p>Dec 11, 5.00 p.m</p>  
-                            </div>
-                          <div class="bar-two bar-con">
-		                      <div class="bar" data-percent="100"><h2>PENDING</h2></div>
-                        	</div> 
-                        </li>
-                        <li class="list-item tasks">  
-                        <div class="task-block">                        
-                            <h2>Day 07 Task</h2>
-                            <p>Dec 11, 5.00 p.m</p>  
-                            </div>
-                          <div class="bar-two bar-con">
-		                      <div class="bar" data-percent="100"><h2>PENDING</h2></div>
-                        	</div> 
-                        </li>
-            
-            </ul>
-        </div>
+  <div role="main" class="overlay ui-content main-content">
+    <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
+    <div class="list-wrapper">
+      <ul class="list" data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">
+      <?php
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/users/{$_GET['id']}";
         
-        </section>
-  
-      </div>
-    </div><!-- /grid-a -->
-  </div><!-- /content -->
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => $url,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache"
+            ),
+          ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        $user = json_decode($response);
+        $taskCount = 7;
+        $completedCount = $user->completedTasks;
+
+        for ($x = 0; $x <= 6; $x++) {
+          if ($x < $completedCount) {
+            echo '<li class="list-item card">
+              <div class="task-block float-left">
+                <h2>Day '.($x+1).' Task</h2>
+                <p>Score 10</p>
+              </div>
+              <button class="btn btn-success btn-sm float-right" style="width: 90px !important;">Completed</button>
+            </li>';
+          } else {
+            echo '<li class="list-item card">
+              <div class="task-block float-left">
+                <h2>Day '.($x+1).' Task</h2>
+                <p>Score 0</p>
+              </div>
+              <button class="btn btn-warning btn-sm float-right" style="width: 90px !important;">Pending</button>
+            </li>';
+          }
+        }
+        ?>
+      </ul>
+    </div>
   <?php require './components/footer.php'?><!--footer -->
 </div><!-- page -->
 

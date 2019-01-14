@@ -6,6 +6,46 @@
   text-align: center;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.fabs {
+  bottom: 0;
+  position: fixed;
+  margin: 1em;
+  right: 0;
+  z-index: 9999;
+
+  .fab {
+    display: block;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background: #00bcd4;
+    margin: 25px auto 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+    position: relative;
+    z-index: 998;
+    overflow: hidden;
+    > i {
+      font-size: 2em;
+      line-height: 55px;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      -o-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
 .text-center {
   text-align: center;
 }
@@ -32,6 +72,10 @@
 
 .float-left {
   float: left;
+}
+
+.float-right {
+  float: right;
 }
 
 .fadeout {

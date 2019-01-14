@@ -62,7 +62,7 @@
     </div><!-- /navbar -->
 
     <button class="btn btn-primary text-uppercase login-btn" onclick="navigatePage('login.php')">Login</button>
-    <div class="avatar-container">
+    <div class="avatar-container" onclick="goToProfile()">
         <img class="avatar" src="assets/img/avatars/avatar.svg" />
     </div>
 </div>

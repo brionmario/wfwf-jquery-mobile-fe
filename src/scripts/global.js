@@ -65,3 +65,13 @@ export function logout() {
   removeCookie('WFWF_user');
   navigatePage('index.php');
 }
+
+export function goToProfile() {
+  var id = getCookie('WFWF_user');
+  navigatePage(`profile.php?id=${id}`);
+}
+
+export function routeWithId(url) {
+  var id = getCookie('WFWF_user');
+  navigatePage(`${url}?id=${id}`);
+}

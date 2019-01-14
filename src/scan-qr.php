@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Thisura Sagara">
-  <title>Login | Westminster Fashion Week Festival 2019</title>
+  <title>Scan QR | Westminster Fashion Week Festival 2019</title>
   
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -25,15 +25,14 @@
 
 <body>
 <div data-role="page" class="white-full-page-wrapper">
-  <div role="main" class="overlay ui-content main-content white-full-page auth-page">
+  <div role="main" class="overlay ui-content main-content white-full-page scan-qr-page">
     <div class="close-icon-container">
       <a href="index.php" rel="external"><i class="fa fa-times fa-2x"></i></a>
     </div><!--/close-icon-container -->
     <div class="padded-content full-height">
       <div class="main-heading-container">
-        <h1>Login</h1>
-        <h3>Welcome Back,</h3>
-        <h5>Sign in to continue</h5>
+        <h1>Scan QR</h1>
+        <h3>Point you camera to the QR code on the price tag</h3>
       </div><!--/main-heading-container -->
       <div class="form-container">
         <form id="login-form" method="post" action="">
