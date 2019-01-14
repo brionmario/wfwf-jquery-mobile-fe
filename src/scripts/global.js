@@ -22,3 +22,13 @@ export function replacePage(url) {
 export function navigatePage(url) {
   window.location.href = url;
 }
+
+export function addCookie(value) {
+  const cookieName = 'WFWF_user';
+  const days = 1000;
+  let expires = '';
+  let date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  expires = '; expires=' + date.toGMTString();
+  document.cookie = cookieName + '=' + value + expires + '; path=/';
+}

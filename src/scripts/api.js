@@ -6,6 +6,7 @@ export function favourite(currentStatus, type, id) {
   };
   fetch(endpoint, {
     method: 'PATCH',
+    mode: 'cors',
     body: JSON.stringify(body),
     headers: {
       'Content-Type': 'application/json'

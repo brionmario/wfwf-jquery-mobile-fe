@@ -34,33 +34,78 @@
         <h3>Howdy stranger,</h3>
         <h5>Complete the form to create an account</h5>
       </div>
-      <div class="form-area">
-        <div class="input-with-icon">
-          <input type="text" name="fname" placeholder="First Name">
-          <i class="fa fa-user"></i>
-        </div>
-        <div class="input-with-icon">  
-          <input type="text" name="lname" placeholder="Last Name">
-          <i class="fa fa-user"></i>
-        </div>
-        <div class="input-with-icon"> 
-          <input type="email" name="email" placeholder="Email">
-          <i class="fa fa-envelope"></i>
-        </div>
-        <div class="input-with-icon">  
-          <input type="password" name="password" placeholder="Password">
-          <i class="fa fa-lock"></i>
-        </div>
-        <div class="form-button">
-          <button type="submit" class="btn btn-primary" onclick="alert('Sign up')">Sign up</button>
-        </div>
+      <div class="form-container">
+        <form id="sign-up-form" method="post" action="">
+          <div class="input-with-icon">
+            <input type="text" name="fname" id="fname" placeholder="First Name" required>
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="input-with-icon">  
+            <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="input-with-icon"> 
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <i class="fa fa-envelope"></i>
+          </div>
+          <div class="input-with-icon">  
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <i class="fa fa-lock"></i>
+          </div>
+          <div class="form-button">
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </div>
+        </form>
       </div>
     
       <div class="route-area">        
         <p>Alredy have an account? Click <a href="login.php">here</a> to sign in!</p>
       </div>
     </div><!-- /content -->
+
+     <!-- /Success message popup -->
+     <div data-role="popup" id="sign-up-success-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
+        <h3>Success!</h3>
+        <p>Account created successfully. Please press the login button to continue.</a></p>
+        <img class="check-mark" src="assets/img/check-mark-circular.svg" />
+        <a class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('login.php')">Login</a>
+      </div>
   </div><!-- /main-content -->
 </div><!-- page -->
+<script type="text/javascript">
+$(document).ready(function () {
+  $('#sign-up-form').on('submit', function(e){
+    e.preventDefault();
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var endpoint = 'https://westminster-fashion-week-api.herokuapp.com/api/v1/users';
+
+    if ((fname !== null || fname !== '') && (lname !== null || lname !== '') && (email !== null || email !== '') && (password !== null || password !== '')) {
+      var body = {
+        displayName: fname + " " + lname,
+        email: email,
+        password: password
+      };
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+      }).then(function (resp) {
+        return resp.json();
+      }).then(function (data) {
+        $('#sign-up-success-popup').popup("open");
+      }).then(function (error) {
+        console.log(error);
+      });
+    }
+  });
+});
+</script>
 </body>
 </html>
