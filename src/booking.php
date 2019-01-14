@@ -25,10 +25,10 @@
 
 <body>
     <?php
-echo '<div data-role="page" class="booking">';
+echo '<div data-role="page">';
     require './components/sidebar.php';
     require './components/header.php';
-    echo '<div role="main" class="overlay ui-content main-content about">';
+    echo '<div role="main" class="overlay ui-content main-content booking-page">';
     require './components/breadcrumb.php';
 
     $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
@@ -62,6 +62,19 @@ echo '<div data-role="page" class="booking">';
             echo '<P>Tickets </p><input type="number" id="total" name="quantity" min="1" max="5" value="1">';
             echo '<h2 id="ticketprice">£'.$event->ticketPrice.'.00</h2>';
         echo '</div></div>';
+        echo '
+            <script type="text/javascript">
+            $( "#total" ).keyup(function() {
+                var value = $( this ).val();
+                var ticketprice = $(\'#ticketprice\').val();
+                console.log(ticketprice);
+                console.log(value);
+                var totalprice = value * '.$event->ticketPrice.';
+                $( "#numticket" ).text( value );
+                $( "#totalprice" ).text( totalprice );
+                }).keyup();
+            </script>
+        ';
     echo '</div><!-- /grid-a -->';
     echo '<hr class="style14">';
         echo '<form id="first_form" method="post" action="">'; 
@@ -80,8 +93,8 @@ echo '<div data-role="page" class="booking">';
             echo '<hr class="style14">';
             echo ' <div class="booking-detils">';
                 echo '<h5>Booking Deatils</h5>';
-                echo ' <p>Number of tickets:   </p><p id=numticket></p>';
-                echo '<h2>Total Amount:  £</h2><h2 id=totalprice></h2>';
+                echo '<p>Number of tickets:</p><p id=numticket></p>';
+                echo '<h2>Total Amount &ensp; £<span id=totalprice></span></h2>';
                     echo ' <div class="form-button">';
                         echo '<button type="submit" value="Submit">Confirm & Pay</button>';
                     echo ' </div>';
@@ -110,7 +123,7 @@ echo '<div data-role="page" class="booking">';
 echo '</div><!-- page -->';
    ?>
           
-  <script type="text/javascript">
+<script type="text/javascript">
     var breadcrumb = [
       {
         name: 'Home',
@@ -122,7 +135,8 @@ echo '</div><!-- page -->';
       }
     ];
     setBreadcrumb(breadcrumb);
-
+</script>
+<script type="text/javascript">
     $(document).ready(function(){
       $('.event-slider').slick();
     });
@@ -156,17 +170,6 @@ echo '</div><!-- page -->';
 
   });
     });
-
-    $( "#total" ).keyup(function() {
-    var value = $( this ).val();
-    var ticketprice = $('#ticketprice').val();
-    console.log(ticketprice);
-    console.log(value);
-    var totalprice = value*ticketprice;
-    $( "#numticket" ).text( value );
-    $( "#totalprice" ).text( totalprice );
-    }).keyup();
-
-  </script>
+</script>
 </body>
 </html>
