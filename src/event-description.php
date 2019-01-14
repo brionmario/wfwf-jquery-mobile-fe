@@ -86,7 +86,7 @@
             echo '<div class="action-button-container body-padding text-center">';
               echo '<button class="btn btn-primary btn-full book-tickets-btn" onclick="navigatePage(\'booking.php?id='.$event->id.'\')">Book Tickets</button>';
               echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$event->id.'&lat='.$event->latitude.'&lon='.$event->longitude.'\')">Get Directions</button>';
-              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$event->favourited.',\'events\',\''.$event->id.'\'); navigatePage(\'event-description.php?id='.$event->id.'\')">';    
+              echo '<button class="btn btn-outline favourites-btn ui-btn-inline" id="favourited-filter-button" onclick="favourite('.$event->favourited.',\'events\',\''.$event->id.'\'); navigatePage(\'event-description.php?id='.$event->id.'\')">';    
                 if ($event->favourited == 'true') {
                   echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
                 } else if ($event->favourited == 'false') {
@@ -106,6 +106,12 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.page-slider').slick();
+    });
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('#favourited-filter-button').hide();
+      }
     });
 
     $(document).ready(function () {
