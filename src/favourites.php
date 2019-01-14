@@ -104,25 +104,24 @@
             <?php endforeach; 
             
             echo ' <div class="fabs">';
-            echo '<a id="prime" class="fab" href="#send-email-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
+              echo '<a id="prime" class="fab" href="#send-email-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
             echo '</div>';
 
-            
-            echo '</ul>';
+        echo '</ul>';
 
             echo '<!-- /success popup email send -->';
             echo '<div data-role="popup" id="send-email-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">';
-            echo '<form action="favourites.php" method="post">';
-            echo '<h3>Email Favourites List</h3>';
-            foreach($favourites as $list):?>
-            <ol>
-            <li><?php echo $list['title']; ?></li>
-            </ol>
-              <?php endforeach; 
-            echo ' <input type="email" name="email" placeholder="Email">';
-            echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
-            echo '<input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" type="submit" value="Send Email" name="send"/>';
-            echo '</form>';
+              echo '<form action="favourites.php" method="post">';
+                echo '<h3>Email Favourites List</h3>';
+                foreach($favourites as $list):?>
+                  <ol>
+                    <li><?php echo $list['title']; ?></li>
+                  </ol>
+                <?php endforeach; 
+                echo ' <input type="email" name="email" placeholder="Email">';
+                echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
+                echo '<input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" type="submit" value="Send Email" name="send"/>';
+              echo '</form>';
             echo ' </div>';    
 
             require 'lib/PHPMailerAutoload.php';
