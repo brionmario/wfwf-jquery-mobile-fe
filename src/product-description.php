@@ -54,9 +54,9 @@
         //<!-- /availability popup -->
         echo '<div data-role="popup" id="check-avaliability" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
                 <h3>Available!</h3>
-                <p>This product is available</p>
+                <p>The size you have specified is available</p>
                 <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-                <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage(\'products-description.php\')">Continue</a>
+                <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
              </div>';
 
         echo '<div class="page-slider">';
@@ -64,53 +64,62 @@
             echo '<img src="'.$image.'" />';
           endforeach;
         echo '</div>';
-        echo '<div class="ui-grid-a ui-responsive">';
-          echo '<div class="ui-block-solo">';
-            echo '<div class="page-description-container body-padding text-center">';
-              echo '<h2 class="page-title">'.$product->title.'</h2>';
-              echo '<h4 class="product-price">'.$product->price.'</h4>';
-              echo '<div class="product-category">'; 
-                echo '<i class="fa fa-tag"></i>';
-                echo '<p class="product-category-text">'.$product->category.'</p>';
+        echo '<div>';
+          echo '<div class="ui-grid-a ui-responsive">';
+            echo '<div class="ui-block-solo">';
+              echo '<div class="page-description-container body-padding text-center">';
+                echo '<h2 class="page-title">'.$product->title.'</h2>';
+                echo '<h3 class="product-price">£'.$product->price.'</h3>';
+                echo '<div class="product-category-container">'; 
+                  echo '<i class="fa fa-tag"></i>';
+                  echo '<span class="product-category">&ensp;'.$product->category.'</span>';
+                echo '</div>';
               echo '</div>';
-            echo '</div>';
 
-           //dropdown
-            echo '<div class="ui-field-contain">';
-                echo '<select name="select-custom-21" id="select-custom-21" data-native-menu="false">';
-                 echo '<option value="choose-one" data-placeholder="true">Select Size</option>';
-                 foreach($product->sizes as $size):
-                 echo '<option value="1">'.$size.'</option>';
+              echo '<div class="action-button-container body-padding text-center">';
+                  //dropdown
+                  echo '<div class="ui-field-contain ui-btn-inline">';
+                    echo '<select name="select-custom-21" id="select-custom-21" data-native-menu="false">';
+                      echo '<option value="choose-one" data-placeholder="true">Select Size</option>';
+                      foreach($product->sizes as $size):
+                      echo '<option value="1">'.$size.'</option>';
+                      endforeach;
+                    echo '</select>';
+                  echo '</div>';
+                  echo '<a class="availability-btn-anchor" href="#check-avaliability" data-rel="popup" data-position-to="window" data-transition="pop")>';
+                    echo '<button class="btn btn-primary ui-btn-inline check-availability-btn">Check Availability</button>';
+                  echo '</a>';
+                  echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$product->id.'&lat='.$product->latitude.'&lon='.$product->longitude.'\')">Get Directions</button>';
+                  echo '<button class="btn btn-outline favourites-btn ui-btn-inline" onclick="favourite('.$product->favourited.',\'products\',\''.$product->id.'\'); navigatePage(\'product-description.php?id='.$product->id.'\')">';    
+                    if ($product->favourited == 'true') {
+                      echo '<i class="fa fa-heart-o"></i>Remove From Favourites';
+                    } else if ($product->favourited == 'false') {
+                      echo '<i class="favourited fa fa-heart"></i>Add To Favourites';
+                    }
+                  echo '</button>';
+              echo '</div>';
+
+              echo '<div class="product-specs body-padding">';
+                echo '<h4>Product Specifications</h4>';
+                foreach($product->specs as $spec):
+                  echo '<h5>'.$spec.'</h5>';
                 endforeach;
-                echo '</select>';
-            echo '</div>';
+              echo '</div>';
+              
+              echo '<div class="product-description body-padding">';
+                echo '<h4>Product Description</h4>';
+                echo '<p class="page-description-text">'.$product->description.'</p>';
+                echo '<button class="btn btn-default btn-sm show-more-btn ">Show More</b></button>';
+              echo '</div>';
 
-            echo '<div class="action-button-container body-padding text-center">';
-              echo '<a class="availability-btn" href="#check-avaliability" data-rel="popup" data-position-to="window" data-transition="pop")>';
-                echo '<button class="btn btn-primary btn-full check-availability-btn">Check Availability</button>';
-              echo '</a>';
-              echo '<button class="btn btn-secondary directions-btn ui-btn-inline" onclick="navigatePage(\'get-directions.php?id='.$product->id.'&lat='.$product->latitude.'&lon='.$product->longitude.'\')">Get Directions</button>';
             echo '</div>';
-
-            echo '<div class="product-specs">';
-               foreach($product->specs as $spec):
-                echo '<h5>'.$spec.'</h5>';
-               endforeach;
-            echo '</div>';
-            
-            echo '<div class="product-description">';
-              echo '<h2>Description</h2>';
-              echo '<p class="product-description-text">'.$product->descrition.'</p>';
-              echo '<button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>';
-            echo '</div>';
-
           echo '</div>';
-        echo '</div>';
+        echo '</div><!-- /padded-content-->';
       echo '</div>';
       require './components/footer.php';
     echo '</div>';
 
-  echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Events\',href: \'events.php\'},{name: \''.$event->title.'\',href: \'event-description.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+  echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Products\',href: \'products.php\'},{name: \''.$product->title.'\',href: \'event-description.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
   ?>
   
     
