@@ -19,13 +19,16 @@
   <!-- inject:css -->
   <!-- endinject -->
 
+  <script type="text/javascript" src="http://wfwf.apareciumlabs.com/resources/libs/jsqrcode/llqrcode.js"></script>
+  <script type="text/javascript" src="http://wfwf.apareciumlabs.com/resources/libs/jsqrcode/webqr.js"></script>
+
   <!-- inject:js -->
   <!-- endinject -->
 </head>
 
 <body>
 <div data-role="page" class="white-full-page-wrapper">
-  <div role="main" class="overlay ui-content main-content white-full-page scan-qr-page">
+  <div role="main" id="main" class="overlay ui-content main-content white-full-page scan-qr-page">
     <div class="top-panel">
       <div class="main-heading">
         <h3>Scan QR</h3>
@@ -34,7 +37,18 @@
       <a href="index.php" rel="external"><i class="fa fa-times fa-2x"></i></a>
     </div><!-- /top-panel -->
     
-    <div class="padded-content full-height">
+      <div class="canvas-container" id="mainbody">
+        <img class="selector" id="webcamimg" src="assets/icons/video-camera.svg" onclick="setwebcam()" align="left" />
+        <img class="selector" id="qrimg" src="assets/icons/video-camera.svg" onclick="setimg()" align="right" />
+        <div class="video-placeholder" id="outdiv"></div>
+        <div class="status-placeholder"><div id="result"></div></div>
+      </div>
+      <div class="empty-placeholder hidden" id="camera-error-empty-placeholder">
+        <img class="icon" src="assets/icons/video-camera.svg" />
+        <h4 class="main-title">Camera Error</h4>
+        <p class="sub-title">The camera connection refused. Please reload the page and retry.</p>
+      </div>
+
       <div data-role="popup" id="auth-mismatched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
         <h3>Oops!</h3>
         <p>You've entered an incorrect email or password. Please retry!</p>
@@ -52,55 +66,27 @@
         <p>Login successful. You will be redirected back to the home screen in a second.</p>
         <img class="check-mark" src="assets/img/check-mark-circular.svg" />
       </div><!-- /Success message popup -->
-    </div><!-- /padded-content -->
   </div><!-- /main -->
 </div><!-- page -->
 
+<canvas id="qr-canvas" width="800" height="600"></canvas>
 <script type="text/javascript">
-$(document).ready(function () {
-  $('#login-form').on('submit', function(e){
-    e.preventDefault();
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var endpoint = 'https://westminster-fashion-week-api.herokuapp.com/api/v1/users';
-
-    if ((email !== null || email !== '') && (password !== null || password !== '')) {
-      fetch(endpoint, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'same-origin'
-      }).then(function (resp) {
-        return resp.json();
-      }).then(function (data) {
-        var isFound = false;
-        var user = {};
-        
-        data.forEach(function (item) {
-          if (item.email === email && item.password === password) {
-            isFound = true;
-            user = item;
-          }
+      load();
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var constraints = { video: true };
+        navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+          var videoTracks = stream.getVideoTracks();
+          console.log('Got stream with constraints:', constraints);
+          console.log('Using video device: ' + videoTracks[0].label);
+          stream.onremovetrack = function() {
+            console.log('Stream ended');
+          };
+          window.stream = stream; // make variable available to browser console
+          video.srcObject = stream;
         });
-
-        if (isFound) {
-          addCookie(user.id);
-          $('#auth-matched-popup').popup("open");
-          setTimeout(function(){
-            navigatePage('sponsor-video.php');
-          },3000);
-        } else {
-          $('#auth-mismatched-popup').popup("open");
-        }
-
-      }).then(function (error) {
-        $('#auth-failed').popup("open");
       });
-    }
-  });
-});
-</script>
+    </script>
 </body>
 </html>

@@ -134,7 +134,7 @@
 .scan-qr-page {
   height: calc(100vh - 80px);
   .top-panel {
-    min-height: 80px;
+    height: 80px;
     background-color: $white;
     padding: 5px 15px;
     border-bottom: $header-border-bottom !important;
@@ -148,6 +148,43 @@
       margin: unset;
       float: right;
       margin-top: 10px;
+    }
+  }
+  .canvas-container {
+    .selector {
+      display: none;
+    }
+    .video-placeholder {
+      text-align: center;
+    }
+    .status-placeholder {
+      position: absolute;
+      padding: 20px 10px;
+    }
+
+    #qr-canvas {
+      display: none;
+    }
+    #qrfile {
+      width: 320px;
+      height: 240px;
+    }
+    #mp1 {
+      text-align: center;
+      font-size: 35px;
+    }
+    #imghelp {
+      position: relative;
+      left: 0px;
+      top: -160px;
+      z-index: 100;
+      font: 18px arial, sans-serif;
+      background: #f0f0f0;
+      margin-left: 35px;
+      margin-right: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 20px;
     }
   }
 }
