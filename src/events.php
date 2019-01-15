@@ -172,7 +172,7 @@
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithIdAtEnd('events.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('events.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->

@@ -134,9 +134,6 @@
                     $favouriteList[$i] = $i+1 .". ".$favourites[$i]['title'];
                   }
 
-                  echo '<script>alert('.sizeof($favourites).')</script>';
-
-
                   $test = implode("<br>",$favouriteList);
               
                   $email = $_POST['email'];                    
