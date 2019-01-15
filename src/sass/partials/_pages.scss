@@ -250,54 +250,40 @@
 }
 
 .booking-page {
-  img {
-    height: 100px;
-    margin-bottom: 10px;
+  .booking-image-container {
+    padding: 30px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
-
-  .booking-detils {
-    padding: 5px 20px;
-    h5 {
-      padding: 5px 0px;
+  .booking-details {
+    padding: 30px;
+    .booking-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .booking-description-text {
+      margin-bottom: 10px;
+    }
+    .ticket-count {
+      margin-bottom: 5px;
+      p {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .ui-input-text {
+        display: inline-block !important;
+      }
+    }
+  }
+  .total-container {
+    h4 {
+      margin-bottom: 10px;
     }
     p {
-      padding: 5px 0px;
-    }
-    h2 {
-      padding: 5px 0px;
-    }
-  }
-  hr.style14 {
-    line-height: 1em;
-    position: relative;
-    outline: 0;
-    border: 0;
-    color: black;
-    text-align: center;
-    height: 1.5em;
-    opacity: 0.5;
-    &:before {
-      content: '';
-      // use the linear-gradient for the fading effect
-      // use a solid background color for a solid bar
-      background: linear-gradient(to right, transparent, #818078, transparent);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-    }
-    &:after {
-      content: attr(data-content);
-      position: relative;
-      display: inline-block;
-      color: black;
-
-      padding: 0 0.5em;
-      line-height: 1.5em;
-      // this is really the only tricky part, you need to specify the background color of the container element...
-      color: #818078;
-      background-color: #fcfcfa;
+      margin: 10px 0;
     }
   }
 
@@ -368,6 +354,23 @@
       }
     }
   }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+        display: none;
+      }
+      .ticketprice {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 /** iPhone 6, 7, & 8 in landscape **/
@@ -396,6 +399,23 @@
       .ui-block-a,
       .ui-block-b {
         width: 100%;
+      }
+    }
+  }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+        display: none;
+      }
+      .ticketprice {
+        font-size: 16px;
       }
     }
   }
@@ -437,6 +457,23 @@
       }
     }
   }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+        display: none;
+      }
+      .ticketprice {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 /** iPhone X in landscape **/
@@ -465,6 +502,22 @@
       .ui-block-a,
       .ui-block-b {
         width: 100%;
+      }
+    }
+  }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+      }
+      .ticketprice {
+        font-size: 16px;
       }
     }
   }
