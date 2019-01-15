@@ -237,7 +237,8 @@ gulp.task('clean', () => {
   }
   if (gutil.env.env === 'development') {
     return del(CONFIG.paths.dev.root);
-  } if (gutil.env.env === 'all') {
+  }
+  if (gutil.env.env === 'all') {
     return del([CONFIG.paths.dev.root, CONFIG.paths.prod.root]);
   }
   return del([CONFIG.paths.dev.root, CONFIG.paths.prod.root]);
@@ -335,7 +336,8 @@ gulp.task('inject', () => {
       `${CONFIG.paths.src.root}/**/*.html`,
       `${CONFIG.paths.src.root}/**/*.jade`,
       `${CONFIG.paths.src.root}/**/*.php`,
-      `!${CONFIG.paths.src.vendor}/**/*`
+      `!${CONFIG.paths.src.vendor}/**/*`,
+      `!${CONFIG.paths.src.libs}/**/*`
     ],
     { base: CONFIG.paths.src.root }
   );
