@@ -120,7 +120,7 @@
                 <?php endforeach; 
                 echo ' <input type="email" name="email" placeholder="Email">';
                 echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
-                echo '<input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" type="submit" value="Send Email" name="send"/>';
+                echo '<button class="btn btn-success" type="submit" name="send">Send Email</button>';
               echo '</form>';
             echo ' </div>';    
 
@@ -164,11 +164,7 @@
 
                   if (!$mail->send()) {
                      $error = "Mailer Error: " . $mail->ErrorInfo;
-                      ?><script>alert('<?php echo $error ?>');</script><?php
                   } 
-                  else {
-                     echo '<script>alert("Message sent!");</script>';
-                  }
              }
         ?>
         <!-- /success popup -->
@@ -176,7 +172,7 @@
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('events.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithIdAtEnd('events.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->
@@ -185,13 +181,13 @@
             <h3>Filter</h3>
             <div class="sort-block">
               <h5>Sort by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=date&sort_order=DESC')">Latest</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=ASC')">A-Z</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=DESC')"> Z-A</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?sort=date&sort_order=DESC')">Latest</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?sort=title&sort_order=DESC')"> Z-A</button>
             </div>
             <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?filter=favourited&filter_value=true')">Favourited</button>
             </div>
           </div>
         </div>

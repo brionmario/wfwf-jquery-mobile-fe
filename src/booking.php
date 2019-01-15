@@ -53,18 +53,20 @@
 
 
             echo '<div class="ui-grid-a">';
-                echo '<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:160px">';
-                    echo '<img src="'.$event->imageSlider[0].'" />';
+                echo '<div class="ui-block-a">';
+                    echo '<div class="booking-image-container">';
+                        echo '<img src="'.$event->imageSlider[0].'" />';
+                    echo '</div>';
                 echo '</div>';
-            echo '</div>';
+                
         echo '<div class="ui-block-b">';
-            echo'<div class="ui-bar ui-bar-a" style="height:160px">';
-                echo '<h5  class="event-title">'.$event->title.'</h5>';
-                echo  '<p class="event-description-text">'.$event->description.'</p>';
-                echo '<P>Tickets </p><input type="number" id="total" name="quantity" min="1"  value="1">';
-                echo '<h2 id="ticketprice">£'.$event->ticketPrice.'.00</h2>';
-            echo '</div>';
-            echo '</div>';
+            echo '<div class="booking-details">';
+                echo '<p class="booking-title">'.$event->title.'</p>';
+                echo '<p class="booking-description-text">'.$event->description.'</p>';
+                echo '<div class="ticket-count"><P>Tickets</p><input type="number" id="total" name="quantity" min="1"  value="1"></div>';
+                echo '<h2 id="ticketprice" class="ticketprice">£'.$event->ticketPrice.'.00</h2>';
+            echo '</div>';    
+        echo '</div>';
         echo '
             <script type="text/javascript">
             $( "#total" ).keyup(function() {
@@ -97,21 +99,21 @@
 
     $(document).ready(function () {
       var defaultHeight = 40;
-      var text = $(".event-description-text");
+      var text = $(".booking-description-text");
       var textHeight = text[0].scrollHeight;
       text.css({"max-height": defaultHeight, "overflow": "hidden"});
     
     });
     </script>
     ';
-    echo '<hr class="style14">';
-        echo '<form id="first_form"  action="booking.php?id=5c39ead37ce4190017dfdff3">'; 
-            echo ' <div class="booking-detils">';
-                echo '<h5>Booking Deatils</h5>';
+    echo '<hr class="hr">';
+        echo '<form id="first_form"  action="booking.php?id='.$event->id.'">'; 
+            echo ' <div class="total-container padded-content">';
+                echo '<h4>Booking Deatils</h4>';
                 echo '<p>Number of tickets: &ensp; <span id=numticket></span></p>';
                 echo '<h2>Total Amount: &ensp; £<span id=totalprice></span></h2>';
                     echo ' <div class="form-button">';
-                        echo '<button type="submit" value="Submit" id="payment-button">Confirm & Pay</button>';
+                        echo '<button class="btn btn-primary" type="submit" value="Submit" id="payment-button">Pay With Stripe</button>';
                     echo ' </div>';
             echo ' </div>';
         echo '</form>';
@@ -127,7 +129,7 @@
             token: function(token) {
         
             if(token.id){
-                    $("#thankyou-payment").html("Thank you, your payment was successful!");        
+                $("#thankyou-payment").html("Thank you, your payment was successful!");        
             }
            }
            });
@@ -135,7 +137,7 @@
            $("#payment-button").on("click", function(e) {
            // Open Checkout with further options
            handler.open({
-           name: "Demo Site",
+           name: "Westminster Fashion Week Festival",
            currency: "gbp",
            description: $("#numticket").val(),
            amount: $("#totalprice").val() * 100

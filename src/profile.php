@@ -29,7 +29,7 @@
   <?php require './components/header.php'?><!-- header -->
   <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
   <div role="main" class="overlay ui-content main-content profile-page">
-    <div class="ui-grid-a ui-responsive">
+    <div class="ui-grid-a ui-responsive breakpoint">
     <?php
         $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/users/{$_GET['id']}";
         
@@ -51,14 +51,14 @@
 
         $user = json_decode($response);
 
-        echo '<div class="ui-block-a">
+        echo '<div class="ui-block-a breakpoint-a">
         <div class="profile-image">
           <img src="assets/img/default-avatar.png" />
         </div>
         <h2 class="desc-title text-uppercase text-center">'.$user->displayName.'</h2>
         <h5 class="desc-para text-center">'.$user->email.'</h5>
       </div>
-      <div class="ui-block-b">
+      <div class="ui-block-b breakpoint-b">
         <section class="profile-right-side">
           <div class="desc-content">
             <div class = "ui-content events_body">

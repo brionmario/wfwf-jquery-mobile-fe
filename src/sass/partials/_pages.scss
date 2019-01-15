@@ -539,6 +539,14 @@
       }
     }
   }
+  .profile-page {
+    .breakpoint {
+      .breakpoint-a,
+      .breakpoint-b {
+        width: 100%;
+      }
+    }
+  }
 }
 
 /** iPad in landscape **/

@@ -167,11 +167,7 @@
 
                   if (!$mail->send()) {
                      $error = "Mailer Error: " . $mail->ErrorInfo;
-                      ?><script>alert('<?php echo $error ?>');</script><?php
                   } 
-                  else {
-                     echo '<script>alert("Message sent!");</script>';
-                  }
              }
         ?>
 
