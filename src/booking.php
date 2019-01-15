@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>Contact | Westminster Fashion Week Festival 2019</title>
+  <title>Booking | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon_package/favicon-16x16.png">
   <link rel="manifest" href="./assets/icons/favicon_package/site.webmanifest">
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
-
+  <script src="https://checkout.stripe.com/checkout.js"></script>
   <!-- inject:css -->
   <!-- endinject -->
 
@@ -23,7 +23,7 @@
   <!-- endinject -->
 </head>
 
-<body onload="myFunction()">
+<body onload="displayTotal()">
     <?php
     echo '<div data-role="page">';
     require './components/sidebar.php';
@@ -77,7 +77,7 @@
                 $( "#totalprice" ).text( totalprice );
                 }).keyup();
 
-                function myFunction() {
+                function displayTotal() {
                     var value = $(\'#total\' ).val();
                     var ticketprice = $(\'#ticketprice\').val();
                     var totalprice = value * '.$event->ticketPrice.';
@@ -87,35 +87,72 @@
                 
             </script>';
             echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Events\',href: \'events.php\'},{name: \''.$event->title.'\',href: \'event-description.php?id='.$event->id.'\'},{name: \'Booking\',href: \'booking.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
-            
-            ?>
-    </div><!-- /grid-a -->
-    <hr class="style14">
-        <form id="first_form" method="post" action="">
-            <div class="form-area">
-                 <h5>Pay with Paypal</h5>
-                    <div class="inputWithIcon">
-                        <input type="email" id="email" name="email" placeholder="Email">
-                         <i class="fa fa-envelope fa-lg"></i>
-                    </div>
-                    <div class="inputWithIcon">
-                        <input type="password" id="password" name="password" placeholder="Password">
-                        <i class="fa fa-lock fa-lg"></i>
-                    </div>
-                    <p><a href="www.paypal.com">Don\'t have paypal account</a></p>
-            </div>
-            <hr class="style14">
-             <div class="booking-detils">
-                <h5>Booking Deatils</h5>
-                <p>Number of tickets: &ensp;<span id=numticket></span></p>
-                <h2>Total Amount: &ensp; £<span id=totalprice></span></h2>
-                     <div class="form-button">
-                        <button type="submit" value="Submit">Confirm & Pay</button>
-                    </div>
-            </div>
-        </form>
+            echo '</div><!-- /grid-a -->';
 
-        <!-- /success popup -->
+    echo '
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(".event-slider").slick();
+    });
+
+    $(document).ready(function () {
+      var defaultHeight = 40;
+      var text = $(".event-description-text");
+      var textHeight = text[0].scrollHeight;
+      text.css({"max-height": defaultHeight, "overflow": "hidden"});
+    
+    });
+    </script>
+    ';
+    echo '<hr class="style14">';
+        echo '<form id="first_form"  action="booking.php?id=5c39ead37ce4190017dfdff3">'; 
+            echo ' <div class="booking-detils">';
+                echo '<h5>Booking Deatils</h5>';
+                echo '<p>Number of tickets: &ensp; <span id=numticket></span></p>';
+                echo '<h2>Total Amount: &ensp; £<span id=totalprice></span></h2>';
+                    echo ' <div class="form-button">';
+                        echo '<button type="submit" value="Submit" id="payment-button">Confirm & Pay</button>';
+                    echo ' </div>';
+            echo ' </div>';
+        echo '</form>';
+
+        echo '<div align="center" id="thankyou-payment"></div>';
+        
+        echo '
+        <script>
+            jQuery(function($) {
+            var $form = $("#first_form");
+            var handler = StripeCheckout.configure({
+            key: "pk_test_cp21BcECf4kMMUbSlRlZlsMo",
+            token: function(token) {
+        
+            if(token.id){
+                    $("#thankyou-payment").html("Thank you, your payment was successful!");        
+            }
+           }
+           });
+
+           $("#payment-button").on("click", function(e) {
+           // Open Checkout with further options
+           handler.open({
+           name: "Demo Site",
+           currency: "gbp",
+           description: $("#numticket").val(),
+           amount: $("#totalprice").val() * 100
+           });
+           e.preventDefault();
+           });
+
+           // Close Checkout on page navigation
+           $(window).on("popstate", function() {
+           handler.close();
+           });
+           });
+        </script>
+        ';
+        
+
+        echo '<!-- /success popup -->
         <div data-role="popup" id="payment-successful" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
             <h3>Success!</h3>
             <p>Your payment was successful</p>
@@ -131,59 +168,11 @@
             <p>Check youre mail and password</p>
             <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
             <a data-rel="back" class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
-        </div>
-    </div><!-- /content -->
-    <?php require './components/footer.php'?><!--footer -->
-</div><!-- page -->
-   
-<!--           
-<script type="text/javascript">
-    var breadcrumb = [
-      {
-        name: 'Home',
-        href: 'index.php'
-      },
-      {
-        name: 'Book Tickets',
-        href: 'booking.php'
-      }
-    ];
-    setBreadcrumb(breadcrumb);
-</script> -->
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('.event-slider').slick();
-    });
-
-    $(document).ready(function () {
-      var defaultHeight = 40;
-      var text = $(".event-description-text");
-      var textHeight = text[0].scrollHeight;
-      text.css({"max-height": defaultHeight, "overflow": "hidden"});
-    
-      $('#first_form').submit(function(e) {
-    e.preventDefault();
-
-    var email = $('#email').val();
-    var password = $('#password').val();
-    console.log(email);
-    console.log(password);
-    if (password.length < 1) {
-        $("#payment-fail").popup("open"); 
-    } else if (email.length < 1){
-        $("#payment-fail").popup("open"); 
-    } else {
-      var regEx = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      var validEmail = regEx.test(email);
-      if (!validEmail) {
-        $("#payment-fail").popup("open"); 
-      }else{
-        $("#payment-successful").popup("open"); 
-      }
-    }
-
-  });
-    });
-</script>
+        </div>';
+    echo ' </div><!-- /content -->';
+     require './components/footer.php';
+echo '</div><!-- page -->';
+   ?>
+        
 </body>
 </html>
