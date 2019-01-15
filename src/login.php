@@ -24,6 +24,15 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=1875640702658051&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div data-role="page" class="white-full-page-wrapper">
   <div role="main" class="overlay ui-content main-content white-full-page auth-page">
     <div class="close-icon-container">
@@ -58,7 +67,7 @@
       <div class="social-login-container">
         <h6>Sign in with</h6>
         <div class="social-icons">
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+          <div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
           <!-- <ul>
             <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
             <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
@@ -134,7 +143,6 @@ $(document).ready(function () {
 });
 </script>
 
-
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -150,14 +158,6 @@ $(document).ready(function () {
       statusChangeCallback(response);
     });
   };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
 
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
