@@ -129,7 +129,7 @@
             token: function(token) {
         
             if(token.id){
-                $("#thankyou-payment").html("Thank you, your payment was successful!");        
+                $(\'#payment-successful\').popup("open");   
             }
            }
            });
