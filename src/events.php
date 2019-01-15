@@ -124,7 +124,7 @@
               echo '</form>';
             echo ' </div>';    
 
-            require 'lib/PHPMailerAutoload.php';
+            require 'libs/phpmailer/PHPMailerAutoload.php';
             if(isset($_POST['send']))
                 {
 

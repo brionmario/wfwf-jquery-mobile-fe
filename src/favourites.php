@@ -118,13 +118,13 @@
                     <li><?php echo $list['title']; ?></li>
                   </ol>
                 <?php endforeach; 
-                echo ' <input type="email" name="email" placeholder="Email">';
-                echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
-                echo '<input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" type="submit" value="Send Email" name="send"/>';
+                echo '<input type="email" name="email" placeholder="Email">';
+                echo '<img class="check-mark" src="assets/img/check-mark-circular.svg" />';
+                echo '<button class="btn btn-success" type="submit" name="send">Send Email</button>';
               echo '</form>';
             echo ' </div>';    
 
-            require 'lib/PHPMailerAutoload.php';
+            require 'libs/phpmailer/PHPMailerAutoload.php';
             if(isset($_POST['send']))
                 {
 
@@ -181,7 +181,7 @@
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('favourites.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('favourites.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->
@@ -190,13 +190,13 @@
             <h3>Filter</h3>
             <div class="sort-block">
               <h5>Sort by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?sort=date&sort_order=DESC')">Latest</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?sort=title&sort_order=ASC')">A-Z</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?sort=title&sort_order=DESC')"> Z-A</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?sort=date&sort_order=DESC')">Latest</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?sort=title&sort_order=DESC')"> Z-A</button>
             </div>
             <!-- <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?filter=favourited&filter_value=true')">Favourited</button>
             </div> -->
           </div>
         </div>
@@ -207,14 +207,19 @@
   </div><!-- page -->
 
   <script type="text/javascript">
+    var userID = getUserID();
     var breadcrumb = [
       {
         name: 'Home',
         href: 'index.php'
       },
       {
+        name: 'Profile',
+        href: `profile.php?id=${userID}`
+      },
+      {
         name: 'Favourites',
-        href: 'favourites.php'
+        href: `favourites.php?id=${userID}`
       }
     ];
     setBreadcrumb(breadcrumb);

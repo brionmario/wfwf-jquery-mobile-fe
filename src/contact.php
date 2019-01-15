@@ -56,7 +56,7 @@
                 <textarea rows="2" name="textarea" placeholder="Type your message here"></textarea>
               </div>
               <div class="form-button-container">
-                <input class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" href="#sent-message" data-rel="popup" data-position-to="window" data-transition="pop" type="submit" value="Submit" name="send"/>
+                <button class="btn btn-primary" type="submit" name="send">Submit</button>
               </div>
               </form>
             </div>
@@ -67,7 +67,7 @@
 
       <?php 
 
-            require 'lib/PHPMailerAutoload.php';
+            require 'libs/phpmailer/PHPMailerAutoload.php';
             if(isset($_POST['send']))
                 {
 
@@ -101,15 +101,12 @@
 
                   if (!$mail->send()) {
                      $error = "Mailer Error: " . $mail->ErrorInfo;
-                      ?><script>alert('<?php echo $error ?>');</script><?php
-                  } 
-                  else {
-                    echo '<script>alert("Message sent!");</script>';
+                     echo '<script type="text/javascript">navigatePage(\'contact.php\');</script>';
+                  } else {
+                    echo '<script type="text/javascript">navigatePage(\'contact.php\');</script>';
                   }
              }
         ?>
-
-
     </div><!-- /content -->
     <?php require './components/footer.php'?><!--footer -->
   </div><!-- page -->
