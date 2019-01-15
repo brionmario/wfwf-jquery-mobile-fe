@@ -18,6 +18,10 @@
   display: none;
 }
 
+.non-visible {
+  visibility: hidden;
+}
+
 .empty-placeholder {
   text-align: center;
   padding: 4% 15%;

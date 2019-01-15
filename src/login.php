@@ -159,10 +159,10 @@ $(document).ready(function () {
     });
   };
 
-  function checkLoginState() {
+  /* function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
-  });
+  }); */
 }
 </script>
 </body>

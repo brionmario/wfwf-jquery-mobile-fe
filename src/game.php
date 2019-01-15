@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Thisura Sagara">
-  <title>Gane | Westminster Fashion Week Festival 2019</title>
+  <title>Join Game | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -27,46 +27,122 @@
   <div data-role="page">
     <?php require './components/sidebar.php'?><!-- /panel -->
     <?php require './components/header.php'?><!-- header -->
-    <div role="main" class="overlay ui-content main-content page-description about-page">
+    <div role="main" class="overlay ui-content main-content page-description join-game-page">
       <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-      <div class="description-container">
-        <img src="assets/img/about/1.jpg" />
-      </div>
-      <div class="ui-grid-a ui-responsive">
-        <div class="ui-block-solo">
-          <div class="page-description-container body-padding text-center">
-            <h2 class="page-title">WESMINSTER FASHION WEEK FESTIVAL</h2>
-            <p class="page-description-text">
-            The time of the fashion enthusiasts has returned. The Westminster Fashion Week Festival be held from 10th to 16th December 2018. This year the festival is bound to be majestic with an arsenal of over 150 world renowned models and designers taking part. A bigger variety and diversity can be expected from the festival which has been known over the years for its rich products. The international element of the festival notes that the doors to Westminster are truly open, with designers showcasing from countries including Australia, China, Dubai, Europe and South Korea. The pull of London on a global scale is undeniable. The UK continues to be an attractive and fertile home for an array of designer businesses of any size. Showcasing in the highly curated Designer Showrooms allows brands to develop lasting relationships with globally influential stores, enterprises and helps to increase their exposure to top international journalists, publications and stylists. In addition to this, designers will also gain access to seasonal press and buyer accreditation lists as well as a pre-show business seminars. The fashion enthusiast public on the other hand will receive a grandeur exposure to the pinnacle of global fashion.
-            </p>
-            <button class="btn btn-default btn-sm show-more-btn center-button">Show More</b></button>
-          </div>
-          <hr class="hr" data-content="Share on">
-          <div class="social-icon-container text-center">
-            <div class="social-icons">
-              <ul>
-                <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                <li><a href="https://instagram.com/apareciumlabs" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://youtube.com/apareciumlabs" target="_blank"><i class="fa fa-youtube-square"></i></a></li>
-              </ul>
+      <div class="game-description-container padded-content">
+        <h3 class="title">Game Description</h3>
+        <div class="task-decription-container">
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <img src="assets/img/products/1_thumb.jpg" />
             </div>
-          </div>
-        </div><!-- /ui-block -->
-      </div><!-- /grid-a -->
+            <div class="ui-block-b">
+              <h5 class="game-description-text">A daily challenge was made available for all users. The objective was figure out the product displayed in the challenge specification and to find the actual product and scan its QR code. The most successful were eligible for exclusive rewards. This was done in order to enhance the user activity with application and with the products. This also acts as promotion for certain products.</h5>
+              <button class="btn btn-default btn-sm show-more-btn">Show More</b></button>
+            </div>
+          </div><!-- /ui-grid-a -->
+
+          <?php
+          $url_user = "https://westminster-fashion-week-api.herokuapp.com/api/v1/users/{$_GET['id']}";
+          $url_users = "https://westminster-fashion-week-api.herokuapp.com/api/v1/users?filter[order]=score%20DESC";
+          
+          $curl1 = curl_init();
+          curl_setopt_array($curl1, array(
+            CURLOPT_URL => $url_user,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+              "cache-control: no-cache"
+              ),
+            ));
+
+          $response1 = curl_exec($curl1);
+          $err1 = curl_error($curl1);
+          curl_close($curl1);
+
+          $curl2 = curl_init();
+          curl_setopt_array($curl2, array(
+            CURLOPT_URL => $url_users,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+              "cache-control: no-cache"
+              ),
+            ));
+
+          $response2 = curl_exec($curl2);
+          $err2 = curl_error($curl2);
+          curl_close($curl2);
+
+          $user = json_decode($response1);
+          $users = json_decode($response2);
+
+          $completedTaskCount = 0;
+          $pendingTaskID = 1;
+
+          foreach ($user->tasks as $key=>$task) {
+            if ($task->completed === true) {
+              $completedTaskCount++;
+            }
+            if ($task->completed === false) {
+              $pendingTaskID = $key;
+              break;
+            }
+          }
+
+          echo '<div class="task-status-container">';
+          if ($completedTaskCount === 7) {
+            echo '<h5 class="todays-task">Congratulations! You have completed all the tasks.</h5>';
+            echo '<button class="btn btn-sm disabled">Scan QR</button>';
+          } else {
+            echo '<h5 class="todays-task">Today\'s Task - '.$user->tasks[$pendingTaskID]->description.'</h5>';
+            echo '<button class="btn btn-primary btn-sm" onclick="routeWithIdAtEnd(\'scan-qr.php?taskID='.$user->tasks[$pendingTaskID]->id.'&taskName='.$user->tasks[$pendingTaskID]->name.'\')">Scan QR</button>';
+          }
+          echo '</div>';
+
+          echo '<div class="leaderbaord-container">';
+            echo '<h3 class="title">Leaderboard</h3>';
+            echo '<div class="list-wrapper">';
+              echo '<ul class="list" data-role="listview" data-split-icon="" data-split-theme="a" data-inset="true">';
+              foreach($users as $key=>$user) {
+                echo '<li class="list-item card">';
+                  echo '<div class="task-block float-left">';
+                    echo '<h2>'.$user->displayName.'</h2>';
+                    echo '<p>'.$user->score.'&ensp;Points</p>';
+                    echo '<h1 class="position">'.($key + 1).'</h1>';
+                  echo '</div>';
+                echo '</li>';
+              }
+              echo '</ul>';
+            echo '</div>';
+          echo '</div>';
+
+          ?>
+          
+        </div><!-- /task-decription-container -->
+      </div><!-- /game-description-container -->
     </div><!-- /content -->
     <?php require './components/footer.php'?><!--footer -->
   </div><!-- page -->
 
   <script type="text/javascript">
+    var userID = getUserID();
     var breadcrumb = [
       {
         name: 'Home',
         href: 'index.php'
       },
       {
-        name: 'About',
-        href: 'about.php'
+        name: 'Profile',
+        href: `profile.php?id=${userID}`
+      },
+      {
+        name: 'Join the Game',
+        href: `game.php?id=${userID}`
       }
     ];
     setBreadcrumb(breadcrumb);
@@ -79,8 +155,8 @@
     });
 
     $(document).ready(function () {
-      var defaultHeight = 40;
-      var text = $(".page-description-text");
+      var defaultHeight = 110;
+      var text = $(".game-description-text");
       var textHeight = text[0].scrollHeight;
       var button = $(".show-more-btn");
       text.css({"max-height": defaultHeight, "overflow": "hidden"});

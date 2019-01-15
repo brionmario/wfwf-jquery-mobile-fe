@@ -24,10 +24,9 @@
   }
 
   &.disabled {
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
-    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.12);
     box-shadow: none;
-    cursor: initial;
+    cursor: not-allowed;
+    color: $black !important;
   }
 
   &.btn-default {

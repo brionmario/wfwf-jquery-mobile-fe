@@ -28,16 +28,9 @@
   <?php require './components/sidebar.php'?><!-- /panel -->
   <?php require './components/header.php'?><!-- header -->
   <?php require './components/breadcrumb.php'?><!-- /breadcrumb -->
-  <div role="main" class="overlay ui-content main-content">
+  <div role="main" class="overlay ui-content main-content profile-page">
     <div class="ui-grid-a ui-responsive">
-      <div class="ui-block-a">
-          <div class="profile-image">
-          <img src="assets/img/default-avatar.png" />
-        </div>
-      </div>
-      <div class="ui-block-b">
-        <section class="profile-right-side">
-        <?php
+    <?php
         $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/users/{$_GET['id']}";
         
         $curl = curl_init();
@@ -57,24 +50,35 @@
         curl_close($curl);
 
         $user = json_decode($response);
-          echo '<div class="desc-content">
-            <h2 class="desc-title text-uppercase text-center">'.$user->displayName.'</h2>
-            <h5 class="desc-para text-center">'.$user->email.'</h5>
+
+        echo '<div class="ui-block-a">
+        <div class="profile-image">
+          <img src="assets/img/default-avatar.png" />
+        </div>
+        <h2 class="desc-title text-uppercase text-center">'.$user->displayName.'</h2>
+        <h5 class="desc-para text-center">'.$user->email.'</h5>
+      </div>
+      <div class="ui-block-b">
+        <section class="profile-right-side">
+          <div class="desc-content">
             <div class = "ui-content events_body">
               <div class="tab_body">
                 <div class="profile-content">
                   <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
-                    <li class="profile-content-list">  
-                      <div class="current-position">
-                        <h2>Current Position</h2>
-                        <div class="trophy-icon">
-                          <i class="fa fa-trophy"></i>
+                    <li class="profile-content-list">
+                      <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                          <div class="current-position">
+                            <h2>Current Position</h2>
+                            <h3><i class="fa fa-trophy"></i>'.$user->position.'</h3>
+                          </div>
                         </div>
-                        <h3>2</h3>
-                      </div>
-                      <div class="total-points">
-                        <h2>Total Points</h2>
-                        <h3>80</h3>
+                        <div class="ui-block-b">
+                          <div class="total-points">
+                            <h2>Total Points</h2>
+                            <h3>'.$user->score.'</h3>
+                          </div>
+                        </div>
                       </div>
                     </li>
                   </ul>
@@ -85,15 +89,16 @@
                 <button class="btn btn-secondary" onclick="routeWithId(\'game.php\')">Join Game</button>
               </div>
             </div>
-          </div>';
-        ?>
+          </div>
         </section>
       </div>
-    </div><!-- /grid-a -->
+    </div><!-- /grid-a -->';
+    ?>
   </div><!-- /content -->
   <?php require './components/footer.php'?><!--footer -->
 </div><!-- page -->
 <script type="text/javascript">
+    var userID = getUserID();
     var breadcrumb = [
       {
         name: 'Home',
@@ -101,7 +106,7 @@
       },
       {
         name: 'Profile',
-        href: 'profile.php'
+        href: `profile.php?id=${userID}`
       }
     ];
     setBreadcrumb(breadcrumb);

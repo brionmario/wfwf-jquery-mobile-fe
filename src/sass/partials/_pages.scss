@@ -64,6 +64,12 @@
   }
 }
 
+.profile-page {
+  .desc-title {
+    margin-top: 10px;
+  }
+}
+
 .page-description {
   .page-description-text {
     margin: 15px 5px 10px 5px;
@@ -131,6 +137,34 @@
   }
 }
 
+.join-game-page {
+  .task-decription-container {
+    margin: 20px 0;
+    img {
+      max-width: 100%;
+      padding-right: 10%;
+    }
+  }
+  .task-status-container {
+    margin: 15px 0;
+  }
+  .leaderbaord-container {
+    margin: 20px 0;
+    .list {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      .position {
+        position: absolute;
+        display: inline-block;
+        right: 12px;
+        top: 0;
+        font-size: 25px;
+        padding: 5px 10px;
+      }
+    }
+  }
+}
+
 .scan-qr-page {
   height: calc(100vh - 80px);
   .top-panel {
@@ -143,49 +177,15 @@
       margin: 5px;
       font-weight: bold;
     }
-    a {
+    button {
       display: inline-block;
       margin: unset;
       float: right;
-      margin-top: 10px;
+      margin-top: 20px;
     }
   }
-  .canvas-container {
-    .selector {
-      display: none;
-    }
-    .video-placeholder {
-      text-align: center;
-    }
-    .status-placeholder {
-      position: absolute;
-      padding: 20px 10px;
-    }
-
-    #qr-canvas {
-      display: none;
-    }
-    #qrfile {
-      width: 320px;
-      height: 240px;
-    }
-    #mp1 {
-      text-align: center;
-      font-size: 35px;
-    }
-    #imghelp {
-      position: relative;
-      left: 0px;
-      top: -160px;
-      z-index: 100;
-      font: 18px arial, sans-serif;
-      background: #f0f0f0;
-      margin-left: 35px;
-      margin-right: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border-radius: 20px;
-    }
+  .video-feed-container {
+    text-align: center;
   }
 }
 

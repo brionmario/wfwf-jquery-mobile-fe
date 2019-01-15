@@ -7,6 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Thisura Sagara">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Scan QR | Westminster Fashion Week Festival 2019</title>
   
   <!-- Favicon Package -->
@@ -19,8 +20,8 @@
   <!-- inject:css -->
   <!-- endinject -->
 
-  <script type="text/javascript" src="http://wfwf.apareciumlabs.com/resources/libs/jsqrcode/llqrcode.js"></script>
-  <script type="text/javascript" src="http://wfwf.apareciumlabs.com/resources/libs/jsqrcode/webqr.js"></script>
+  <script type="text/javascript" src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script type="text/javascript" src="http://wfwf.apareciumlabs.com/resources/libs/instascan/instascan.min.js"></script>
 
   <!-- inject:js -->
   <!-- endinject -->
@@ -28,65 +29,70 @@
 
 <body>
 <div data-role="page" class="white-full-page-wrapper">
-  <div role="main" id="main" class="overlay ui-content main-content white-full-page scan-qr-page">
+  <div role="main" class="overlay ui-content main-content white-full-page scan-qr-page">
     <div class="top-panel">
       <div class="main-heading">
         <h3>Scan QR</h3>
-        <p>Point your camera to the QR code on the price tag.</p>
+        <p>Point your camera to the QR code</p>
       </div>
-      <a href="index.php" rel="external"><i class="fa fa-times fa-2x"></i></a>
+      <button class="btn btn-outline btn-sm" onclick="routeWithId('game.php')">Go Back</button>
     </div><!-- /top-panel -->
     
-      <div class="canvas-container" id="mainbody">
-        <img class="selector" id="webcamimg" src="assets/icons/video-camera.svg" onclick="setwebcam()" align="left" />
-        <img class="selector" id="qrimg" src="assets/icons/video-camera.svg" onclick="setimg()" align="right" />
-        <div class="video-placeholder" id="outdiv"></div>
-        <div class="status-placeholder"><div id="result"></div></div>
-      </div>
-      <div class="empty-placeholder hidden" id="camera-error-empty-placeholder">
-        <img class="icon" src="assets/icons/video-camera.svg" />
-        <h4 class="main-title">Camera Error</h4>
-        <p class="sub-title">The camera connection refused. Please reload the page and retry.</p>
-      </div>
+    <div class="video-feed-container">
+      <video id="preview" class="video-feed" playsinline></video>
+    </div>
 
-      <div data-role="popup" id="auth-mismatched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-        <h3>Oops!</h3>
-        <p>You've entered an incorrect email or password. Please retry!</p>
-        <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
-        <a data-rel="back" class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
-      </div><!-- /Failed message popup -->
-      <div data-role="popup" id="auth-failed-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-        <h3>Error!</h3>
-        <p>Your login attempt has failed. If you're new here, please create an account clicking on the sign up button</a></p>
-        <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
-        <a class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('sign-up.php')">Sign Up</a>
-      </div><!-- /No Account message popup -->
-      <div data-role="popup" id="auth-matched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-        <h3>Success!</h3>
-        <p>Login successful. You will be redirected back to the home screen in a second.</p>
-        <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-      </div><!-- /Success message popup -->
+    <div class="empty-placeholder hidden non-visible" id="camera-error-empty-placeholder">
+      <img class="icon" src="assets/icons/video-camera.svg" />
+      <h4 class="main-title">Camera Error</h4>
+      <p class="sub-title">The camera connection refused. Please reload the page and retry.</p>
+    </div>
+
+    <div data-role="popup" id="incorrect-qr-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
+      <h3>Oops!</h3>
+      <p>The QR code you've scanned appears to be invalid. Please try again.</a></p>
+      <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
+      <a class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" data-rel="back">Retry</a>
+    </div><!-- /QR error popup -->
+
+    <div data-role="popup" id="task-complete-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
+      <h3>Task Completed</h3>
+      <p>You have successfully completed the task and will receive 10 points</p>
+      <img class="check-mark" src="assets/img/check-mark-circular.svg" />
+      <a class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('tasks.php')">Continue</a>
+    </div><!-- /Success message popup -->
   </div><!-- /main -->
 </div><!-- page -->
 
-<canvas id="qr-canvas" width="800" height="600"></canvas>
+
 <script type="text/javascript">
-      load();
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var constraints = { video: true };
-        navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-          var videoTracks = stream.getVideoTracks();
-          console.log('Got stream with constraints:', constraints);
-          console.log('Using video device: ' + videoTracks[0].label);
-          stream.onremovetrack = function() {
-            console.log('Stream ended');
-          };
-          window.stream = stream; // make variable available to browser console
-          video.srcObject = stream;
-        });
-      });
-    </script>
+  document.addEventListener("DOMContentLoaded", event => {
+    var urlString = window.location.href;
+    var url = new URL(urlString);
+    var userID = url.searchParams.get("id");
+    var taskID = url.searchParams.get("taskID");
+    var taskName = url.searchParams.get("taskName");
+    var scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+    Instascan.Camera.getCameras().then(function (cameras) {
+      scanner.camera = cameras[cameras.length - 1];
+      scanner.start();
+    }).catch(function (e) {
+      console.error(e);
+      document.getElementById("camera-error-empty-placeholder").style.display = "block";
+      document.getElementById("camera-error-empty-placeholder").style.visibility = "visible";
+    });
+    scanner.addListener('scan', function (content) {
+      console.log('Found', content);
+      console.log('Task From URL', taskName);
+
+      if (content === taskName) {
+        updateTask(userID ,taskID, taskName);
+        $('#task-complete-popup').popup("open");
+      } else {
+        $('#incorrect-qr-popup').popup("open");
+      }
+    });
+  });
+</script>
 </body>
 </html>
