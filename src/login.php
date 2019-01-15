@@ -58,11 +58,12 @@
       <div class="social-login-container">
         <h6>Sign in with</h6>
         <div class="social-icons">
-          <ul>
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+          <!-- <ul>
             <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
             <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
             <li><a href="https://instagram.com/apareciumlabs" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
-          </ul>
+          </ul> -->
         </div>
       </div><!--/social-login-container -->
       <div data-role="popup" id="auth-mismatched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
@@ -131,6 +132,38 @@ $(document).ready(function () {
     }
   });
 });
+</script>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '286828338646735',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.2'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
+}
 </script>
 </body>
 </html>
