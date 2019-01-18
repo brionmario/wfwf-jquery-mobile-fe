@@ -1,5 +1,5 @@
 <p align="center">
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
     <img style="display:block;text-align:center" src="./docs/logos/logo-mini-black-on-white.png" alt="logo-text" width="400" />
     <br/>
     <h1 align="center">Westminster Fashion Week Festival 2019</h1>
@@ -273,8 +273,8 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for contributing guidelines and t
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars1.githubusercontent.com/u/23358688?v=4" width="80px;"/><br /><sub><b>Hasitha Walpola</b></sub>](https://github.com/hasithaWalpola)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Documentation") | [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](https://www.linkedin.com/in/brion-mario/)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/27697647?v=4" width="80px;"/><br /><sub><b>Thisura Sagara</b></sub>](http://thisurasagara.blogspot.com)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Documentation") |
-| :---: | :---: | :---: |
+| [<img src="https://avatars1.githubusercontent.com/u/23358688?v=4" width="80px;"/><br /><sub><b>Hasitha Walpola</b></sub>](https://github.com/hasithaWalpola)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Documentation") | [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](https://www.linkedin.com/in/brion-mario/)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/27697647?v=4" width="80px;"/><br /><sub><b>Thisura Sagara</b></sub>](http://thisurasagara.blogspot.com)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/25836047?v=4" width="80px;"/><br /><sub><b>Ravin Hettiarachchi</b></sub>](https://github.com/Ravintheja)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Documentation") |
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
