@@ -1,7 +1,7 @@
 {
   "title": "jQuery Mobile Seed by Aparecium Labs",
   "name": "jquery-mobile-seed",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.0",
   "private": true,
   "description": "A quick start kit for jQuery Mobile Framework based website development with SASS support",
   "homepage": "https://github.com/apareciumlabs/jquery-mobile-seed#README.md",
