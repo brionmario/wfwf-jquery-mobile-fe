@@ -7,7 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Brion Silva">
-  <title>Contact | Westminster Fashion Week Festival 2019</title>
+  <title>Booking | Westminster Fashion Week Festival 2019</title>
  
   <!-- Favicon Package -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon_package/apple-touch-icon.png">
@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon_package/favicon-16x16.png">
   <link rel="manifest" href="./assets/icons/favicon_package/site.webmanifest">
   <link rel="mask-icon" href="./assets/icons/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
-
+  <script src="https://checkout.stripe.com/checkout.js"></script>
   <!-- inject:css -->
   <!-- endinject -->
 
@@ -23,45 +23,50 @@
   <!-- endinject -->
 </head>
 
-<body>
+<body onload="displayTotal()">
     <?php
-echo '<div data-role="page">';
+    echo '<div data-role="page">';
     require './components/sidebar.php';
     require './components/header.php';
-    echo '<div role="main" class="overlay ui-content main-content booking-page">';
-    require './components/breadcrumb.php';
+        echo '<div role="main" class="overlay ui-content main-content booking-page">';
+        require './components/breadcrumb.php';
 
-    $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
+        $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/events/{$_GET['id']}";
         
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-      CURLOPT_URL => $url,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_TIMEOUT => 30,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "GET",
-      CURLOPT_HTTPHEADER => array(
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
         "cache-control: no-cache"
-        ),
-      ));
+                ),
+        ));
 
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-    curl_close($curl);
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
 
-    $event = json_decode($response);
+        $event = json_decode($response);
 
 
-    echo '<div class="ui-grid-a">';
-        echo '<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:160px">';
-            echo '<img src="'.$event->imageSlider[0].'" />';
-        echo '</div></div>';
-        echo '<div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:160px">';
-            echo '<h5  class="event-title">'.$event->title.'</h5>';
-            echo  '<p class="event-description-text">'.$event->description.'</p>';
-            echo '<P>Tickets </p><input type="number" id="total" name="quantity" min="1" max="5" value="1">';
-            echo '<h2 id="ticketprice">£'.$event->ticketPrice.'.00</h2>';
-        echo '</div></div>';
+            echo '<div class="ui-grid-a">';
+                echo '<div class="ui-block-a">';
+                    echo '<div class="booking-image-container">';
+                        echo '<img src="'.$event->imageSlider[0].'" />';
+                    echo '</div>';
+                echo '</div>';
+                
+        echo '<div class="ui-block-b">';
+            echo '<div class="booking-details">';
+                echo '<p class="booking-title">'.$event->title.'</p>';
+                echo '<p class="booking-description-text">'.$event->description.'</p>';
+                echo '<div class="ticket-count"><P>Tickets</p><input type="number" id="total" name="quantity" min="1"  value="1"></div>';
+                echo '<h2 id="ticketprice" class="ticketprice">£'.$event->ticketPrice.'.00</h2>';
+            echo '</div>';    
+        echo '</div>';
         echo '
             <script type="text/javascript">
             $( "#total" ).keyup(function() {
@@ -73,33 +78,81 @@ echo '<div data-role="page">';
                 $( "#numticket" ).text( value );
                 $( "#totalprice" ).text( totalprice );
                 }).keyup();
-            </script>
-        ';
-    echo '</div><!-- /grid-a -->';
-    echo '<hr class="style14">';
-        echo '<form id="first_form" method="post" action="">'; 
-            echo '<div class="form-area">';
-                echo ' <h5>Pay with Paypal</h5>';
-                    echo '<div class="inputWithIcon">';
-                        echo '<input type="email" id="email" name="email" placeholder="Email">';
-                        echo ' <i class="fa fa-envelope fa-lg"></i>';
-                    echo '</div>';
-                    echo ' <div class="inputWithIcon">';
-                        echo ' <input type="password" id="password" name="password" placeholder="Password">';
-                        echo ' <i class="fa fa-lock fa-lg"></i>';
-                    echo ' </div>';
-                    echo ' <p><a href="www.paypal.com">Don\'t have paypal account</a></p>';
-            echo '</div>';
-            echo '<hr class="style14">';
-            echo ' <div class="booking-detils">';
-                echo '<h5>Booking Deatils</h5>';
-                echo '<p>Number of tickets:</p><p id=numticket></p>';
-                echo '<h2>Total Amount &ensp; £<span id=totalprice></span></h2>';
+
+                function displayTotal() {
+                    var value = $(\'#total\' ).val();
+                    var ticketprice = $(\'#ticketprice\').val();
+                    var totalprice = value * '.$event->ticketPrice.';
+                    $( "#numticket" ).text( value );
+                    $( "#totalprice" ).text( totalprice );
+                }
+                
+            </script>';
+            echo'<script type="text/javascript">var breadcrumb = [{name: \'Home\',href: \'index.php\'},{name: \'Events\',href: \'events.php\'},{name: \''.$event->title.'\',href: \'event-description.php?id='.$event->id.'\'},{name: \'Booking\',href: \'booking.php?id='.$event->id.'\'}];setBreadcrumb(breadcrumb);</script>';
+            echo '</div><!-- /grid-a -->';
+
+    echo '
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(".event-slider").slick();
+    });
+
+    $(document).ready(function () {
+      var defaultHeight = 40;
+      var text = $(".booking-description-text");
+      var textHeight = text[0].scrollHeight;
+      text.css({"max-height": defaultHeight, "overflow": "hidden"});
+    
+    });
+    </script>
+    ';
+    echo '<hr class="hr">';
+        echo '<form id="first_form"  action="booking.php?id='.$event->id.'">'; 
+            echo ' <div class="total-container padded-content">';
+                echo '<h4>Booking Deatils</h4>';
+                echo '<p>Number of tickets: &ensp; <span id=numticket></span></p>';
+                echo '<h2>Total Amount: &ensp; £<span id=totalprice></span></h2>';
                     echo ' <div class="form-button">';
-                        echo '<button type="submit" value="Submit">Confirm & Pay</button>';
+                        echo '<button class="btn btn-primary" type="submit" value="Submit" id="payment-button">Pay With Stripe</button>';
                     echo ' </div>';
             echo ' </div>';
         echo '</form>';
+
+        echo '<div align="center" id="thankyou-payment"></div>';
+        
+        echo '
+        <script>
+            jQuery(function($) {
+            var $form = $("#first_form");
+            var handler = StripeCheckout.configure({
+            key: "pk_test_cp21BcECf4kMMUbSlRlZlsMo",
+            token: function(token) {
+        
+            if(token.id){
+                $(\'#payment-successful\').popup("open");   
+            }
+           }
+           });
+
+           $("#payment-button").on("click", function(e) {
+           // Open Checkout with further options
+           handler.open({
+           name: "Westminster Fashion Week Festival",
+           currency: "gbp",
+           description: $("#numticket").val(),
+           amount: $("#totalprice").val() * 100
+           });
+           e.preventDefault();
+           });
+
+           // Close Checkout on page navigation
+           $(window).on("popstate", function() {
+           handler.close();
+           });
+           });
+        </script>
+        ';
+        
 
         echo '<!-- /success popup -->
         <div data-role="popup" id="payment-successful" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
@@ -122,54 +175,6 @@ echo '<div data-role="page">';
      require './components/footer.php';
 echo '</div><!-- page -->';
    ?>
-          
-<script type="text/javascript">
-    var breadcrumb = [
-      {
-        name: 'Home',
-        href: 'index.php'
-      },
-      {
-        name: 'Book Tickets',
-        href: 'booking.php'
-      }
-    ];
-    setBreadcrumb(breadcrumb);
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('.event-slider').slick();
-    });
-
-    $(document).ready(function () {
-      var defaultHeight = 40;
-      var text = $(".event-description-text");
-      var textHeight = text[0].scrollHeight;
-      text.css({"max-height": defaultHeight, "overflow": "hidden"});
-    
-      $('#first_form').submit(function(e) {
-    e.preventDefault();
-
-    var email = $('#email').val();
-    var password = $('#password').val();
-    console.log(email);
-    console.log(password);
-    if (password.length < 1) {
-        $("#payment-fail").popup("open"); 
-    } else if (email.length < 1){
-        $("#payment-fail").popup("open"); 
-    } else {
-      var regEx = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      var validEmail = regEx.test(email);
-      if (!validEmail) {
-        $("#payment-fail").popup("open"); 
-      }else{
-        $("#payment-successful").popup("open"); 
-      }
-    }
-
-  });
-    });
-</script>
+        
 </body>
 </html>

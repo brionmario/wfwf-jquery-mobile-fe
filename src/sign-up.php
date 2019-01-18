@@ -95,8 +95,10 @@ $(document).ready(function () {
         },
         credentials: 'same-origin'
       }).then(function (resp) {
+        console.log(resp);
         return resp.json();
       }).then(function (data) {
+        console.log(data);
         $('#sign-up-success-popup').popup("open");
       }).then(function (error) {
         console.log(error);

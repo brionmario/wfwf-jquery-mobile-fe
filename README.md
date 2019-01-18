@@ -1,63 +1,52 @@
 <p align="center">
-    <img style="display:block;text-align:center" src="./docs/readme-resources/jquery-mobile-seed.svg" alt="logo-text" width="600" />
+    <img style="display:block;text-align:center" src="./docs/logos/logo-mini-black-on-white.png" alt="logo-text" width="400" />
     <br/>
-    <h1 align="center">jQuery Mobile Seed</h1>
-    <p align="center" style="font-size: 1.2rem;">A quick start kit for jQuery Mobile Framework based website development with SASS support</p>
+    <h1 align="center">Westminster Fashion Week Festival 2019</h1>
+    <p align="center" style="font-size: 1.2rem;">A conceptual design for the official Westminster Fashion Week Festival 2019 website</p>
 </p>
 
 <!-- Badges -->
 <p align="center">
-  <a href="https://travis-ci.org/apareciumlabs/jquery-mobile-seed">
-    <img src="https://travis-ci.org/apareciumlabs/jquery-mobile-seed.svg?branch=master" alt="Build Status" height="18">
+  <a href="https://travis-ci.com/brionmario/wfwf-jquery-mobile-fe">
+    <img src="https://travis-ci.com/brionmario/wfwf-jquery-mobile-fe.svg?token=LyxfBYfbr3H8Bado2zxj&branch=master" alt="Build Status" height="18">
   </a>
   <a href="#contributors">
-    <img src="https://img.shields.io/badge/all_contributors-1-orange.svg" alt="All Contributors" height="18">
+    <img src="https://img.shields.io/badge/all_contributors-4-orange.svg" alt="All Contributors" height="18">
   </a>
-  <a href="https://david-dm.org/apareciumlabs/jquery-mobile-seed">
-    <img src="https://david-dm.org/apareciumlabs/jquery-mobile-seed/status.svg" alt="dependencies Status" height="18">
+  <a href="https://david-dm.org/brionmario/wfwf-jquery-mobile-fe.svg">
+    <img src="https://david-dm.org/brionmario/wfwf-jquery-mobile-fe/status.svg" alt="dependencies Status" height="18">
   </a>
-  <a href="https://david-dm.org/apareciumlabs/jquery-mobile-seed?type=dev">
-    <img src="https://david-dm.org/apareciumlabs/jquery-mobile-seed/dev-status.svg" alt="devDependencies Status" height="18">
+  <a href="https://david-dm.org/brionmario/wfwf-jquery-mobile-fe?type=dev">
+    <img src="https://david-dm.org/brionmario/wfwf-jquery-mobile-fe/dev-status.svg" alt="devDependencies Status" height="18">
    </a>
   <a href="LICENSE.md">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" height="18">
   </a>
-  <a href="https://codecov.io/gh/apareciumlabs/jquery-mobile-seed">
-  <img src="https://codecov.io/gh/apareciumlabs/jquery-mobile-seed/branch/master/graph/badge.svg" />
+  <a href="https://codecov.io/gh/brionmario/wfwf-jquery-mobile-fe">
+  <img src="https://codecov.io/gh/brionmario/wfwf-jquery-mobile-fe/branch/master/graph/badge.svg" />
 </a>
 </p>
 
-This repository could be used by anyone who's looking for a quick starter kit for jQuery Mobile framework based website development. This boilerplate uses [Gulp](https://gulpjs.com/) for building and automating the workflow. Following are some key features we've included for you.
-
-* The most recent version of [jQuery Mobile 1.4.5](http://demos.jquerymobile.com/1.4.5/)
-* The ability to use html, php or jade.
-* Usage of [Sass: Syntactically Awesome Style Sheets](https://sass-lang.com/) over CSS.
-* Ready to go build system using Gulp.
-* Simplified development process with npm scripts.
-* Ability to use your favorite bower packages.
-* Organized and easy to use folder structure for beginners.
+This project has been built on top of the [jQuery Mobile Seed](https://github.com/apareciumlabs/jquery-mobile-seed) by [Aparecium Labs](http://apareciumlabs.com). If any issues or feature requests regarding the project build process arrises, please log theme [here](https://github.com/apareciumlabs/jquery-mobile-seed/issues).
 
 # Quick Links
 
-[Demo](https://apareciumlabs-jquery-mobile-seed.netlify.com/) | [Documentation](http://demos.jquerymobile.com/1.4.5/) | [Theme Roller](https://themeroller.jquerymobile.com/)
-|---|---|---|
+| [Seed](https://github.com/apareciumlabs/jquery-mobile-seed) | [Demo](http://wfwf.apareciumlabs.com) | [Contributing](CONTRIBUTING.md) |
+| ----------------------------------------------------------- | ------------------------------------- | ------------------------------- |
+
 
 # Quick start
 
-> The generated project have dependencies that require `node` together with `npm` & `bower`.
+> The generated project has dependencies that require `node` together with `npm` & `bower`.
 
 **Make sure you have [Node](https://nodejs.org/en/download/) version >= 8.0, [npm](https://www.npmjs.com/) >= 5 or [Yarn](https://yarnpkg.com) and [Bower](https://bower.io/) >= 1.8**
 
 ```bash
 # clone our repository
-# --depth 1 removes all but one .git commit history
-git clone --depth 1 https://github.com/apareciumlabs/jquery-mobile-seed.git
+git clone https://github.com/brionmario/wfwf-jquery-mobile-fe.git
 
 # change the directory
-cd jquery-mobile-seed
-
-# install the bower dependencies
-bower install
+cd wfwf-jquery-mobile-fe
 
 # install the dependencies with npm
 npm install
@@ -67,40 +56,63 @@ npm start
 
 ```
 
-Once the dev server is fired up, it'll automatically open up a new tab. If not, navigate to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http://localhost:3000) manually in your browser.
+Once the dev server is fired up, it'll automatically open up a new tab. If not, manually navigate to the Local url listed on the console.
 
 # Table of Contents
 
-* [File Structure](#file-structure)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Setting Up](#setting-up)
-  * [Running the app](#running-the-app)
-* [Configuration](#configuration)
-  * [Add third-party dependencies](#add-third-party-dependencies)
-* [Styling](#styling)
-* [Deployment](#deployment)
-  * [Netlify](#netlify)
-* [Built With](#built-with)
-* [Contributing](#contributing)
-* [Contributors](#contributors)
-* [License](#license)
+- [File Structure](#file-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setting Up](#setting-up)
+  - [Running the app](#running-the-app)
+- [Configuration](#configuration)
+  - [Add third-party dependencies](#add-third-party-dependencies)
+- [Styling](#styling)
+- [Deployment](#deployment)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [License](#license)
 
 # File Structure
 
 ```
-jquery-mobile-seed/
+wfwf-jquery-mobile-fe/
  ├── docs/                          * contains documents and document resources
  ├── node_modules/                  * contains dependencies pulled from npm
  ├── src/                           * source folder
  │   ├── assets/                    * static assets such as images, icons, fonts goes here
- │   ├── scss/                      * styles folder
+ │   ├── components/                * place all the reusable components here (eg. header, footer, sidebar etc.)
+ │   ├── libs/                      * place additional libraries here if it's not found on bower (eg.phpmailer)
+ │   ├── sass/                      * styles folder
  │   │   ├── partials/              * place all the sass partial stylesheets in this folder
  │   │   └── styles.scss            * the main stylesheet for the project which gets compiled to CSS
  │   ├── scripts/                   * custom javascript script files
  │   ├── vendor/                    * third party bower libraries will be copied here
- │   └── index.php                  * entry php file.
+ │   ├── about.php                  * about page of the website
+ │   ├── booking.php                * event booking page
+ │   ├── contact.php                * contact information page
+ │   ├── event-description.php      * event description page
+ │   ├── events.php                 * events list page
+ │   ├── favourites.php             * favourites list page
+ │   ├── game.php                   * game description page
+ │   ├── get-directions.php         * directions page
+ │   ├── index.php                  * entry php file
+ │   ├── login.php                  * login page
+ │   ├── member-description.php     * team member description page
+ │   ├── members.php                * team members list page
+ │   ├── news-description.php       * news description page
+ │   ├── news.php                   * news list page
+ │   ├── poi-description.php        * points of interests description page
+ │   ├── poi.php                    * points of interests list page
+ │   ├── product-description.php    * product description page
+ │   ├── products.php               * products list page
+ │   ├── profile.php                * profile page
+ │   ├── sign-up.php                * sign up page
+ │   ├── sposor-video.php           * sponsor video page
+ │   └── tasks.php                  * task list page
  ├── .all-contributorsrc            * contains info ablout repo contributors
+ ├── .babelrc                       * babel config file
  ├── .bowerrc                       * bower config file
  ├── .dockerignore                  * contains files that are ignored from docker
  ├── .editorconfig                  * helps define and maintain consistent coding styles between different editors and IDEs
@@ -113,10 +125,11 @@ jquery-mobile-seed/
  ├── .sass-lint.yml                 * sass linting configuration file
  ├── .travis.yml                    * travis ci configuration file
  ├── bower.json                     * contains bower dependencies
+ ├── CHANGELOG.md                   * changelog file
  ├── CONTRIBUTING.md                * project contributing guidelines
  ├── docker-compose.yml             * docker compose file
  ├── Dockerfile                     * docker config file
- ├── gulpfile.js                    * main buld configuration file. contains all the gulp tasks.
+ ├── gulpfile.babel.js              * main buld configuration file. contains all the gulp tasks.
  ├── LICENSE.md                     * licensing information
  ├── package.json                   * contains all the npm scripts for building, running, deploying etc. and contains all the dependencies
  └── README.md                      * Readme file for the repository
@@ -129,32 +142,33 @@ jquery-mobile-seed/
 
 What you need to run this app:
 
-* The generated project have dependencies that require `node` together with `npm` & `bower`.
-* Ensure you're running the latest stable versions Node, NPM and Bower.
+- The generated project have dependencies that require `node` together with `npm` & `bower`.
+- Ensure you're running the latest stable versions Node, NPM and Bower.
 
->Make sure you have `Node` and `NPM` installed by running simple commands on the command line to see what version of each is installed.
+> Make sure you have `Node` and `NPM` installed by running simple commands on the command line to see what version of each is installed.
 
-* Node - Type `node -v` on the terminal.
-* NPM -  Type `npm -v` on the terminal.
-* Bower -  Type `bower -v` on the terminal.
+- Node - Type `node -v` on the terminal.
+- NPM - Type `npm -v` on the terminal.
+- Bower - Type `bower -v` on the terminal.
 
 If you do not have them installed, click [here](https://nodejs.org/en/download/) and grab the latest stable version of `node` and `npm` will be automatically installed along with it. Or if you have `brew` already installed in your local machine, execute `brew install node` command to get `node`.
 
 If you have npm installed, It's really easy to grab the latest version of Bower by executing `npm install -g bower` which will install it globally.
 
-Though the project is built on top of gulp, we've created npm scripts to run gulp tasks. So you don't have to install gulp or gulp CLI globally on your working machine.
+Though the project is built on top of gulp, gulp is listed as a dev dependency and running npm install will install gulp as a local dependency. We've created npm scripts to run gulp tasks, so you don't have to install gulp or gulp CLI globally on your working machine.
 
 ## Setting Up
 
-* `clone` the repository
-* `cd jquery-mobile-seed` to change the directory
-* `bower install` to install the bower dependencies
-* `npm install` to install the dependencies with npm
+- `clone` the repository
+- `cd wfwf-jquery-mobile-fe` to change the directory
+- `npm install` to install the dependencies with npm (installs bower dependencies as well using a post install script)
 
 ## Running the app
 
-After you have installed all dependencies you can now run the app. Run `npm start` to start a local server using `gulp` which will watch your stylesheets and javascript files for changes, compile, minify, build and reload the browser automatically using `browser-sync` library.
-The dev server will be opened in a new tab and usually on http://localhost:3000 and the Access URLs will be displayed on the terminal.
+After you have installed all dependencies you can now run the app. Run `npm start` to start a local server using `gulp-connect-php` which will watch your stylesheets and javascript files for changes, compile, minify, build and reload the browser automatically using `browser-sync` library.
+The dev server will be opened in a new tab and usually on http://localhost:8010 and the Access URLs will be displayed on the terminal.
+
+NOTE: `gulp-connect-php` does not work on some machines and incase of such scenario you might have to use a php server such as `XAMPP` or `LAMPP`. Copy the code base to htdocs folder or similar and start the server as usual using the `npm start` command and manually naviage to the `.temp` folder on the browser.
 
 ### server
 
@@ -168,11 +182,11 @@ npm run server:prod
 
 # Configuration
 
-The `gulp` tasks are defined inside the `gulpfile.js` file found on the root of the application and you need to extend this file if you want to customize the application.
+The `gulp` tasks are defined inside the `gulpfile.babel.js` file found on the root of the application and you need to extend this file if you want to customize the application.
 
 ## Add third-party dependencies
 
-To use any third party libraries other than the included `font-awesome` and `jquery` libs, find the package you want in the [bower package repository](https://bower.io/search/) and use the following command to add it to your project.
+To use any third party libraries other than the included `jquery`, `font-awesome`, `jquery-mobile` and `slick-carousel`, find the package you want in the [bower package repository](https://bower.io/search/) and use the following command to add it to your project.
 
 ```bash
 bower install $package --save
@@ -194,10 +208,9 @@ The `styles.scss` file inside the `sass` directory is the main stylesheet for th
 If you want to add your own stylesheet, we recommend that you place it under the `scss/partials` folder and import it in the `styles.scss` file.
 
 For example if you want to include the styles for a slider:
-1) Create a `_slider.scss` partial file in the `scss/partials` directory.
-2) In `styles.scss` add `@import 'partials/slider.scss';`
 
-For the purpose of the demo, we have overriden the native look and feel of some jQuery mobile components. Feel free to remove them by locating in partials.
+1. Create a `_slider.scss` partial file in the `scss/partials` directory.
+2. In `styles.scss` add `@import 'partials/slider.scss';`
 
 # Testing
 
@@ -242,15 +255,6 @@ Execute the following command to build your files in the production mode. A new 
 npm run build:prod
 ```
 
-## Deploy to Netlify
-
-Deploy to [Netlify](https://www.netlify.com/) using this template with one single click. It has an awesome free plan and a nifty [CLI](https://github.com/netlify/netlify-cli) which makes the deployment process much easier.
-
-Click [here](https://apareciumlabs-jquery-mobile-seed.netlify.com/) to see the deployed app.
-
-<!-- Markdown snippet -->
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/apareciumlabs/jquery-mobile-seed)
-
 # Built With
 
 <a href="https://jquerymobile.com"><img src="./docs/readme-resources/jquery-mobile.svg" alt="npm" height="20" /></a>&nbsp;&nbsp;
@@ -266,10 +270,13 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for contributing guidelines and t
 
 # Contributors
 
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](http://www.brionmario.com/)<br />[💻](https://github.com/apareciumlabs/jquery-mobile-seed/commits?author=brionmario "Code") [📖](https://github.com/apareciumlabs/jquery-mobile-seed/commits?author=brionmario "Documentation") [🐛](https://github.com/apareciumlabs/jquery-mobile-seed/issues?q=author%3Abrionmario "Bug reports") [⚠️](https://github.com/apareciumlabs/jquery-mobile-seed/commits?author=brionmario "Tests") |
-| :---: |
+| [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](https://www.linkedin.com/in/brion-mario/)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3Abrionmario "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Tests") | [<img src="https://avatars1.githubusercontent.com/u/23358688?v=4" width="80px;"/><br /><sub><b>Hasitha Walpola</b></sub>](https://github.com/hasithaWalpola)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3AhasithaWalpola "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Tests") | [<img src="https://avatars1.githubusercontent.com/u/27697647?v=4" width="80px;"/><br /><sub><b>Thisura Sagara</b></sub>](http://thisurasagara.blogspot.com)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3AThisuraSagara "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Tests") | [<img src="https://avatars1.githubusercontent.com/u/25836047?v=4" width="80px;"/><br /><sub><b>Ravin Hettiarachchi</b></sub>](https://github.com/Ravintheja)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3ARavintheja "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Tests") |
+| :---: | :---: | :---: | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

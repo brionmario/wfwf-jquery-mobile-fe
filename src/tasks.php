@@ -51,14 +51,12 @@
         curl_close($curl);
 
         $user = json_decode($response);
-        $taskCount = 7;
-        $completedCount = $user->completedTasks;
 
-        for ($x = 0; $x <= 6; $x++) {
-          if ($x < $completedCount) {
+        foreach ($user->tasks as $key=>$task) {
+          if ($task->completed === true) {
             echo '<li class="list-item card">
               <div class="task-block float-left">
-                <h2>Day '.($x+1).' Task</h2>
+                <h2>Day '.($key+1).' Task</h2>
                 <p>Score 10</p>
               </div>
               <button class="btn btn-success btn-sm float-right" style="width: 90px !important;">Completed</button>
@@ -66,7 +64,7 @@
           } else {
             echo '<li class="list-item card">
               <div class="task-block float-left">
-                <h2>Day '.($x+1).' Task</h2>
+                <h2>Day '.($key+1).' Task</h2>
                 <p>Score 0</p>
               </div>
               <button class="btn btn-warning btn-sm float-right" style="width: 90px !important;">Pending</button>
@@ -80,6 +78,7 @@
 </div><!-- page -->
 
 <script type="text/javascript">
+    var userID = getUserID();
     var breadcrumb = [
       {
         name: 'Home',
@@ -87,11 +86,11 @@
       },
       {
         name: 'Profile',
-        href: 'profile.php'
+        href: `profile.php?id=${userID}`
       },
       {
         name: 'Tasks',
-        href: 'tasks.php'
+        href: `tasks.php?id=${userID}`
       }
     ];
     setBreadcrumb(breadcrumb);

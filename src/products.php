@@ -56,7 +56,6 @@
 
             if ($_GET['sort'] != '' && $_GET['sort_order'] != '') {
               $url = "https://westminster-fashion-week-api.herokuapp.com/api/v1/products?filter[order]={$_GET['sort']}%20{$_GET['sort_order']}";
-              echo $url;
             }
 
             if ($_GET['filter'] != '' && $_GET['filter_value'] != '') {
@@ -126,7 +125,7 @@
             </div>
             <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=favourited&filter_value=true')">Favourited</button>
+              <span class="favourited-filter-button"><button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=favourited&filter_value=true')">Favourited</button></span>
               <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=category&filter_value=dresses')">Dresses</button>
               <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('products.php?filter=category&filter_value=denims')">Denims</button>
             </div>
@@ -149,6 +148,13 @@
       }
     ];
     setBreadcrumb(breadcrumb);
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.heart-icon-container').hide();
+        $('.favourited-filter-button').hide();
+      }
+    });
   </script>
 </body>
 </html>

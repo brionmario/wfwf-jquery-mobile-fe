@@ -73,5 +73,26 @@ export function goToProfile() {
 
 export function routeWithId(url) {
   var id = getCookie('WFWF_user');
-  navigatePage(`${url}?id=${id}`);
+  if (id !== '') {
+    navigatePage(`${url}?id=${id}`);
+  } else {
+    navigatePage(`${url}`);
+  }
+}
+
+export function routeWithIdAtEnd(url) {
+  var id = getCookie('WFWF_user');
+  if (id !== '') {
+    navigatePage(`${url}&id=${id}`);
+  } else {
+    navigatePage(`${url}`);
+  }
+}
+
+export function getUserID() {
+  var id = getCookie('WFWF_user');
+  if (id !== '') {
+    return id;
+  }
+  return '';
 }

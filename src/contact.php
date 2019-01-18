@@ -42,6 +42,7 @@
           </div>
           <div class="ui-block-b">
             <div class="form-container">
+            <form action="contact.php" method="post">
               <h4>Send us a message</h4>
               <div class="input-with-icon">
                 <input type="text" name="name" placeholder="Name">
@@ -52,15 +53,60 @@
                 <i class="fa fa-envelope fa-lg"></i>
               </div>
               <div class="input-with-icon">  
-                <textarea rows="2" placeholder="Type your message here"></textarea>
+                <textarea rows="2" name="textarea" placeholder="Type your message here"></textarea>
               </div>
               <div class="form-button-container">
-                <button type="button" class="btn btn-primary" onclick="alert('Sign up')">Submit</button>
+                <button class="btn btn-primary" type="submit" name="send">Submit</button>
               </div>
+              </form>
             </div>
           </div>
         </div><!-- /grid-a -->
       </div>
+ <!-- /success popup -->
+
+      <?php 
+
+            require 'libs/phpmailer/PHPMailerAutoload.php';
+            if(isset($_POST['send']))
+                {
+
+                  $test = "Email: ".$_POST['email']."<br>"."Name: ".$_POST['name']."<br>"."Message: ".$_POST['textarea'];
+              
+                  $email = 'westministerfashionweek@gmail.com';                    
+
+                  $mail = new PHPMailer;
+
+                  $mail->isSMTP();
+
+                  $mail->Host = 'smtp.gmail.com';
+
+                  $mail->Port = 587;
+
+                  $mail->SMTPSecure = 'tls';
+
+                  $mail->SMTPAuth = true;
+
+                  $mail->Username = 'westministerfashionweek@gmail.com';
+
+                  $mail->Password = 'wfwf1234';
+
+                  $mail->setFrom('westministerfashionweek@gmail.com', 'Event List');
+
+                  $mail->addAddress($email);
+
+                  $mail->Subject = 'Westminister Fashion Week Event List';
+
+                  $mail->msgHTML($test);
+
+                  if (!$mail->send()) {
+                     $error = "Mailer Error: " . $mail->ErrorInfo;
+                     echo '<script type="text/javascript">navigatePage(\'contact.php\');</script>';
+                  } else {
+                    echo '<script type="text/javascript">navigatePage(\'contact.php\');</script>';
+                  }
+             }
+        ?>
     </div><!-- /content -->
     <?php require './components/footer.php'?><!--footer -->
   </div><!-- page -->

@@ -7,6 +7,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Thisura Sagara">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Scan QR | Westminster Fashion Week Festival 2019</title>
   
   <!-- Favicon Package -->
@@ -19,6 +20,9 @@
   <!-- inject:css -->
   <!-- endinject -->
 
+  <script type="text/javascript" src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script type="text/javascript" src="http://wfwf.apareciumlabs.com/resources/libs/instascan/instascan.min.js"></script>
+
   <!-- inject:js -->
   <!-- endinject -->
 </head>
@@ -26,110 +30,69 @@
 <body>
 <div data-role="page" class="white-full-page-wrapper">
   <div role="main" class="overlay ui-content main-content white-full-page scan-qr-page">
-    <div class="close-icon-container">
-      <a href="index.php" rel="external"><i class="fa fa-times fa-2x"></i></a>
-    </div><!--/close-icon-container -->
-    <div class="padded-content full-height">
-      <div class="main-heading-container">
-        <h1>Scan QR</h1>
-        <h3>Point you camera to the QR code on the price tag</h3>
-      </div><!--/main-heading-container -->
-      <div class="form-container">
-        <form id="login-form" method="post" action="">
-          <div class="input-with-icon">
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <i class="fa fa-envelope"></i>
-            <p class="input-error"></p>
-          </div>
-          <div class="input-with-icon">  
-            <input type="password" name="password" id="password" placeholder="Password" required>
-            <i class="fa fa-lock"></i>
-          </div>
-          <div class="form-button-container">
-            <button type="submit" class="btn btn-primary">Login</button>
-          </div>
-        </form>
-      </div><!--/form-container --> 
-      <div class="route-area">        
-        <p>Don't have an account? Click <a href="sign-up.php">here</a> to sign up now!</p>
-      </div><!--/route-area -->
-      <hr class="hr" data-content="OR">
-      <div class="social-login-container">
-        <h6>Sign in with</h6>
-        <div class="social-icons">
-          <ul>
-            <li><a href="https://www.facebook.com/apareciumlabs/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-            <li><a href="https://twitter.com/apareciumlabs" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-            <li><a href="https://instagram.com/apareciumlabs" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
-          </ul>
-        </div>
-      </div><!--/social-login-container -->
-      <div data-role="popup" id="auth-mismatched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-        <h3>Oops!</h3>
-        <p>You've entered an incorrect email or password. Please retry!</p>
-        <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
-        <a data-rel="back" class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini">Continue</a>
-      </div><!-- /Failed message popup -->
-      <div data-role="popup" id="auth-failed-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-        <h3>Error!</h3>
-        <p>Your login attempt has failed. If you're new here, please create an account clicking on the sign up button</a></p>
-        <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
-        <a class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('sign-up.php')">Sign Up</a>
-      </div><!-- /No Account message popup -->
-      <div data-role="popup" id="auth-matched-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-        <h3>Success!</h3>
-        <p>Login successful. You will be redirected back to the home screen in a second.</p>
-        <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-      </div><!-- /Success message popup -->
-    </div><!-- /padded-content -->
+    <div class="top-panel">
+      <div class="main-heading">
+        <h3>Scan QR</h3>
+        <p>Point your camera to the QR code</p>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="routeWithId('game.php')">Go Back</button>
+    </div><!-- /top-panel -->
+    
+    <div class="video-feed-container">
+      <video id="preview" class="video-feed" playsinline></video>
+    </div>
+
+    <div class="empty-placeholder hidden non-visible" id="camera-error-empty-placeholder">
+      <img class="icon" src="assets/icons/video-camera.svg" />
+      <h4 class="main-title">Camera Error</h4>
+      <p class="sub-title">The camera connection refused. Please reload the page and retry.</p>
+    </div>
+
+    <div data-role="popup" id="incorrect-qr-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
+      <h3>Oops!</h3>
+      <p>The QR code you've scanned appears to be invalid. Please try again.</a></p>
+      <img class="check-mark" src="assets/img/cross-mark-circular.svg" />
+      <a class="btn btn-danger ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" data-rel="back">Retry</a>
+    </div><!-- /QR error popup -->
+
+    <div data-role="popup" id="task-complete-popup" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
+      <h3>Task Completed</h3>
+      <p>You have successfully completed the task and will receive 10 points</p>
+      <img class="check-mark" src="assets/img/check-mark-circular.svg" />
+      <a class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('tasks.php')">Continue</a>
+    </div><!-- /Success message popup -->
   </div><!-- /main -->
 </div><!-- page -->
 
+
 <script type="text/javascript">
-$(document).ready(function () {
-  $('#login-form').on('submit', function(e){
-    e.preventDefault();
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var endpoint = 'https://westminster-fashion-week-api.herokuapp.com/api/v1/users';
+  document.addEventListener("DOMContentLoaded", event => {
+    var urlString = window.location.href;
+    var url = new URL(urlString);
+    var userID = url.searchParams.get("id");
+    var taskID = url.searchParams.get("taskID");
+    var taskName = url.searchParams.get("taskName");
+    var scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+    Instascan.Camera.getCameras().then(function (cameras) {
+      scanner.camera = cameras[cameras.length - 1];
+      scanner.start();
+    }).catch(function (e) {
+      console.error(e);
+      document.getElementById("camera-error-empty-placeholder").style.display = "block";
+      document.getElementById("camera-error-empty-placeholder").style.visibility = "visible";
+    });
+    scanner.addListener('scan', function (content) {
+      console.log('Found', content);
+      console.log('Task From URL', taskName);
 
-    if ((email !== null || email !== '') && (password !== null || password !== '')) {
-      fetch(endpoint, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'same-origin'
-      }).then(function (resp) {
-        return resp.json();
-      }).then(function (data) {
-        var isFound = false;
-        var user = {};
-        
-        data.forEach(function (item) {
-          if (item.email === email && item.password === password) {
-            isFound = true;
-            user = item;
-          }
-        });
-
-        if (isFound) {
-          addCookie(user.id);
-          $('#auth-matched-popup').popup("open");
-          setTimeout(function(){
-            navigatePage('sponsor-video.php');
-          },3000);
-        } else {
-          $('#auth-mismatched-popup').popup("open");
-        }
-
-      }).then(function (error) {
-        $('#auth-failed').popup("open");
-      });
-    }
+      if (content === taskName) {
+        updateTask(userID ,taskID, taskName);
+        $('#task-complete-popup').popup("open");
+      } else {
+        $('#incorrect-qr-popup').popup("open");
+      }
+    });
   });
-});
 </script>
 </body>
 </html>

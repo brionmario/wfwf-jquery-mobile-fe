@@ -101,16 +101,78 @@
                   ?>
                 </div>
               </li>
-            <?php endforeach; ?>
+              <?php endforeach; 
             
-        </ul>
+            echo ' <div class="fabs">';
+              echo '<a id="prime" class="fab" href="#send-email-event" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
+            echo '</div>';
 
+        echo '</ul>';
+
+            echo '<!-- /success popup email send -->';
+            echo '<div data-role="popup" id="send-email-event" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">';
+              echo '<form action="events.php" method="post">';
+                echo '<h3>Email Event List</h3>';
+                foreach($events as $list):?>
+                  <ol>
+                    <li><?php echo $list['title']; ?></li>
+                  </ol>
+                <?php endforeach; 
+                echo ' <input type="email" name="email" placeholder="Email">';
+                echo ' <img class="check-mark" src="assets/img/check-mark-circular.svg" />';
+                echo '<button class="btn btn-success" type="submit" name="send">Send Email</button>';
+              echo '</form>';
+            echo ' </div>';    
+
+            require 'libs/phpmailer/PHPMailerAutoload.php';
+            if(isset($_POST['send']))
+                {
+
+                  $eventList = [];
+
+                  for($i=0; $i < sizeof($events); $i++) {
+                    $eventList[$i] = $i+1 .". ".$events[$i]['title'];
+                  }
+
+                  $test = implode("<br>",$eventList);
+              
+                  $email = $_POST['email'];                    
+
+                  $mail = new PHPMailer;
+
+                  $mail->isSMTP();
+
+                  $mail->Host = 'smtp.gmail.com';
+
+                  $mail->Port = 587;
+
+                  $mail->SMTPSecure = 'tls';
+
+                  $mail->SMTPAuth = true;
+
+                  $mail->Username = 'westministerfashionweek@gmail.com';
+
+                  $mail->Password = 'wfwf1234';
+
+                  $mail->setFrom('westministerfashionweek@gmail.com', 'Event List');
+
+                  $mail->addAddress($email);
+
+                  $mail->Subject = 'Westminister Fashion Week Event List';
+
+                  $mail->msgHTML($test);
+
+                  if (!$mail->send()) {
+                     $error = "Mailer Error: " . $mail->ErrorInfo;
+                  } 
+             }
+        ?>
         <!-- /success popup -->
         <div data-role="popup" id="add-remove-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('events.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('events.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->
@@ -119,13 +181,13 @@
             <h3>Filter</h3>
             <div class="sort-block">
               <h5>Sort by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=date&sort_order=DESC')">Latest</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=ASC')">A-Z</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?sort=title&sort_order=DESC')"> Z-A</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?sort=date&sort_order=DESC')">Latest</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?sort=title&sort_order=DESC')"> Z-A</button>
             </div>
             <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('events.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('events.php?filter=favourited&filter_value=true')">Favourited</button>
             </div>
           </div>
         </div>
@@ -146,6 +208,13 @@
       }
     ];
     setBreadcrumb(breadcrumb);
+
+    $(document).ready(function(){
+      if (!isLoggedIn()) {
+        $('.heart-icon-container').hide();
+        $('.filter-block').hide();
+      }
+    });
   </script>
 </body>
 </html>

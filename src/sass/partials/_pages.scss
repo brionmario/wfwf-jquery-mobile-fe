@@ -39,6 +39,7 @@
     height: 40px;
     background-color: $white;
     padding: 5px 15px;
+    border-bottom: $header-border-bottom !important;
     p {
       display: inline-block;
       margin: 5px;
@@ -63,6 +64,12 @@
   }
 }
 
+.profile-page {
+  .desc-title {
+    margin-top: 10px;
+  }
+}
+
 .page-description {
   .page-description-text {
     margin: 15px 5px 10px 5px;
@@ -84,14 +91,10 @@
   }
 }
 
-.auth-page-wrapper {
+.white-full-page-wrapper {
   background-color: $white !important;
-  .auth-page {
+  .white-full-page {
     background-color: $white !important;
-    .content {
-      padding: 5% 10%;
-      height: 100%;
-    }
     .close-icon-container {
       text-align: right;
       padding: 15px 20px;
@@ -102,33 +105,87 @@
         }
       }
     }
+  }
+}
 
-    .main-heading-container {
-      margin: 15px 0 20px 0;
-      h1 {
-        font-size: 50px;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      h3 {
+.auth-page {
+  .main-heading-container {
+    margin: 15px 0 20px 0;
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .route-area {
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .social-login-container {
+    margin-top: 40px;
+    padding: 0px 20px;
+    text-align: center;
+    h6 {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.join-game-page {
+  .task-decription-container {
+    margin: 20px 0;
+    img {
+      max-width: 100%;
+      padding-right: 10%;
+    }
+  }
+  .task-status-container {
+    margin: 15px 0;
+  }
+  .leaderbaord-container {
+    margin: 20px 0;
+    .list {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      .position {
+        position: absolute;
+        display: inline-block;
+        right: 12px;
+        top: 0;
         font-size: 25px;
-        margin-bottom: 10px;
+        padding: 5px 10px;
       }
     }
+  }
+}
 
-    .route-area {
-      padding: 10px 20px;
-      text-align: center;
+.scan-qr-page {
+  height: calc(100vh - 80px);
+  .top-panel {
+    height: 80px;
+    background-color: $white;
+    padding: 5px 15px;
+    border-bottom: $header-border-bottom !important;
+    .main-heading {
+      display: inline-block;
+      margin: 5px;
+      font-weight: bold;
     }
-
-    .social-login-container {
-      margin-top: 40px;
-      padding: 0px 20px;
-      text-align: center;
-      h6 {
-        margin-bottom: 10px;
-      }
+    button {
+      display: inline-block;
+      margin: unset;
+      float: right;
+      margin-top: 20px;
     }
+  }
+  .video-feed-container {
+    text-align: center;
   }
 }
 
@@ -193,54 +250,40 @@
 }
 
 .booking-page {
-  img {
-    height: 100px;
-    margin-bottom: 10px;
+  .booking-image-container {
+    padding: 30px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
-
-  .booking-detils {
-    padding: 5px 20px;
-    h5 {
-      padding: 5px 0px;
+  .booking-details {
+    padding: 30px;
+    .booking-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .booking-description-text {
+      margin-bottom: 10px;
+    }
+    .ticket-count {
+      margin-bottom: 5px;
+      p {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .ui-input-text {
+        display: inline-block !important;
+      }
+    }
+  }
+  .total-container {
+    h4 {
+      margin-bottom: 10px;
     }
     p {
-      padding: 5px 0px;
-    }
-    h2 {
-      padding: 5px 0px;
-    }
-  }
-  hr.style14 {
-    line-height: 1em;
-    position: relative;
-    outline: 0;
-    border: 0;
-    color: black;
-    text-align: center;
-    height: 1.5em;
-    opacity: 0.5;
-    &:before {
-      content: '';
-      // use the linear-gradient for the fading effect
-      // use a solid background color for a solid bar
-      background: linear-gradient(to right, transparent, #818078, transparent);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-    }
-    &:after {
-      content: attr(data-content);
-      position: relative;
-      display: inline-block;
-      color: black;
-
-      padding: 0 0.5em;
-      line-height: 1.5em;
-      // this is really the only tricky part, you need to specify the background color of the container element...
-      color: #818078;
-      background-color: #fcfcfa;
+      margin: 10px 0;
     }
   }
 
@@ -311,6 +354,23 @@
       }
     }
   }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+        display: none;
+      }
+      .ticketprice {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 /** iPhone 6, 7, & 8 in landscape **/
@@ -339,6 +399,23 @@
       .ui-block-a,
       .ui-block-b {
         width: 100%;
+      }
+    }
+  }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+        display: none;
+      }
+      .ticketprice {
+        font-size: 16px;
       }
     }
   }
@@ -380,6 +457,23 @@
       }
     }
   }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+        display: none;
+      }
+      .ticketprice {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 /** iPhone X in landscape **/
@@ -411,6 +505,22 @@
       }
     }
   }
+  .booking-page {
+    .booking-image-container {
+      padding: 10px;
+    }
+    .booking-details {
+      padding: 10px;
+      .booking-title {
+        font-size: 14px;
+      }
+      .booking-description-text {
+      }
+      .ticketprice {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 /** iPad in portrait **/
@@ -425,6 +535,14 @@
     .breakpoint {
       .ui-block-a,
       .ui-block-b {
+        width: 100%;
+      }
+    }
+  }
+  .profile-page {
+    .breakpoint {
+      .breakpoint-a,
+      .breakpoint-b {
         width: 100%;
       }
     }

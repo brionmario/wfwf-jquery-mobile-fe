@@ -102,26 +102,71 @@
                 </div>
               </li>
             <?php endforeach; 
-            echo '<div class="fabs">';
-            echo '<a id="prime" class="fab" href="#send-email-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
-            echo '</div>';
-            ?>
             
-        </ul>
+            echo ' <div class="fabs">';
+              echo '<a id="prime" class="fab" href="#send-email-favourite" data-rel="popup" data-position-to="window" data-transition="pop"><i class="fa fa-envelope-o"></i></a>';
+            echo '</div>';
 
-        <!-- /success popup email send -->
-        <div data-role="popup" id="send-email-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">
-          <h3>Email Favourites List</h3>
-          <p> </p>
-          <p>1. Hipster Fasion Catwalk </p>
-          <p>2. Model Zone </p>
-          <p>3. Asiana Bridal Show </p>
-          <p>4. The Hammersmith Vintage Fashion, Textiles and Accessories Fair </p>
-          <input type="email" name="email" placeholder="Email">
-          <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('favourites.php')">Send Email</a>
-        </div>                     
+        echo '</ul>';
 
+            echo '<!-- /success popup email send -->';
+            echo '<div data-role="popup" id="send-email-favourite" data-theme="a" data-overlay-theme="b" class="popup text-center success-popup">';
+              echo '<form action="favourites.php" method="post">';
+                echo '<h3>Email Favourites List</h3>';
+                foreach($favourites as $list):?>
+                  <ol>
+                    <li><?php echo $list['title']; ?></li>
+                  </ol>
+                <?php endforeach; 
+                echo '<input type="email" name="email" placeholder="Email">';
+                echo '<img class="check-mark" src="assets/img/check-mark-circular.svg" />';
+                echo '<button class="btn btn-success" type="submit" name="send">Send Email</button>';
+              echo '</form>';
+            echo ' </div>';    
+
+            require 'libs/phpmailer/PHPMailerAutoload.php';
+            if(isset($_POST['send']))
+                {
+
+                  $favouriteList = [];
+
+                  for($i=0; $i < sizeof($favourites); $i++) {
+                    $favouriteList[$i] = $i+1 .". ".$favourites[$i]['title'];
+                  }
+
+                  $test = implode("<br>",$favouriteList);
+              
+                  $email = $_POST['email'];                    
+
+                  $mail = new PHPMailer;
+
+                  $mail->isSMTP();
+
+                  $mail->Host = 'smtp.gmail.com';
+
+                  $mail->Port = 587;
+
+                  $mail->SMTPSecure = 'tls';
+
+                  $mail->SMTPAuth = true;
+
+                  $mail->Username = 'westministerfashionweek@gmail.com';
+
+                  $mail->Password = 'wfwf1234';
+
+                  $mail->setFrom('westministerfashionweek@gmail.com', 'Favourites List');
+
+                  $mail->addAddress($email);
+
+                  $mail->Subject = 'Westminister Fashion Week Favourites List';
+
+                  $mail->msgHTML($test);
+
+                  if (!$mail->send()) {
+                     $error = "Mailer Error: " . $mail->ErrorInfo;
+                  } 
+             }
+        ?>
 
 
         <!-- /success popup -->
@@ -129,7 +174,7 @@
           <h3>Success!</h3>
           <p>Favourites list has been successfully updated</p>
           <img class="check-mark" src="assets/img/check-mark-circular.svg" />
-          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="navigatePage('favourites.php')">Continue</a>
+          <a data-rel="back" class="btn btn-success ui-shadow ui-btn ui-corner-all ui-btn-b ui-mini" onclick="routeWithId('favourites.php')">Continue</a>
         </div>
 
         <!-- /filter popup -->
@@ -138,13 +183,13 @@
             <h3>Filter</h3>
             <div class="sort-block">
               <h5>Sort by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?sort=date&sort_order=DESC')">Latest</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?sort=title&sort_order=ASC')">A-Z</button>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?sort=title&sort_order=DESC')"> Z-A</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?sort=date&sort_order=DESC')">Latest</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?sort=title&sort_order=ASC')">A-Z</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?sort=title&sort_order=DESC')"> Z-A</button>
             </div>
             <!-- <div class="filter-block">
               <h5>Filter by</h5>
-              <button class="btn btn-default btn-sm inline-block" onclick="navigatePage('favourites.php?filter=favourited&filter_value=true')">Favourited</button>
+              <button class="btn btn-default btn-sm inline-block" onclick="routeWithIdAtEnd('favourites.php?filter=favourited&filter_value=true')">Favourited</button>
             </div> -->
           </div>
         </div>
@@ -155,14 +200,19 @@
   </div><!-- page -->
 
   <script type="text/javascript">
+    var userID = getUserID();
     var breadcrumb = [
       {
         name: 'Home',
         href: 'index.php'
       },
       {
+        name: 'Profile',
+        href: `profile.php?id=${userID}`
+      },
+      {
         name: 'Favourites',
-        href: 'favourites.php'
+        href: `favourites.php?id=${userID}`
       }
     ];
     setBreadcrumb(breadcrumb);
