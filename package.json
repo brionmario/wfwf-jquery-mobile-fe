@@ -1,16 +1,16 @@
 {
-  "title": "jQuery Mobile Seed by Aparecium Labs",
-  "name": "jquery-mobile-seed",
+  "title": "Westminster Fashion Week Festival 2019",
+  "name": "wfwf-jquery-mobile-fe",
   "version": "1.0.0",
   "private": true,
-  "description": "A quick start kit for jQuery Mobile Framework based website development with SASS support",
-  "homepage": "https://github.com/apareciumlabs/jquery-mobile-seed#README.md",
+  "description": "A conceptual design for the official Westminster Fashion Week Festival 2019 website",
+  "homepage": "https://github.com/brionmario/wfwf-jquery-mobile-fe#README.md",
   "bugs": {
-    "url": "https://github.com/apareciumlabs/jquery-mobile-seed/issues",
+    "url": "https://github.com/brionmario/wfwf-jquery-mobile-fe/issues",
     "email": "opensource@apareciumalabs.com"
   },
   "license": "MIT",
-  "author": "Brion Mario",
+  "author": "Team Aparecium Labs",
   "contributors": [
     {
       "name": "Brion Mario",
@@ -24,9 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apareciumlabs/jquery-mobile-seed"
+    "url": "https://github.com/brionmario/wfwf-jquery-mobile-fe"
   },
   "keywords": [
+    "westminster",
+    "fashion",
+    "westminster-fashion-week",
     "jquery",
     "jquery-mobile",
     "php",
