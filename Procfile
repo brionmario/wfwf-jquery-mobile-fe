@@ -1,1 +1,1 @@
-web: npm run build & vendor/bin/heroku-php-apache2 dist & wait -n
+web: npm install & npm run build & vendor/bin/heroku-php-apache2 dist & wait -n
