@@ -1,5 +1,6 @@
 {
+  "name": "wfwf-jquery-mobile-fe",
   "require-dev": {
-    "heroku/heroku-buildpack-php": "dev-master"
+    "heroku/heroku-buildpack-php": "*"
   }
 }
