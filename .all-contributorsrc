@@ -10,21 +10,27 @@
   "commit": true,
   "contributors": [
     {
-      "login": "hasithaWalpola",
-      "name": "Hasitha Walpola",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/23358688?v=4",
-      "profile": "https://github.com/hasithaWalpola",
-      "contributions": [
-        "doc"
-      ]
-    },
-    {
       "login": "brionmario",
       "name": "Brion Mario",
       "avatar_url": "https://avatars3.githubusercontent.com/u/25959096?v=4",
       "profile": "https://www.linkedin.com/in/brion-mario/",
       "contributions": [
-        "doc"
+        "code",
+        "doc",
+        "bug",
+        "test"
+      ]
+    },
+    {
+      "login": "hasithaWalpola",
+      "name": "Hasitha Walpola",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/23358688?v=4",
+      "profile": "https://github.com/hasithaWalpola",
+      "contributions": [
+        "code",
+        "doc",
+        "bug",
+        "test"
       ]
     },
     {
@@ -33,7 +39,10 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/27697647?v=4",
       "profile": "http://thisurasagara.blogspot.com",
       "contributions": [
-        "doc"
+        "code",
+        "doc",
+        "bug",
+        "test"
       ]
     },
     {
@@ -42,7 +51,10 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/25836047?v=4",
       "profile": "https://github.com/Ravintheja",
       "contributions": [
-        "doc"
+        "code",
+        "doc",
+        "bug",
+        "test"
       ]
     }
   ]
