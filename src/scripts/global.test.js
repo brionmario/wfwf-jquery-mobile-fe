@@ -1,9 +1,5 @@
-import getCurrentYear from './global';
+import * as global from './global';
 
 test('Year should not be null', () => {
-  expect(getCurrentYear()).not.toBeNull();
-});
-
-test('Year should not be truthy', () => {
-  expect(getCurrentYear()).toBeTruthy();
+  expect(global.getCurrentYear()).not.toBeNull();
 });
