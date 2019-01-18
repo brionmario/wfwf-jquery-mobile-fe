@@ -1,4 +1,5 @@
 <p align="center">
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
     <img style="display:block;text-align:center" src="./docs/logos/logo-mini-black-on-white.png" alt="logo-text" width="400" />
     <br/>
     <h1 align="center">Westminster Fashion Week Festival 2019</h1>
@@ -272,9 +273,8 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for contributing guidelines and t
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](http://www.brionmario.com/)<br />[💻](https://github.com/apareciumlabs/jquery-mobile-seed/commits?author=brionmario "Code") [📖](https://github.com/apareciumlabs/jquery-mobile-seed/commits?author=brionmario "Documentation") [🐛](https://github.com/apareciumlabs/jquery-mobile-seed/issues?q=author%3Abrionmario "Bug reports") [⚠️](https://github.com/apareciumlabs/jquery-mobile-seed/commits?author=brionmario "Tests") |
+| [<img src="https://avatars1.githubusercontent.com/u/23358688?v=4" width="80px;"/><br /><sub><b>Hasitha Walpola</b></sub>](https://github.com/hasithaWalpola)<br />[📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Documentation") |
 | :---: |
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
@@ -282,3 +282,13 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 # License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

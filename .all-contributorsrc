@@ -1,5 +1,5 @@
 {
-  "projectName": "jquery-mobile-seed",
+  "projectName": "wfwf-jquery-mobile-fe",
   "projectOwner": "apareciumlabs",
   "repoType": "github",
   "repoHost": "https://github.com",
@@ -10,15 +10,12 @@
   "commit": true,
   "contributors": [
     {
-      "login": "brionmario",
-      "name": "Brion Mario",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/25959096?v=4",
-      "profile": "http://www.brionmario.com/",
+      "login": "hasithaWalpola",
+      "name": "Hasitha Walpola",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/23358688?v=4",
+      "profile": "https://github.com/hasithaWalpola",
       "contributions": [
-        "code",
-        "doc",
-        "bug",
-        "test"
+        "doc"
       ]
     }
   ]
