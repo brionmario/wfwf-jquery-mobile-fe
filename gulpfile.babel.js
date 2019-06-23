@@ -1,28 +1,25 @@
-'use-strict';
-
 import gulp from 'gulp';
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const inject = require('gulp-inject');
-const gutil = require('gulp-util');
-const imagemin = require('gulp-imagemin');
-const autoprefixer = require('gulp-autoprefixer');
-const del = require('del');
-const htmlmin = require('gulp-htmlmin');
-const sass = require('gulp-sass');
-const header = require('gulp-header');
-const cleanCSS = require('gulp-clean-css');
-const rename = require('gulp-rename');
-const sassLint = require('gulp-sass-lint');
-const eslint = require('gulp-eslint');
-const pkg = require('./package.json');
-const browserSync = require('browser-sync');
-const uglify = require('gulp-uglify');
-const sourcemaps = require('gulp-sourcemaps');
-const wiredep = require('wiredep');
-const urlAdjuster = require('gulp-css-url-adjuster');
-const bowerlibs = require('main-bower-files');
-const phpConnect = require('gulp-connect-php');
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
+import inject from 'gulp-inject';
+import gutil from 'gulp-util';
+import imagemin from 'gulp-imagemin';
+import autoprefixer from 'gulp-autoprefixer';
+import del from 'del';
+import sass from 'gulp-sass';
+import header from 'gulp-header';
+import cleanCSS from 'gulp-clean-css';
+import rename from 'gulp-rename';
+import sassLint from 'gulp-sass-lint';
+import eslint from 'gulp-eslint';
+import pkg from './package.json';
+import browserSync from 'browser-sync';
+import uglify from 'gulp-uglify';
+import sourcemaps from 'gulp-sourcemaps';
+import wiredep from 'wiredep';
+import urlAdjuster from 'gulp-css-url-adjuster';
+import bowerlibs from 'main-bower-files';
+import phpConnect from 'gulp-connect-php';
 
 /**
  * Browser Support declaration
@@ -65,38 +62,39 @@ const CONFIG = {
   filenames: {
     dev: {
       scripts: 'main.js',
-      vendorJS: 'vendor.js',
-      vendorCSS: 'vendor.css',
+      bowerJS: 'vendor.js',
+      bowerCSS: 'vendor.css',
       styles: 'styles.css'
     },
     prod: {
       scripts: 'main.bundle.js',
-      vendorJS: 'vendor.bundle.js',
-      vendorCSS: 'vendor.bundle.css',
+      bowerJS: 'vendor.bundle.js',
+      bowerCSS: 'vendor.bundle.css',
       styles: 'styles.bundle.css'
     }
   },
   paths: {
     dev: {
-      root: '.temp',
-      scripts: '.temp/js',
-      styles: '.temp/css',
-      pages: '.temp/pages',
-      components: '.temp/components',
-      assets: '.temp/assets',
-      fonts: '.temp/assets/fonts'
+      root: 'dev',
+      scripts: 'dev/js',
+      styles: 'dev/css',
+      pages: 'dev/pages',
+      components: 'dev/components',
+      assets: 'dev/assets',
+      fonts: 'dev/assets/fonts',
+      composer: 'dev/vendor'
     },
     src: {
       root: 'src',
       scripts: 'src/scripts',
       styles: 'src/sass',
-      libs: 'src/libs',
       pages: 'src/pages',
       components: 'src/components',
       index: 'src/index.php',
       assets: 'src/assets',
       fonts: 'src/assets/fonts',
-      vendor: 'src/vendor'
+      bower: 'src/bower_components',
+      composer: 'src/vendor'
     },
     prod: {
       root: 'dist',
@@ -105,14 +103,15 @@ const CONFIG = {
       pages: 'dist/pages',
       assets: 'dist/assets',
       fonts: 'dist/assets/fonts',
-      components: 'dist/components'
+      components: 'dist/components',
+      composer: 'dist/vendor'
     }
   },
   settings: {
     dev: {
       proxy: '127.0.0.1:8010',
       tunnel: 8010,
-      port: 4200
+      port: 8000
     },
     prod: {
       proxy: '127.0.0.1:8010',
@@ -132,11 +131,7 @@ gulp.task('scripts:build', () => {
       })
     )
     .pipe(gutil.env.env === 'production' ? gutil.noop() : sourcemaps.write())
-    .pipe(
-      gutil.env.env === 'production'
-        ? concat(CONFIG.filenames.prod.scripts)
-        : concat(CONFIG.filenames.dev.scripts)
-    )
+    .pipe(gutil.env.env === 'production' ? concat(CONFIG.filenames.prod.scripts) : gutil.noop())
     .pipe(gutil.env.env === 'production' ? uglify() : gutil.noop())
     .pipe(
       gutil.env.env === 'production'
@@ -169,6 +164,7 @@ gulp.task('scripts:lint', () => {
 gulp.task('styles:build', () => {
   return gulp
     .src(`${CONFIG.paths.src.styles}/**/*.s+(a|c)ss`)
+    .pipe(gutil.env.env === 'production' ? gutil.noop() : sourcemaps.init())
     .pipe(
       sass({
         outputStyle: 'nested',
@@ -177,6 +173,7 @@ gulp.task('styles:build', () => {
         onError: console.error.bind(console, 'Sass error:')
       })
     )
+    .pipe(gutil.env.env === 'production' ? gutil.noop() : sourcemaps.write())
     .pipe(autoprefixer({ browsers: AUTO_PREFIX_BROWSERS }))
     .pipe(
       urlAdjuster({
@@ -211,7 +208,7 @@ gulp.task('styles:build', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('styles:lint', function () {
+gulp.task('styles:lint', () => {
   return gulp
     .src(`${CONFIG.paths.src.root}/**/*.s+(a|c)ss`)
     .pipe(
@@ -255,17 +252,7 @@ gulp.task('move:assets', () => {
     );
 });
 
-gulp.task('move:libs', () => {
-  return gulp
-    .src([`${CONFIG.paths.src.libs}/**/*`], { base: CONFIG.paths.src.root })
-    .pipe(
-      gutil.env.env === 'production'
-        ? gulp.dest(CONFIG.paths.prod.root)
-        : gulp.dest(CONFIG.paths.dev.root)
-    );
-});
-
-gulp.task('move:vendor:fonts', () => {
+gulp.task('move:bower:fonts', () => {
   return gulp
     .src(bowerlibs('**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe(
@@ -275,7 +262,17 @@ gulp.task('move:vendor:fonts', () => {
     );
 });
 
-gulp.task('bundle:vendor', () => {
+gulp.task('move:composer:deps', () => {
+  return gulp
+    .src([`${CONFIG.paths.src.composer}/**/*`], { base: CONFIG.paths.src.root })
+    .pipe(
+      gutil.env.env === 'production'
+        ? gulp.dest(CONFIG.paths.prod.composer)
+        : gulp.dest(CONFIG.paths.dev.composer)
+    );
+});
+
+gulp.task('bundle:bower', () => {
   let target = gulp.src(
     [
       CONFIG.paths.src.index,
@@ -295,8 +292,8 @@ gulp.task('bundle:vendor', () => {
           .pipe(
             concat(
               gutil.env.env === 'production'
-                ? CONFIG.filenames.prod.vendorJS
-                : CONFIG.filenames.dev.vendorJS
+                ? CONFIG.filenames.prod.bowerJS
+                : CONFIG.filenames.dev.bowerJS
             )
           )
           .pipe(
@@ -312,8 +309,8 @@ gulp.task('bundle:vendor', () => {
           .pipe(
             concat(
               gutil.env.env === 'production'
-                ? CONFIG.filenames.prod.vendorCSS
-                : CONFIG.filenames.dev.vendorCSS
+                ? CONFIG.filenames.prod.bowerCSS
+                : CONFIG.filenames.dev.bowerCSS
             )
           )
           .pipe(
@@ -336,8 +333,7 @@ gulp.task('inject', () => {
       `${CONFIG.paths.src.root}/**/*.html`,
       `${CONFIG.paths.src.root}/**/*.jade`,
       `${CONFIG.paths.src.root}/**/*.php`,
-      `!${CONFIG.paths.src.vendor}/**/*`,
-      `!${CONFIG.paths.src.libs}/**/*`
+      `!${CONFIG.paths.src.bower}/**/*`
     ],
     { base: CONFIG.paths.src.root }
   );
@@ -375,13 +371,6 @@ gulp.task('inject', () => {
   return target
     .pipe(
       gutil.env.env === 'production'
-        ? htmlmin({
-          collapseWhitespace: true
-        })
-        : gutil.noop()
-    )
-    .pipe(
-      gutil.env.env === 'production'
         ? inject(prodSources, prodInjectionOptions)
         : inject(devSources, devInjectionOptions)
     )
@@ -395,11 +384,11 @@ gulp.task('inject', () => {
 gulp.task(
   'build',
   gulp.series(
+    'move:composer:deps',
     'move:assets',
-    'move:libs',
-    'move:vendor:fonts',
+    'move:bower:fonts',
     gulp.parallel('scripts:build', 'styles:build'),
-    'bundle:vendor',
+    'bundle:bower',
     'inject'
   ),
   callback => {
@@ -435,7 +424,7 @@ gulp.task('browserSync', callback => {
 
   browserSync.init({
     proxy: proxy,
-    port: 8010,
+    port: port,
     open: true,
     notify: false
   });
@@ -467,7 +456,7 @@ gulp.task('watch:pages', () => {
 
 gulp.task('watch:assets', () => {
   gulp
-    .watch(`${CONFIG.paths.src.assets}/**/*`, gulp.series('move:assets', 'move:libs'))
+    .watch(`${CONFIG.paths.src.assets}/**/*`, gulp.series('move:assets'))
     .on('change', browserSync.reload);
 });
 

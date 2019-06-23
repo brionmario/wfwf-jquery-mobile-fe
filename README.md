@@ -27,12 +27,12 @@
 </a>
 </p>
 
-This project has been built on top of the [jQuery Mobile Seed](https://github.com/apareciumlabs/jquery-mobile-seed) by [Aparecium Labs](http://apareciumlabs.com). If any issues or feature requests regarding the project build process arrises, please log theme [here](https://github.com/apareciumlabs/jquery-mobile-seed/issues).
+This project has been built on top of the [jQuery Mobile Seed](https://github.com/brionmario/jquery-mobile-seed). If any issues or feature requests regarding the project build process arrises, please log theme [here](https://github.com/brionmario/jquery-mobile-seed/issues).
 
 # Quick Links
 
-| [Seed](https://github.com/apareciumlabs/jquery-mobile-seed) | [Demo](http://wfwf.apareciumlabs.com) | [Contributing](CONTRIBUTING.md) |
-| ----------------------------------------------------------- | ------------------------------------- | ------------------------------- |
+| [Seed](https://github.com/brionmario/jquery-mobile-seed) | [Demo](http://wfwf.apareciumlabs.com) | [Contributing](CONTRIBUTING.md) |
+| -------------------------------------------------------- | ------------------------------------- | ------------------------------- |
 
 
 # Quick start
@@ -78,6 +78,9 @@ Once the dev server is fired up, it'll automatically open up a new tab. If not, 
 
 ```
 wfwf-jquery-mobile-fe/
+ ├── coverage/                      * unit test coverage reports
+ ├── dev/                           * stores development build artifacts
+ ├── dist                           * stores production build artifacts
  ├── docs/                          * contains documents and document resources
  ├── node_modules/                  * contains dependencies pulled from npm
  ├── src/                           * source folder
@@ -88,7 +91,7 @@ wfwf-jquery-mobile-fe/
  │   │   ├── partials/              * place all the sass partial stylesheets in this folder
  │   │   └── styles.scss            * the main stylesheet for the project which gets compiled to CSS
  │   ├── scripts/                   * custom javascript script files
- │   ├── vendor/                    * third party bower libraries will be copied here
+ │   ├── bower_components/          * third party bower libraries will be copied here
  │   ├── about.php                  * about page of the website
  │   ├── booking.php                * event booking page
  │   ├── contact.php                * contact information page
@@ -111,14 +114,15 @@ wfwf-jquery-mobile-fe/
  │   ├── sign-up.php                * sign up page
  │   ├── sposor-video.php           * sponsor video page
  │   └── tasks.php                  * task list page
+ ├── vendor/                        * packages pulled from composer will be stored here
  ├── .all-contributorsrc            * contains info ablout repo contributors
  ├── .babelrc                       * babel config file
  ├── .bowerrc                       * bower config file
+ ├── .buildpacks                    * contains heroku buildpacks
  ├── .dockerignore                  * contains files that are ignored from docker
  ├── .editorconfig                  * helps define and maintain consistent coding styles between different editors and IDEs
  ├── .eslintrc                      * ecmascript linting configuration file
  ├── .gitignore                     * contains files that are ignored from git
- ├── .netlify.toml                  * netlify config file
  ├── .npmrc                         * npm config file to house project wide custom configs
  ├── .nvmrc                         * node version manager config file
  ├── .pullapprove.yml               * pullapprove config file
@@ -132,6 +136,7 @@ wfwf-jquery-mobile-fe/
  ├── gulpfile.babel.js              * main buld configuration file. contains all the gulp tasks.
  ├── LICENSE.md                     * licensing information
  ├── package.json                   * contains all the npm scripts for building, running, deploying etc. and contains all the dependencies
+ ├── Procfile                       * contains commands to be executed by heroku at app startup
  └── README.md                      * Readme file for the repository
 
 ```
@@ -252,7 +257,7 @@ npm run build:dev
 Execute the following command to build your files in the production mode. A new folder called `dist` will be created and the artifacts will be saved there.
 
 ```bash
-npm run build:prod
+npm run build
 ```
 
 # Built With
@@ -274,7 +279,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](https://www.linkedin.com/in/brion-mario/)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3Abrionmario "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=brionmario "Tests") | [<img src="https://avatars1.githubusercontent.com/u/23358688?v=4" width="80px;"/><br /><sub><b>Hasitha Walpola</b></sub>](https://github.com/hasithaWalpola)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3AhasithaWalpola "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Tests") | [<img src="https://avatars1.githubusercontent.com/u/27697647?v=4" width="80px;"/><br /><sub><b>Thisura Sagara</b></sub>](http://thisurasagara.blogspot.com)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3AThisuraSagara "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Tests") | [<img src="https://avatars1.githubusercontent.com/u/25836047?v=4" width="80px;"/><br /><sub><b>Ravin Hettiarachchi</b></sub>](https://github.com/Ravintheja)<br />[💻](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Code") [📖](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Documentation") [🐛](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/issues?q=author%3ARavintheja "Bug reports") [⚠️](https://github.com/apareciumlabs/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Tests") |
+| [<img src="https://avatars3.githubusercontent.com/u/25959096?v=4" width="80px;"/><br /><sub><b>Brion Mario</b></sub>](https://www.linkedin.com/in/brion-mario/)<br />[💻](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=brionmario "Code") [📖](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=brionmario "Documentation") [🐛](https://github.com/brionmario/wfwf-jquery-mobile-fe/issues?q=author%3Abrionmario "Bug reports") [⚠️](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=brionmario "Tests") | [<img src="https://avatars1.githubusercontent.com/u/23358688?v=4" width="80px;"/><br /><sub><b>Hasitha Walpola</b></sub>](https://github.com/hasithaWalpola)<br />[💻](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Code") [📖](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Documentation") [🐛](https://github.com/brionmario/wfwf-jquery-mobile-fe/issues?q=author%3AhasithaWalpola "Bug reports") [⚠️](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=hasithaWalpola "Tests") | [<img src="https://avatars1.githubusercontent.com/u/27697647?v=4" width="80px;"/><br /><sub><b>Thisura Sagara</b></sub>](http://thisurasagara.blogspot.com)<br />[💻](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Code") [📖](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Documentation") [🐛](https://github.com/brionmario/wfwf-jquery-mobile-fe/issues?q=author%3AThisuraSagara "Bug reports") [⚠️](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=ThisuraSagara "Tests") | [<img src="https://avatars1.githubusercontent.com/u/25836047?v=4" width="80px;"/><br /><sub><b>Ravin Hettiarachchi</b></sub>](https://github.com/Ravintheja)<br />[💻](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Code") [📖](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Documentation") [🐛](https://github.com/brionmario/wfwf-jquery-mobile-fe/issues?q=author%3ARavintheja "Bug reports") [⚠️](https://github.com/brionmario/wfwf-jquery-mobile-fe/commits?author=Ravintheja "Tests") |
 | :---: | :---: | :---: | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->

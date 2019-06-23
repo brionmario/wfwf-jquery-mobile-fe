@@ -1,5 +1,8 @@
 {
   "name": "wfwf-jquery-mobile-fe",
+  "config": {
+    "vendor-dir": "src/vendor"
+  },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
   }

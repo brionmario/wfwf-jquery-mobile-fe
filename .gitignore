@@ -1,12 +1,12 @@
 # Output
 dist
-.temp
+dev
 
-#Composer vendor
-vendor
+# Composer packages
+vendor/
 
-#Vendor packages
-/src/vendor/
+# Bower packages
+src/bower_components/
 
 # Optional eslint cache
 .eslintcache
@@ -41,9 +41,6 @@ coverage
 .c9/
 *.launch
 .settings/
-
-# Deployment Files
-.netlify
 
 # Logs
 logs
