@@ -1,10 +1,13 @@
 {
-  "name": "jquery-mobile-seed",
-  "description": "A quick start kit for jQuery Mobile Framework based website development with SASS support",
+  "name": "wfwf-jquery-mobile-fe",
+  "description": "A conceptual design for the official Westminster Fashion Week Festival 2019 website",
   "main": "",
-  "authors": ["Brion Mario"],
+  "authors": ["Team Aparecium Labs"],
   "license": "MIT",
   "keywords": [
+    "westminster",
+    "fashion",
+    "westminster-fashion-week",
     "jquery",
     "jquery-mobile",
     "php",
@@ -16,7 +19,7 @@
     "apareciumlabs",
     "seed"
   ],
-  "homepage": "https://github.com/apareciumlabs/jquery-mobile-seed",
+  "homepage": "https://github.com/brionmario/wfwf-jquery-mobile-fe#README.md",
   "private": true,
   "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
